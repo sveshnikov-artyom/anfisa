@@ -1,0 +1,393 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Filtering functions &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Decision Tree modifying actions" href="s_dtree_instr.html" />
+    <link rel="prev" title="Tags descriptor" href="s_tags.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="s_dtree_instr.html" title="Decision Tree modifying actions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="s_tags.html" title="Tags descriptor"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Filtering functions</a><ul>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+<li><a class="reference internal" href="#function-reference">Function reference</a><ul>
+<li><a class="reference internal" href="#index-0">GeneRegion()</a></li>
+<li><a class="reference internal" href="#index-1">Inheritance_mode()</a></li>
+<li><a class="reference internal" href="#index-2">Custom_Inheritance()</a></li>
+<li><a class="reference internal" href="#index-3">Compound_Heterozygous()</a></li>
+<li><a class="reference internal" href="#index-4">Compound_Request()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="s_tags.html"
+                        title="previous chapter">Tags descriptor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="s_dtree_instr.html"
+                        title="next chapter">Decision Tree modifying actions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/func_ref.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="filtering-functions">
+<h1>Filtering functions<a class="headerlink" href="#filtering-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Functions are aggregated information items that can be used in <a class="reference internal" href="../concepts/filtration.html"><span class="doc">Filtration procedures</span></a> as well
+as <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a>. Difference between application of an
+<a class="reference internal" href="../glossary.html#term-enumerated-property"><span class="xref std std-term">enumerated property</span></a> and application of a function is in parameters: the
+function requires proper settings for them.</p>
+<p>Up to now all functions behave as <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset property</span></a>: even if result is <code class="docutils literal notranslate"><span class="pre">True</span></code> value,
+there is no reason to keep <code class="docutils literal notranslate"><span class="pre">False</span></code> value of rest of items in dataset (variants or transcripts).</p>
+<p>The list and format of function parameters are specific for the function.
+Each parameter value must be data structure in JSON format.
+So the Front End application needs to handle each function in a specific way.</p>
+<p>The logic of function usage is as following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>API requests <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a> and <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a> deliver on the client</dt>
+<dd><a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for all applicable functions. Thus the Front End gets information
+of placement of functions in list of filtering properties, and so called
+environment information for each function.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The user can select function and set its parameters to build condition; the Front End</dt>
+<dd>needs to support this process with use of environment information</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>When parameters a set, the request <a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a> delivers on the client</dt>
+<dd><a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for this function, with information about available value
+variants. Thus the user can make proper selection of variants and complete
+the condition (see <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> for details of condition format).</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Since work with functions is a complex one, there might be additional requirements
+for Front End application to provide support of necessary “short cuts”:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>function environment should be used to set “standard” configurations of function</dt>
+<dd>parameters;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>in cases when list of function values is expected (for example if value</dt>
+<dd>is single <code class="docutils literal notranslate"><span class="pre">True</span></code>), these values should be pre-selected in interface
+without extra user click</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Most part of currently available functions implement functionality dealing with
+zygocity properties of variants. See <a class="reference internal" href="../zygocity.html"><span class="doc">Notes on Zygocity</span></a> for explanations</p>
+<p>Examples are given in form of Python dialect used in <a class="reference internal" href="../concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a>.</p>
+</div>
+<div class="section" id="function-reference">
+<h2>Function reference<a class="headerlink" href="#function-reference" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="generegion"></span><div class="section" id="index-0">
+<span id="id1"></span><h3>GeneRegion()<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;region&quot;</span></code></p>
+<p><strong>Parameter</strong>:</p>
+<blockquote>
+<div><strong>locus</strong>, location <em>string</em></div></blockquote>
+<p><strong>Environment properties</strong>: <em>none</em></p>
+<p><strong>Values</strong>: <code class="docutils literal notranslate"><span class="pre">[&quot;True&quot;]</span></code></p>
+</div></blockquote>
+<p>Function allows the user to define simple string representation for the following options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>chromosome</li>
+<li>position or diapason of positions</li>
+<li><em>optional</em> gene or list of genes</li>
+</ul>
+</div></blockquote>
+<p>These options are put into string with <code class="docutils literal notranslate"><span class="pre">':`</span></code> as separator. (Separator for list of genes is <code class="docutils literal notranslate"><span class="pre">','</span></code>).</p>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GeneRegion</span><span class="p">(</span><span class="n">locus</span> <span class="o">=</span> <span class="s2">&quot;chr1:6424820&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="kc">True</span><span class="p">}</span>
+<span class="n">GeneRegion</span><span class="p">(</span><span class="s2">&quot;chr1:6424820-6424920&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="kc">True</span><span class="p">}</span>
+<span class="n">GeneRegion</span><span class="p">(</span><span class="s2">&quot;chr1::ESPN,HES2&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="kc">True</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Additional interface requirement</strong>:</p>
+<blockquote>
+<div>The user interface needs to keep check for <code class="docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code> value selection on.</div></blockquote>
+<span class="target" id="inheritance-mode"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h3>Inheritance_mode()<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><blockquote>
+<div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;inheritance-z&quot;</span></code></p>
+<p><strong>Parameters</strong>:</p>
+<blockquote>
+<div><strong>problem_group</strong>, <em>optional</em> <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for samples in case <code class="docutils literal notranslate"><span class="pre">]</span></code></div></blockquote>
+<p><strong>Environment properties</strong>:</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><strong>“family”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for all samples in case, first is proband <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“affected”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id, default problem group <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<blockquote>
+<div><p><strong>Values</strong>:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">[&quot;Homozygous</span> <span class="pre">Recessive&quot;,</span> <span class="pre">&quot;X-linked&quot;,</span> <span class="pre">&quot;Autosomal</span> <span class="pre">Dominant&quot;,</span> <span class="pre">&quot;Compensational&quot;]</span></code></div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Function selects variants with <a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">Standard Zygocity Scenarios</span></a>
+if problem group is defined.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Inheritance_mode</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;Homozygous Recessive&quot;</span><span class="p">,</span> <span class="s2">&quot;X-linked&quot;</span><span class="p">}</span>
+<span class="n">Inheritance_mode</span><span class="p">(</span><span class="n">problem_group</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bgm9001a1&quot;</span><span class="p">,</span> <span class="s2">&quot;bgm9001u2&quot;</span><span class="p">])</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;Compensational&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Notes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>default problem group is preset</li>
+<li>function value <code class="docutils literal notranslate"><span class="pre">X-linked</span></code> is actual only if case includes a male sample</li>
+</ul>
+</div></blockquote>
+<p><strong>Additional interface requirement</strong>:</p>
+<blockquote>
+<div>There should be an easy way to reset value of problem group to default one.</div></blockquote>
+<p>Facts useful for debug purposes</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>for fixed problem group variant sets of types <code class="docutils literal notranslate"><span class="pre">&quot;Homozygous</span> <span class="pre">Recessive&quot;</span></code> and</dt>
+<dd><code class="docutils literal notranslate"><span class="pre">&quot;X-linked&quot;</span></code> never intersect; variants from chromosome X present in the first
+set only if there is no a male sample in case</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>for different problem groups variant sets of type <code class="docutils literal notranslate"><span class="pre">&quot;Autosomal</span> <span class="pre">Dominant&quot;</span></code> never</dt>
+<dd>intersect; the same is true for type <code class="docutils literal notranslate"><span class="pre">&quot;Compensational&quot;</span></code></dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<span class="target" id="custom-inheritance"></span></div>
+<div class="section" id="index-2">
+<span id="id3"></span><h3>Custom_Inheritance()<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><blockquote>
+<div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;custom-inheritance-z&quot;</span></code></p>
+<p><strong>Parameters</strong>:</p>
+<blockquote>
+<div><strong>scenario</strong>, <a class="reference internal" href="../zygocity.html#zygocity-scenario"><span class="std std-ref">scenario</span></a> <em>structure</em></div></blockquote>
+<p><strong>Environment properties</strong>:</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><strong>“family”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for all samples in case, first is proband <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“affected”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id, default problem group <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<blockquote>
+<div><strong>Values</strong>: <code class="docutils literal notranslate"><span class="pre">[&quot;True&quot;]</span></code></div></blockquote>
+</div></blockquote>
+<p>The function selects variants by a fixed <a class="reference internal" href="../zygocity.html#zygocity-scenario"><span class="std std-ref">Zygocity Scenario</span></a>.</p>
+<p>In terms of functionality it is an extension of <a class="reference internal" href="#inheritance-mode"><span class="std std-ref">Inheritance_Mode()</span></a> function.</p>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Custom_Inheritance(scenario =
+    {“2”: [&quot;bgm9001a1&quot;, &quot;bgm9001u2&quot;], “1-0”: [&quot;bgm9001u1&quot;]}}) in {True}
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Additional interface requirements</strong>:</p>
+<blockquote>
+<div><p>There should be an easy way to reset <strong>scenario</strong> to one of
+<a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">standard scenarios</span></a> with default problem group.</p>
+<p>The user interface needs to keep check for <code class="docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code> value selection on.</p>
+</div></blockquote>
+<span class="target" id="compound-heterozygous"></span></div>
+<div class="section" id="index-3">
+<span id="id4"></span><h3>Compound_Heterozygous()<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;comp-hets&quot;</span></code></p>
+<p><strong>Parameters</strong>:</p>
+<div class="line-block">
+<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
+<div class="line"><strong>state</strong>, <em>optional</em> <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state label</span></a>, <em>string</em></div>
+</div>
+<p><strong>Environment properties</strong>:</p>
+<div class="line-block">
+<div class="line"><strong>“trio-variants”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for subject samples of trio, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>labels</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state labels</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<dl class="docutils">
+<dt><strong>Values</strong>:</dt>
+<dd><em>list</em> equals to <strong>trio-variants</strong> environment property</dd>
+</dl>
+</div></blockquote>
+<p>The function detects <a class="reference internal" href="../zygocity.html#compound-heterozygous"><span class="std std-ref">compound heterozygous</span></a> variants for all trio
+presenting in the <a class="reference internal" href="../glossary.html#term-case"><span class="xref std std-term">case</span></a> of <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. Function is available only if
+(at least one, usually one) trio is included in case, i.e. environment property <strong>trio-variants</strong>
+is nonempty.</p>
+<p>Special notation: if proband is subject of trio, <code class="docutils literal notranslate"><span class="pre">&quot;Proband&quot;</span></code> is used as identifier of trio,
+otherwise trio is identified by id of its subject.</p>
+<p>Default value for <strong>approx</strong> parameter is the first item in <strong>approx-modes</strong> environment property.</p>
+<p>The parameter <strong>state</strong> can be either <code class="docutils literal notranslate"><span class="pre">null</span></code> or value from <strong>labels</strong> environment property.</p>
+<p>In common context <strong>labels</strong> is empty, and <strong>state</strong> parameter can be only <code class="docutils literal notranslate"><span class="pre">null</span></code> or
+undefined. So the detection procedure is run on the current state of variants filtering
+process.</p>
+<p>Different situation can happen only in case of <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a>, and only if there is
+а definition of label in code <em>before</em> function evaluation. In this case detection procedure
+is run on labeled state (<a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>) of filtering process.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Compound_Heterozygous</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Proband</span><span class="p">}</span>
+<span class="n">Compound_Heterozygous</span><span class="p">(</span><span class="n">approx</span> <span class="o">=</span> <span class="s2">&quot;rough&quot;</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;label1&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Proband</span><span class="p">,</span> <span class="n">bgm4321u3</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Additional interface requirements</strong>:</p>
+<blockquote>
+<div>In case if proband has trio in case, user interface needs to keep check for
+<code class="docutils literal notranslate"><span class="pre">&quot;Proband&quot;</span></code> value selection on.</div></blockquote>
+<span class="target" id="compound-request"></span></div>
+<div class="section" id="index-4">
+<span id="id5"></span><h3>Compound_Request()<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;comp-request&quot;</span></code></p>
+<p><strong>Parameters</strong>:</p>
+<div class="line-block">
+<div class="line"><strong>request</strong>, <a class="reference internal" href="../zygocity.html#compound-request"><span class="std std-ref">compound request</span></a> <em>structure</em></div>
+<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
+<div class="line"><strong>state</strong>, <em>optional</em> <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state label</span></a>, <em>string</em></div>
+</div>
+<p><strong>Environment properties</strong>:</p>
+<div class="line-block">
+<div class="line"><strong>“family”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for all samples in case, first is proband <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“affected”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id, default problem group <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>labels</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state labels</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<p><strong>Values</strong>: <code class="docutils literal notranslate"><span class="pre">[&quot;True&quot;]</span></code></p>
+</div></blockquote>
+<p>The function evaluates <a class="reference internal" href="../zygocity.html#compound-request"><span class="std std-ref">compound request</span></a>.</p>
+<p>In terms of functionality it is a wide extension of
+<a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> function</p>
+<p>All comments on parameters <strong>approx</strong> and <strong>state</strong>, environment properties
+<strong>approx-modes</strong> and <strong>labels</strong> from function
+<a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> are actual in this context.</p>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Compound_Request(request = [
+    [1, {“2-1”: [&quot;bgm9001a1&quot;, &quot;bgm9001u2&quot;], “0”: [&quot;bgm9001u1&quot;]],
+    [1, {“2-1”: [&quot;bgm9001a1&quot;, &quot;bgm9001u1&quot;], “0”: [&quot;bgm9001u2&quot;]]]) in {True}
+</pre></div>
+</div>
+</div></blockquote>
+<p>The example demonstrates realization of Compound_Heterozygous() functionality
+for trio <code class="docutils literal notranslate"><span class="pre">[&quot;bgm9001a1&quot;,</span> <span class="pre">&quot;bgm9001u1&quot;,</span> <span class="pre">&quot;bgm9001u2&quot;]</span></code>.</p>
+<p><strong>Additional interface requirements</strong>:</p>
+<blockquote>
+<div><p>There should be an easy way to setup any scenario in request sequence to
+form of any of <a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">Standard Zygocity Scenarios</span></a>
+applied to default problem group of the case.
+(See details in discussion of <a class="reference internal" href="#inheritance-mode"><span class="std std-ref">Inheritance_mode()</span></a>)</p>
+<p>The user interface needs to keep check for <code class="docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code> value selection on.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="s_dtree_instr.html" title="Decision Tree modifying actions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="s_tags.html" title="Tags descriptor"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

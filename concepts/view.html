@@ -1,0 +1,151 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Viewing regimes &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Variant data presentations and aspects" href="view_pre.html" />
+    <link rel="prev" title="Anfisa Interface concepts" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="view_pre.html" title="Variant data presentations and aspects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa Interface concepts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Anfisa Interface concepts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="view_pre.html"
+                        title="next chapter">Variant data presentations and aspects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/concepts/view.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="viewing-regimes">
+<h1>Viewing regimes<a class="headerlink" href="#viewing-regimes" title="Permalink to this headline">¶</a></h1>
+<p>Since <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> have variety of properties the system provides
+full functionality for view and study these properties. In this regime the main control
+structure is list of variants. Usually they are <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtered</span></a>: variants in
+the list are selected from the whole <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> by <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a>,
+<a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a>.</p>
+<p>The user can select any of variant form the list, and view and study the whole information about
+this variant. See also details <a class="reference internal" href="view_pre.html"><span class="doc">Variant data presentations and aspects</span></a>.</p>
+<p>On different pages the system provides two variants of viewing regime</p>
+<blockquote>
+<div><ul id="full-viewing-regime">
+<li><p class="first">Full viewing regime</p>
+<blockquote>
+<div><p>REST API request: <a class="reference internal" href="../rest/ws_list.html"><span class="doc">ws_list</span></a></p>
+<p>In context of comparatively small <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> user can see all selected variants.
+Features of workspace functionality, <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> mechanisms are
+integrated with this regime.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="auxiliary-viewing-regime">
+<li><p class="first">Auxiliary viewing regime</p>
+<blockquote>
+<div><p>REST API request: <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a></p>
+<p>In contexts of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> viewing regime looks simpler -
+no integration with tagging and zones. But in these contexts there is no guarantee
+that selection is small enough, so the system makes special preparations to restrict list
+of visible variants:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>If list is comparatively small (less than 300 variants), visible list if full one</dt>
+<dd>(property <strong>records</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>If list is comparatively large (more than 50 variants), only 25 randomly selected</dt>
+<dd>samples are visible (property <strong>samples</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="view_pre.html" title="Variant data presentations and aspects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa Interface concepts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

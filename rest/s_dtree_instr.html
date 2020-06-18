@@ -1,0 +1,277 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Decision Tree modifying actions &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Anfisa Utilities" href="../utils/index.html" />
+    <link rel="prev" title="Filtering functions" href="func_ref.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../utils/index.html" title="Anfisa Utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="func_ref.html" title="Filtering functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Decision Tree modifying actions</a><ul>
+<li><a class="reference internal" href="#dtree-modifying-actions">DTREE modifying actions</a><ul>
+<li><a class="reference internal" href="#format">Format</a></li>
+<li><a class="reference internal" href="#actions">Actions:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#instr-modifying-actions">INSTR modifying actions</a><ul>
+<li><a class="reference internal" href="#id1">Format</a></li>
+<li><a class="reference internal" href="#id2">Actions:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#point-modifying-actions">POINT modifying actions</a><ul>
+<li><a class="reference internal" href="#id3">Format</a></li>
+<li><a class="reference internal" href="#id4">Actions:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#atom-modifying-actions">ATOM modifying actions</a><ul>
+<li><a class="reference internal" href="#id5">Format</a></li>
+<li><a class="reference internal" href="#id6">Actions:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#used-in-request">Used in request</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="func_ref.html"
+                        title="previous chapter">Filtering functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../utils/index.html"
+                        title="next chapter">Anfisa Utilities</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/s_dtree_instr.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="decision-tree-modifying-actions">
+<h1>Decision Tree modifying actions<a class="headerlink" href="#decision-tree-modifying-actions" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Actions modifying <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> can be performed by request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>.</p>
+<p>There are 4 types of modifying actions:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">&quot;DTREE&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;POINT&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code></div></blockquote>
+<p>For all types of actions format of data is list, and first element of list is type of action.</p>
+<div class="section" id="dtree-modifying-actions">
+<h2>DTREE modifying actions<a class="headerlink" href="#dtree-modifying-actions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>These actions operates with whole decision tree as <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a>.</div></blockquote>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: action type, <code class="docutils literal notranslate"><span class="pre">&quot;DTREE&quot;</span></code></div>
+<div class="line"><strong>[1]</strong>: action name (from list below), <em>string</em></div>
+<div class="line"><strong>[1]</strong>: decision tree name, <em>string</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+</div>
+<div class="section" id="actions">
+<h3>Actions:<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>UPDATE</strong>: update (as well as create) decision tree with given name</p>
+<p><strong>DELETE</strong>: delete decision tree with given name</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="instr-modifying-actions">
+<h2>INSTR modifying actions<a class="headerlink" href="#instr-modifying-actions" title="Permalink to this headline">¶</a></h2>
+<p>Actions of this type manipulates with logical blocks of decision tree code.
+Blocks are identified by index of first point.</p>
+<p id="dtree-instr-actions">For each <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a> list of available actions
+is prepared in  <strong>actions</strong> property of <a class="reference internal" href="s_dtree_point.html"><span class="doc">Decision Tree Point descriptor</span></a>.</p>
+<div class="section" id="id1">
+<h3>Format<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: action type, <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;</span></code></div>
+<div class="line"><strong>[1]</strong>: action name (from list below), <em>string</em></div>
+<div class="line"><strong>[2]</strong>: point no, <em>int</em></div>
+<div class="line"><strong>[3]</strong>: <em>optional</em> additional option, possibly required for new actions</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Actions:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><blockquote>
+<div><em>actions for blocks of</em> <code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code> <em>type</em>:</div></blockquote>
+<p><strong>JOIN-AND</strong>, <strong>JOIN-OR</strong>: join If-block with If block above with AND or OR operation</p>
+<p><strong>SPLIT</strong>: split If block onto series of separate blocks by AND or OR operation</p>
+<p><strong>NEGATE</strong>: negate condition in If-block</p>
+<p><strong>DUPLICATE</strong>: duplicate logical block</p>
+<blockquote>
+<div><em>action for blocks of</em> <code class="docutils literal notranslate"><span class="pre">&quot;Return&quot;</span></code> <em>type</em>:</div></blockquote>
+<p><strong>BOOL-TRUE</strong>, <strong>BOOL-FALSE</strong>: change decision for return operator</p>
+<blockquote>
+<div><em>action for any block</em>:</div></blockquote>
+<p><strong>DELETE</strong>: delete logical block</p>
+<p><strong>LABEL</strong>: set/drop <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">label</span></a>, not yet implemented</p>
+<p><strong>COMMENTS</strong>: edit comments to block, not yet implemented</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="point-modifying-actions">
+<h2>POINT modifying actions<a class="headerlink" href="#point-modifying-actions" title="Permalink to this headline">¶</a></h2>
+<p>Actions of this type are caused by insertion of new condition over filtering property
+into some <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point of decision tree</span></a>.</p>
+<div class="section" id="id3">
+<h3>Format<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: action type, <code class="docutils literal notranslate"><span class="pre">&quot;POINT&quot;</span></code></div>
+<div class="line"><strong>[1]</strong>: action name (from list below), <em>string</em></div>
+<div class="line"><strong>[2]</strong>: point no, <em>int</em></div>
+<div class="line"><strong>[3]</strong>: condition, <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Actions:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>INSERT</strong>: insert condition as a new point into decision tree</p>
+<p><strong>REPLACE</strong>: replace the whole condition of If-block by new condition</p>
+<dl class="docutils">
+<dt><strong>JOIN-AND</strong>, <strong>JOIN-OR</strong>: join new condition with current condition of</dt>
+<dd>If-block by AND or OR operation</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="atom-modifying-actions">
+<span id="dtree-atom-actions"></span><h2>ATOM modifying actions<a class="headerlink" href="#atom-modifying-actions" title="Permalink to this headline">¶</a></h2>
+<p>Actions of this type are caused by user requests for modification of existing
+atom conditions in decision tree.</p>
+<div class="section" id="id5">
+<h3>Format<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: action type, <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code></div>
+<div class="line"><strong>[1]</strong>: action name (from list below), <em>string</em></div>
+<div class="line"><strong>[2]</strong>: atom location</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: point no, <em>int</em></div>
+<div class="line"><strong>[1]</strong>: atom no in point atom list, <em>int</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line"><strong>[3]</strong>: <em>optional</em>, additional argument if required</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Actions:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>EDIT</strong>: modify atomic condition, additional argument in place <strong>[3]</strong> is new</dt>
+<dd><a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a></dd>
+<dt><strong>DELETE</strong>: delete atom from the whole condition and simplify it, no additional</dt>
+<dd><p class="first">argument requires</p>
+<p class="last"><em>Note</em>: in case of one atom in point, please use action <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;/&quot;DELETE&quot;</span></code>
+instead of this one.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="used-in-request">
+<h2>Used in request<a class="headerlink" href="#used-in-request" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../utils/index.html" title="Anfisa Utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="func_ref.html" title="Filtering functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

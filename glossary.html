@@ -1,0 +1,235 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Anfisa glossary &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Anfisa Interface concepts" href="concepts/index.html" />
+    <link rel="prev" title="Anfisa introduction" href="intro.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="concepts/index.html" title="Anfisa Interface concepts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Anfisa introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Anfisa introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="concepts/index.html"
+                        title="next chapter">Anfisa Interface concepts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/glossary.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="anfisa-glossary">
+<h1>Anfisa glossary<a class="headerlink" href="#anfisa-glossary" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-variant">Variant</dt>
+<dd>Variant is the base object of the system. It corresponds to a difference
+(mutation) in genome code between of some fixed person and “standard” genomics sequence.</dd>
+<dt id="term-dataset">Dataset</dt>
+<dd>is a collection of variants; the system supports two kinds of datasets:
+XL-datasets and workspaces, or WS-datasets</dd>
+<dt id="term-case">Case</dt>
+<dd>is group of persons - samples - with family connections between each other whose genomics
+information is registered in dataset.</dd>
+<dt id="term-cohort">Cohort</dt>
+<dd>is group of persons, possibly large, collected for scientific purposes</dd>
+<dt id="term-sample">Sample</dt>
+<dd>person in <a class="reference internal" href="#term-case"><span class="xref std std-term">case</span></a>, may be affected or unaffected. Proband sample in medical cases
+is always affected</dd>
+<dt id="term-trio">Trio</dt>
+<dd>tree persons: child and two parents, child is subject of trio;
+in practice <a class="reference internal" href="#term-case"><span class="xref std std-term">cases</span></a> are often trio</dd>
+<dt id="term-vault">Vault</dt>
+<dd>Storage for all <a class="reference internal" href="#term-dataset"><span class="xref std std-term">datasets</span></a> represented in the system</dd>
+<dt id="term-xl-dataset">XL-dataset</dt>
+<dd>eXtra Large <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a>, may contain arbitrary many variants</dd>
+<dt id="term-workspace">Workspace<dt id="term-ws-dataset">WS-dataset</dt>
+<dd><p class="first">comparatively small dataset (less than 9000 variants); object of <a class="reference internal" href="concepts/ws_pg.html"><span class="doc">Workspace page</span></a></p>
+<p><a class="reference internal" href="#term-filtration"><span class="xref std std-term">Filtration</span></a> in this case applies to <a class="reference internal" href="#term-transcript"><span class="xref std std-term">transcripts</span></a></p>
+<p class="last"><a class="reference internal" href="#term-tagging"><span class="xref std std-term">Tagging</span></a> and <a class="reference internal" href="#term-zone"><span class="xref std std-term">zone</span></a> selection mechanisms are available for workspaces.</p>
+</dd>
+<dt id="term-transcript">Transcript</dt>
+<dd><p class="first">there are two meanings for this term in context of the system:</p>
+<ul class="last simple">
+<li>transcript is a variant of gene transcription scenario; there are protein coding transcript as well as transcripts of other types</li>
+<li>for filtering variants in <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> datasets, the system makes distinction between applications of a variant to different affected protein coding transcripts, so a pair (variant, transcript) we call as “transcript”</li>
+</ul>
+</dd>
+<dt id="term-viewing-regime">Viewing regime</dt>
+<dd>The user can view and study all properties of selected variants in this regime. See
+<a class="reference internal" href="concepts/view.html"><span class="doc">Viewing regimes</span></a> for details.</dd>
+<dt id="term-filtration">Filtration</dt>
+<dd><p class="first">is the main analytic mechanism providing by the system; the user determines rules of selection variants (and their transcripts) satisfying conditions for variety of properties. The subset of variants (transcripts) can be used for detailed study in <a class="reference internal" href="#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a>. The user also can create <a class="reference internal" href="#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a> and continue studies of data inside it.</p>
+<p class="last">Two filtration mechanisms are supported in the system: using <a class="reference internal" href="#term-filter"><span class="xref std std-term">filters</span></a> or
+<a class="reference internal" href="#term-decision-tree"><span class="xref std std-term">decision tree</span></a></p>
+</dd>
+<dt id="term-filter">Filter</dt>
+<dd>implementation of <a class="reference internal" href="#term-filtration"><span class="xref std std-term">filtration</span></a> mechanism where sequence of <a class="reference internal" href="#term-conditions"><span class="xref std std-term">conditions</span></a> are applied to
+<a class="reference internal" href="#term-variant"><span class="xref std std-term">variants</span></a> (<a class="reference internal" href="#term-transcript"><span class="xref std std-term">transcripts</span></a>) one by one, in conjunctional way.
+Filters are <a class="reference internal" href="#term-solution-item"><span class="xref std std-term">solution items</span></a></dd>
+<dt id="term-filtering-regime">Filtering regime</dt>
+<dd>Regime for work with <a class="reference internal" href="#term-filter"><span class="xref std std-term">filters</span></a>, see <a class="reference internal" href="concepts/filters_reg.html"><span class="doc">Filtering regime</span></a></dd>
+<dt id="term-decision-tree">Decision tree</dt>
+<dd>implementation of <a class="reference internal" href="#term-filtration"><span class="xref std std-term">filtration</span></a> where <a class="reference internal" href="#term-conditions"><span class="xref std std-term">conditions</span></a> are applied to
+<a class="reference internal" href="#term-variant"><span class="xref std std-term">variants</span></a> (<a class="reference internal" href="#term-transcript"><span class="xref std std-term">transcripts</span></a>) in form of decision tree.
+See <a class="reference internal" href="concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a> for definitions.
+Decision trees are <a class="reference internal" href="#term-solution-item"><span class="xref std std-term">solution items</span></a></dd>
+<dt id="term-decision-tree-code">Decision tree code</dt>
+<dd>Internal representation of decision tree is portion of code in Python dialect.
+See <a class="reference internal" href="concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a></dd>
+<dt id="term-decision-tree-point">Decision tree point</dt>
+<dd>Single instruction of decision tree. Points of main types have state: set of items
+(variants and transcripts) that correspond to this point. See <a class="reference internal" href="concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a></dd>
+<dt id="term-decision-tree-state-label">Decision tree state label</dt>
+<dd>Name of state for a <a class="reference internal" href="#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>. See <a class="reference internal" href="concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a>.
+The purpose of labels is setting proper parameters to some of complex <a class="reference internal" href="#term-functions"><span class="xref std std-term">functions</span></a></dd>
+<dt id="term-tagging">Tagging</dt>
+<dd>In <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> context, where number of variants is not so large, the user can tag them manually. Tags are stored on the server side. See details in <a class="reference internal" href="rest/ws_tags.html"><span class="doc">ws_tags</span></a></dd>
+<dt id="term-zone">Zone</dt>
+<dd>In <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> the user can use zone selection as an additional mechanism of filtration.</dd>
+<dt id="term-secondary-workspace">Secondary workspace</dt>
+<dd>The user can create <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> datasets as result of <a class="reference internal" href="#term-filtration"><span class="xref std std-term">filtration</span></a> process. The typical scenario in the system is as follows. The user starts with <a class="reference internal" href="#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> with wide variety of variants, then comparatively small subset of variant is selected and put into secondary workspace,
+and then this subset is ready for careful detailed manual study</dd>
+<dt id="term-root-dataset">Root dataset</dt>
+<dd>For <a class="reference internal" href="#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a> it is original dataset that was loaded in <a class="reference internal" href="#term-vault"><span class="xref std std-term">vault</span></a> directly</dd>
+<dt id="term-viewing-property">Viewing property</dt>
+<dd>Property of variant shown in <a class="reference internal" href="#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a></dd>
+<dt id="term-conditions">Conditions</dt>
+<dd>Conditions on various <a class="reference internal" href="#term-filtering-property"><span class="xref std std-term">filtering properties</span></a>,
+see <a class="reference internal" href="rest/s_condition.html"><span class="doc">Condition descriptor</span></a>.</dd>
+<dt id="term-decision-tree-atomic-condition">Decision tree atomic condition<dt id="term-atom">Atom</dt>
+<dd>Atomic condition for <a class="reference internal" href="#term-filtering-property"><span class="xref std std-term">filtering property</span></a> used in <a class="reference internal" href="#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>,
+see <a class="reference internal" href="concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a></dd>
+<dt id="term-filtering-property">Filtering property<dt id="term-unit">Unit</dt>
+<dd>Property of <a class="reference internal" href="#term-variant"><span class="xref std std-term">variants</span></a> used for <a class="reference internal" href="concepts/filtration.html"><span class="doc">Filtration procedures</span></a> purposes.</dd>
+<dt id="term-numeric-property">Numeric property</dt>
+<dd><a class="reference internal" href="#term-filtering-property"><span class="xref std std-term">Filtering property</span></a> with numeric values</dd>
+<dt id="term-enumerated-property">Enumerated property</dt>
+<dd><a class="reference internal" href="#term-filtering-property"><span class="xref std std-term">Filtering property</span></a> with values from a enumerated list of strings</dd>
+<dt id="term-status-property">Status property</dt>
+<dd><a class="reference internal" href="#term-enumerated-property"><span class="xref std std-term">Enumerated property</span></a> with single value</dd>
+<dt id="term-multiset-property">Multiset property</dt>
+<dd><a class="reference internal" href="#term-enumerated-property"><span class="xref std std-term">Enumerated property</span></a> with single value</dd>
+<dt id="term-functions">Functions<dt id="term-filtering-function">Filtering function</dt>
+<dd>Aggregated information items that can be used in <a class="reference internal" href="concepts/filtration.html"><span class="doc">Filtration procedures</span></a> as well
+as <a class="reference internal" href="#term-filtering-property"><span class="xref std std-term">filtering properties</span></a>, in case if parameter data
+is defined. See <a class="reference internal" href="rest/func_ref.html"><span class="doc">Filtering functions</span></a>.</dd>
+<dt id="term-dataset-documentation">Dataset documentation</dt>
+<dd>Collection of documents in various formats attached to dataset or produced by the system
+on dataset loading or creation. Documentation on <a class="reference internal" href="#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a>
+includes references to documentation on base one.</dd>
+<dt id="term-aspect">Aspect</dt>
+<dd>Representation of part of data on <a class="reference internal" href="#term-variant"><span class="xref std std-term">variant</span></a> in context of full view representation. See <a class="reference internal" href="concepts/view.html"><span class="doc">Viewing regimes</span></a></dd>
+<dt id="term-solution-item">Solution item</dt>
+<dd>Item representing some application solution useful for the user. Generalization name
+for <a class="reference internal" href="#term-filter"><span class="xref std std-term">filter</span></a>, <a class="reference internal" href="#term-decision-tree"><span class="xref std std-term">decision tree</span></a> and some others.
+See the discussions <a class="reference internal" href="concepts/sol_pack.html"><span class="doc">Solution items</span></a> and <a class="reference internal" href="concepts/sol_work.html"><span class="doc">Solution items in work</span></a>.</dd>
+<dt id="term-rules">Rules</dt>
+<dd>Aggregated <a class="reference internal" href="#term-multiset-property"><span class="xref std std-term">multiset property</span></a> that detects what <a class="reference internal" href="#term-decision-tree"><span class="xref std std-term">decision trees</span></a>
+are positive on the variant. Available only in <a class="reference internal" href="#term-filtering-regime"><span class="xref std std-term">filtering regime</span></a> in
+<a class="reference internal" href="concepts/ws_pg.html"><span class="doc">Workspace page</span></a>.</dd>
+<dt id="term-gene-list">Gene list</dt>
+<dd>List of genes registered in the system as <a class="reference internal" href="#term-solution-item"><span class="xref std std-term">solution item</span></a></dd>
+<dt id="term-export">Export</dt>
+<dd>Operation of creation (external) Excel document for selected variants. Selection
+should be limited (up to 300 entries). Document is stored on server side, see
+<a class="reference internal" href="configuration.html#export-cfg"><span class="std std-ref">configuration settings</span></a>.</dd>
+<dt id="term-delayed-request">Delayed request</dt>
+<dd>A request that needs to be complete only if the main request has returned incomplete
+information. Forms series. See details in <a class="reference internal" href="concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a></dd>
+<dt id="term-background-task">Background task</dt>
+<dd>The system cannot perform immediately some of tasks, so it evaluate them with some delay. Once such a tasks initiates, the client periodically call the server request <a class="reference internal" href="rest/job_status.html"><span class="doc">job_status</span></a> whether the task is done.</dd>
+<dt id="term-internal-ui">Internal UI</dt>
+<dd>Is a variant of Front-End of the system that is used for deep development process of the system. It is more “primitive” than NextGen UI, however it covers the whole functionality supported by REST UI. Only Chrome and Firefox browsers are supported by Internal UI, and there are more inconveniences in usage of it. However, it is a palliative while NextGen Front-End is being developed to its proper state</dd>
+<dt id="term-anti-cache-mechanism">Anti-cache mechanism</dt>
+<dd>The internal UI uses some files (with extensions <code class="docutils literal notranslate"><span class="pre">*.js</span></code> and <code class="docutils literal notranslate"><span class="pre">*.css</span></code>), and these files are
+checked out from the repository. So after a push from the repository these files can change. If
+these files were used by the UI directly, there would be a possibility that the user’s browser will
+ignore changes in such a file and use some outdated cached copy of its previous version
+instead of the fresh version of it. The workaround for this problem is to create a mirror directory,
+copy into it all the necessary files but slightly modify their names in such a way that different
+versions of the same file will have different names. See <a class="reference internal" href="configuration.html#mirror-ui"><span class="std std-ref">mirror-ui configuration setting</span></a>.</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="concepts/index.html" title="Anfisa Interface concepts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Anfisa introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Documentation work page &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Filtering regime" href="filters_reg.html" />
+    <link rel="prev" title="Decision tree work page" href="dtree_pg.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="filters_reg.html" title="Filtering regime"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dtree_pg.html" title="Decision tree work page"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentation work page</a><ul>
+<li><a class="reference internal" href="#rest-api-request">REST API request</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dtree_pg.html"
+                        title="previous chapter">Decision tree work page</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="filters_reg.html"
+                        title="next chapter">Filtering regime</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/concepts/doc_pg.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-work-page">
+<h1>Documentation work page<a class="headerlink" href="#documentation-work-page" title="Permalink to this headline">¶</a></h1>
+<p>Documentation page for <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> provides access to documents associated
+with the dataset. If dataset was created as <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a>
+the page also provides access to documentation of all ancestors of the dataset.</p>
+<p>Documents associated with dataset might be formed by two ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Either they are preformatted documents (in various formats) provided</dt>
+<dd>in original dataset complication,</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Or it is a report formed inside the system on stage of loading or creation</dt>
+<dd>of dataset with name “Info. In case of creation dataset as
+<a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a> report includes representation
+of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> process used for filtering items in dataset</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>All documents are available in system with URL of the form:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">&lt;URL</span> <span class="pre">to</span> <span class="pre">application</span> <span class="pre">back</span> <span class="pre">end&gt;/dsdoc/&lt;ds</span> <span class="pre">name&gt;/&lt;path</span> <span class="pre">to</span> <span class="pre">document&gt;</span></code></div></blockquote>
+<p>The system provides access to two CSS files from HTML pages of documentation:
+<code class="docutils literal notranslate"><span class="pre">report.css</span></code> and <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code>. This internal feature allows
+to control styling for HTML documentation.</p>
+<p>See <a class="reference internal" href="../configuration.html#docs-cfg"><span class="std std-ref">configuration settings</span></a> to configure access to these files
+properly.</p>
+<p>(The second styling file <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code> is necessary to render
+:term:<code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">tree</span> <span class="pre">code</span></code> that might be used in secondary workspace creation).</p>
+<div class="section" id="rest-api-request">
+<h2>REST API request<a class="headerlink" href="#rest-api-request" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="../rest/dsinfo.html"><span class="doc">dsinfo</span></a></dt>
+<dd>Dataset information</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="filters_reg.html" title="Filtering regime"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dtree_pg.html" title="Decision tree work page"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

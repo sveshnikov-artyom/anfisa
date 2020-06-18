@@ -1,0 +1,284 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Anfisa REST API &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dirinfo" href="dirinfo.html" />
+    <link rel="prev" title="Decision Tree Syntax Reference" href="../concepts/dtree_syntax.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="dirinfo.html" title="dirinfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../concepts/dtree_syntax.html" title="Decision Tree Syntax Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Anfisa REST API</a><ul>
+<li><a class="reference internal" href="#requests">Requests</a></li>
+<li><a class="reference internal" href="#structures">Structures</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../concepts/dtree_syntax.html"
+                        title="previous chapter">Decision Tree Syntax Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dirinfo.html"
+                        title="next chapter">dirinfo</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="anfisa-rest-api">
+<h1>Anfisa REST API<a class="headerlink" href="#anfisa-rest-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requests">
+<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Vault level</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="dirinfo.html"><span class="doc">dirinfo</span></a></td>
+<td>Vault information</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="single_cnt.html"><span class="doc">single_cnt</span></a></td>
+<td>Single variant full JSON data</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="job_status.html"><span class="doc">job_status</span></a></td>
+<td>Job status</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="adm_update.html"><span class="doc">adm_update</span></a></td>
+<td>Force vault state update</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Dataset level</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="dsinfo.html"><span class="doc">dsinfo</span></a></td>
+<td>Dataset information</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ds_list.html"><span class="doc">ds_list</span></a></td>
+<td>List of variants in auxiliary viewing regime</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="reccnt.html"><span class="doc">reccnt</span></a></td>
+<td>Aspect-based full view presentation of variant</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="recdata.html"><span class="doc">recdata</span></a></td>
+<td>Variant full JSON data</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="tab_report.html"><span class="doc">tab_report</span></a></td>
+<td>Viewing data in tabulated form</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="vsetup.html"><span class="doc">vsetup</span></a></td>
+<td>View data schema information</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="solutions.html"><span class="doc">solutions</span></a></td>
+<td>Solution items information</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Filtering regime</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a></td>
+<td>Filtering regime support</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="statunits.html"><span class="doc">statunits</span></a></td>
+<td>Delayed evaluations for filtering property status data</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a></td>
+<td>Function filtering support</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Decision trees</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a></td>
+<td>Decision tree page setup</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="dtree_counts.html"><span class="doc">dtree_counts</span></a></td>
+<td>Delayed evaluations of item counts for decision tree points</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a></td>
+<td>Filtering properties status report for decision tree page</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="dtree_check.html"><span class="doc">dtree_check</span></a></td>
+<td>Decision tree code check</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="dtree_cmp.html"><span class="doc">dtree_cmp</span></a></td>
+<td>Comparison of decision trees</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Operations</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="export.html"><span class="doc">export</span></a></td>
+<td>Export operation</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ds2ws.html"><span class="doc">ds2ws</span></a></td>
+<td>Creation of secondary workspace</td>
+</tr>
+<tr class="row-even"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><em>WS-dataset support</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ws_list.html"><span class="doc">ws_list</span></a></td>
+<td>Current list of variants</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="zone_list.html"><span class="doc">zone_list</span></a></td>
+<td>Zone support information</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ws_tags.html"><span class="doc">ws_tags</span></a></td>
+<td>Tagging variant information retrieval and modifications</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="tag_select.html"><span class="doc">tag_select</span></a></td>
+<td>Tag navigation support</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="s_ds_descr.html">Dataset Descriptor structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_doc_descr.html">Dataset document descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_view_rec.html">View Record structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_condition.html">Condition descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_prop_stat.html">Property Status structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_dtree_point.html">Decision Tree Point descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_point_count.html">Decision Tree Point Count descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_record.html">Record descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_sol_entry.html">Soluton Entry descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_zone.html">Zone descriptor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_tags.html">Tags descriptor</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="func_ref.html">Filtering functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s_dtree_instr.html">Decision Tree modifying actions</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="dirinfo.html" title="dirinfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../concepts/dtree_syntax.html" title="Decision Tree Syntax Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

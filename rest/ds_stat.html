@@ -1,0 +1,263 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ds_stat &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="statunits" href="statunits.html" />
+    <link rel="prev" title="solutions" href="solutions.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="statunits.html" title="statunits"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="solutions.html" title="solutions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ds_stat</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#modification-of-filters">Modification of filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="solutions.html"
+                        title="previous chapter">solutions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="statunits.html"
+                        title="next chapter">statunits</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/ds_stat.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ds-stat">
+<h1>ds_stat<a class="headerlink" href="#ds-stat" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><strong>Filtering regime support</strong></div></blockquote>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><strong>ds_stat</strong></p>
+<blockquote>
+<div><p><strong>Arguments</strong>:</p>
+<blockquote>
+<div><p><strong>ds</strong>: dataset name</p>
+<p><strong>tm</strong>: <em>optional</em> time delay control option, in seconds, <em>float</em></p>
+<p><strong>filter</strong>: <em>optional</em> name of applying filter</p>
+<dl class="docutils">
+<dt><strong>conditions</strong>: <em>optional</em> list of applying</dt>
+<dd><a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a>
+<em>in JSON string representation</em></dd>
+</dl>
+<p><strong>instr</strong>: <em>optional modifier</em></p>
+</div></blockquote>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: option, <code class="docutils literal notranslate"><span class="pre">&quot;UPDATE&quot;</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;DELETE&quot;</span></code></div>
+<div class="line"><strong>[1]</strong>: filter name, <em>string</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code> <em>in JSON string representation</em></div>
+</div>
+<blockquote>
+<div><p><strong>Return value</strong>:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line-block">
+<div class="line">“<strong>kind</strong>”: kind of dataset, <code class="docutils literal notranslate"><span class="pre">&quot;ws&quot;</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;xl&quot;</span></code></div>
+<div class="line">“<strong>total-counts</strong>”: count of items in dataset</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list*</em></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong> count of variants, <em>int</em></div>
+<div class="line"><strong>[1]</strong> <em>optional</em> count of transcripts, <em>int</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>filtered-counts</strong>”: count of items filtered</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list*</em></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong> count of variants, <em>int</em></div>
+<div class="line"><strong>[1]</strong> <em>optional</em> count of transcripts, <em>int</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>stat-list</strong>”: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> <a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line">“<strong>cur-filter</strong>: <em>optional</em> name of current filter, <em>string</em></div>
+<div class="line">“<strong>conditions</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line">“<strong>cond-seq</strong>: render information for conditions</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line">“<strong>repr</strong>”: condition HTML-representation, <em>string</em></div>
+<div class="line">“<strong>err</strong>: <em>optional</em> error status, <em>string</em></div>
+<div class="line">“<strong>unit</strong>”: <em>optional</em> name of base condition property, <em>string</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code>, …</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>eval-status</strong>”: status of current conditions evaluation</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;ok&quot;</span></code> if evaluation is correct, other <em>string</em> otherwise</div>
+</div>
+<div class="line"><strong>hash</strong>: hash code associated with current filter conditions, <em>string</em></div>
+<div class="line"><strong>filter-list</strong>: names of all filters available for dataset</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> <a class="reference internal" href="s_sol_entry.html"><span class="doc">Soluton Entry descriptor</span></a> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line"><strong>rq_id</strong>”: unique request id, for use in secondary requests, <em>string</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The request is the principal one for organizing <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filtering regime</span></a> for <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a>.</p>
+<p>The most important functionality initiated by this method is
+<a class="reference internal" href="../concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a>, see there explanations of
+input argument <strong>tm</strong> and returning properties <strong>stat-list</strong>, <strong>rq-id</strong></p>
+<p>The rest of information returning by the request concerns filters
+as <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a>.</p>
+<p>Current conditions/filter define <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> if either <strong>filter</strong> or
+<strong>conditions</strong> is set (see discussion <a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>).
+Otherwise (and also if <strong>conditions</strong> is set as empty list) the full
+dataset is subject of request.</p>
+<p>Returning property <strong>cur-filter</strong> is not null if current conditions are stored
+on the server side as filter with correspondent filter name. (Property <strong>hash</strong>
+contains hash of current conditions)</p>
+<p>Returning property <strong>conditions</strong> contains conditions in operational
+format(<a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a>). But for rendering needs the request returns
+additionally the list <strong>cond-seq</strong> and status <strong>eval-status</strong>. In most common
+scenario conditions are correct and can be evaluated property, however there might
+be errors, and information about these errors should be used by the client.
+Please pay attention at property <strong>unit</strong> in <strong>cond-seq</strong> list: usually it is
+equal to  value of second element ([1]) of correspondent condition from <strong>conditions</strong>.
+But existence of <strong>unit</strong> property guarantees that condition has no errors.</p>
+<p>Returning properties <strong>total-counts</strong> and <strong>filter-counts</strong> have length of 2 in
+case of <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and length of 1 otherwise. Second position
+in lists correspond to count of <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a></p>
+<div class="section" id="modification-of-filters">
+<h3>Modification of filters<a class="headerlink" href="#modification-of-filters" title="Permalink to this headline">¶</a></h3>
+<p>If argument <strong>instr</strong> is set, the request modifies filter on server side:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if <strong>instr</strong> is <code class="docutils literal notranslate"><span class="pre">[&quot;UPDATE&quot;</span></code>, filter_name]`` the value of argument
+<strong>conditions</strong> are interpreted as new content of filter <code class="docutils literal notranslate"><span class="pre">filter_name</span></code>,
+use this option for both create or update filter</li>
+<li>if <strong>instr</strong> is <code class="docutils literal notranslate"><span class="pre">[&quot;DELETE&quot;</span></code>, filter_name]`` the filter <code class="docutils literal notranslate"><span class="pre">filter_name</span></code>
+is subject to be deleted.</li>
+</ul>
+</div></blockquote>
+<p>See also <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a></p>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>The request has simple analogue <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a>: both methods initiate
+<a class="reference internal" href="../concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a>.</p>
+<p>Also the request has analogue <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>: both methods support
+its main objects as <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a>, this request does it
+for <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a>, decision tree request for
+<a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a>.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="statunits.html"><span class="doc">statunits</span></a>     <a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a></p>
+<p><a class="reference internal" href="../concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a></p>
+<p><a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="statunits.html" title="statunits"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="solutions.html" title="solutions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

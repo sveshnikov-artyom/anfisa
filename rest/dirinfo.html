@@ -1,0 +1,147 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dirinfo &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="single_cnt" href="single_cnt.html" />
+    <link rel="prev" title="Anfisa REST API" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="single_cnt.html" title="single_cnt"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa REST API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">dirinfo</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Anfisa REST API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="single_cnt.html"
+                        title="next chapter">single_cnt</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/dirinfo.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dirinfo">
+<h1>dirinfo<a class="headerlink" href="#dirinfo" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><strong>Vault information</strong></div></blockquote>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><strong>dirinfo</strong></p>
+<blockquote>
+<div><p><strong>Arguments</strong>: <em>none</em></p>
+<p><strong>Return value</strong>:</p>
+<blockquote>
+<div><div class="line-block" id="index-1">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line">“<strong>version</strong>”: version of the system, <em>string</em></div>
+<div class="line">“<strong>ds-list</strong>”: dataset names, <em>list of strings</em></div>
+<div class="line">“<strong>ds-dict</strong>”: dataset descriptors, <em>dictionary</em></div>
+<div class="line-block">
+<div class="line">&lt;dataset name&gt; : <a class="reference internal" href="s_ds_descr.html"><span class="doc">Dataset Descriptor structure</span></a></div>
+</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The request returns complete information for rendering directory page in User Interface.
+So it returns information about all <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a> accessible in <a class="reference internal" href="../glossary.html#term-vault"><span class="xref std std-term">vault</span></a>.</p>
+<p>Sorting order in <strong>ds-list</strong> output value represents hierarchical connections between datasets.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="single_cnt.html" title="single_cnt"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa REST API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

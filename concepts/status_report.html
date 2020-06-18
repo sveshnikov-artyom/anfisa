@@ -1,0 +1,229 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Status report mechanism with delays &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solution items" href="sol_pack.html" />
+    <link rel="prev" title="Filtering regime" href="filters_reg.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sol_pack.html" title="Solution items"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="filters_reg.html" title="Filtering regime"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Status report mechanism with delays</a><ul>
+<li><a class="reference internal" href="#decision-tree-points-report-with-delays">Decision tree points report with delays</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="filters_reg.html"
+                        title="previous chapter">Filtering regime</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sol_pack.html"
+                        title="next chapter">Solution items</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/concepts/status_report.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="status-report-mechanism-with-delays">
+<h1>Status report mechanism with delays<a class="headerlink" href="#status-report-mechanism-with-delays" title="Permalink to this headline">¶</a></h1>
+<p>If a set of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> (or <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>) is selected
+in process of  <a class="reference internal" href="filtration.html"><span class="doc">Filtration procedures</span></a>, it is actual to prepare and render a report for all
+filtering properties status applied to this set.</p>
+<p>Status report for a filtering property is information about distribution of values
+of this property on selected <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> (<a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>).</p>
+<p>For numeric property it is diapason of values, for enumerated one it is list of actual
+values with counts of variants having it.</p>
+<p>In practice this mechanism appears to be effective and very helpful. It is
+intuitively clear for the user and might be used in (informal as well
+as formal) understanding of objects and their properties.</p>
+<p>Status report mechanism uses two options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>argument of requests <strong>tm</strong> (it is float value in seconds, recommended value: 1)</dt>
+<dd>controls time period of evaluation of request; in case of timeout requests return
+incomplete result</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>returning property <strong>“rq-id”</strong> and argument of delayed requests <strong>rq_id</strong></dt>
+<dd>with the same value allows to organize series of requests in single evaluation context</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Status report mechanism starts by initiation request:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>in <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a> it applies to a single selection determined by current working</dt>
+<dd><p class="first"><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a>, i.e. sequence of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a></p>
+<p class="last">Initiation REST API request: <a class="reference internal" href="../rest/ds_stat.html"><span class="doc">ds_stat</span></a></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">in <a class="reference internal" href="dtree_pg.html"><span class="doc">Decision tree work page</span></a> it can be applied in context of any <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>.</p>
+<blockquote>
+<div><p>Initiation REST API request: <a class="reference internal" href="../rest/dtree_stat.html"><span class="doc">dtree_stat</span></a></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Evaluation of status reports requires heavy processing on the server side, so
+REST API implements logic of <a class="reference internal" href="../glossary.html#term-delayed-request"><span class="xref std std-term">delayed requests</span></a> for this
+functionality:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>the client receives information from the server and uses it for rendering</dt>
+<dd>status report controls; some of them are rendered in “undetermined” state</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>in case if undetermined cases happen, the client renders all information (including</dt>
+<dd>information on incomplete status data), and starts series of delayed
+requests <a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a> to fix up undetermined properties</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the client is free to reorder these properties to place properties of most priority</dt>
+<dd>at the beginning of property list; so the Front End application can get in
+account the user activity: the user can select properties of interest, or just
+scroll status report panel to make interesting properties visible</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the client receives result of delayed request (<a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a>) -</dt>
+<dd>even  if timeout happens, at least one status report should be complete during request -
+and re-renders information on stat report for evaluated properties</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>in case of heavy evaluations series of delayed requests can be long, so the whole</dt>
+<dd>process of evaluation of status reports may take a long time - the user
+does not need to wait for its final and can continue activity without long delay.</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="decision-tree-points-report-with-delays">
+<h2>Decision tree points report with delays<a class="headerlink" href="#decision-tree-points-report-with-delays" title="Permalink to this headline">¶</a></h2>
+<p id="dtree-points-report">If decision tree is set, it is important to evaluate number of variants (and transcripts)
+that correspond to each <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a> in decision tree.
+This evaluation might be heavy, so it is organized in analogy with mechanism for status
+reports, using <a class="reference internal" href="../glossary.html#term-delayed-request"><span class="xref std std-term">delayed requests</span></a>:</p>
+<ul class="simple">
+<li>evaluation starts by request <a class="reference internal" href="../rest/dtree_set.html"><span class="doc">dtree_set</span></a></li>
+<li><dl class="first docutils">
+<dt>argument <strong>tm</strong> in this request (it is float value in seconds, recommended value: 1)</dt>
+<dd>controls time period of evaluation of request; if time is over, request
+stops evaluation and returns <code class="docutils literal notranslate"><span class="pre">null</span></code> values in list of <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a>
+count reports; the
+returning value also contains property <strong>rq-id</strong> with unique identifier for next
+series of delayed requests</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the client receives information from the server and uses it for rendering</dt>
+<dd>point counts; some of them are rendered in “undetermined” state</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>then the client starts series of delayed requests <a class="reference internal" href="../rest/dtree_counts.html"><span class="doc">dtree_counts</span></a> to fill up</dt>
+<dd>undetermined counts; these requests also have argument <strong>tm</strong> to control
+time period; the request might return nothing new evaluated, however it keeps
+evaluation process run, so after some series of requests the complete
+count list will be set up, and using <strong>rq-id</strong> argument is important for this purpose</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the client receives result of delayed request (<a class="reference internal" href="../rest/dtree_counts.html"><span class="doc">dtree_counts</span></a>) and</dt>
+<dd>re-renders evaluated count information for points</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sol_pack.html" title="Solution items"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="filters_reg.html" title="Filtering regime"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Interface concepts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

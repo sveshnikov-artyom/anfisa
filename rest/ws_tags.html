@@ -1,0 +1,250 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ws_tags &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="tag_select" href="tag_select.html" />
+    <link rel="prev" title="zone_list" href="zone_list.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tag_select.html" title="tag_select"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="zone_list.html" title="zone_list"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ws_tags</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="zone_list.html"
+                        title="previous chapter">zone_list</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tag_select.html"
+                        title="next chapter">tag_select</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/ws_tags.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ws-tags">
+<h1>ws_tags<a class="headerlink" href="#ws-tags" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><strong>Tagging variant information retrieval and modifications</strong></div></blockquote>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p id="index-0"><strong>Arguments</strong>:</p>
+<blockquote>
+<div><p><strong>ds</strong>: dataset name</p>
+<p id="index-1"><strong>rec</strong>: variant record ordering number, <em>int</em></p>
+<dl class="docutils" id="index-2">
+<dt><strong>tags</strong>: <em>optional modifier</em> <a class="reference internal" href="s_tags.html"><span class="doc">Tags descriptor</span></a></dt>
+<dd><em>in JSON string representation</em></dd>
+</dl>
+</div></blockquote>
+<p><strong>Return value</strong>:</p>
+<div class="line-block">
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line">“<strong>filters</strong>”:  filters active for variant</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>check-tags</strong>”: all available “check-box” tags</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>op-tags</strong>”: all available “text” tags</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line">“<strong>rec-tags</strong>”: tags of variant, <a class="reference internal" href="s_tags.html"><span class="doc">Tags descriptor</span></a></div>
+<div class="line">“<strong>upd-time</strong>: <em>optional</em> time of last tags update,</div>
+<div class="line-block">
+<div class="line"><em>string, time in ISO format</em></div>
+</div>
+<div class="line">“<strong>upd-from</strong>: <em>optional</em> dataset name of last tags update,</div>
+<div class="line-block">
+<div class="line"><em>string</em></div>
+</div>
+<div class="line">“<strong>tags-state</strong>”: indicator of tags update state</div>
+</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The request affects only <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and is principal one
+for rendering and modifications of variant tagging.</p>
+<p>Tagging mechanism in the system organized by the following principles</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The user can mark any variant in <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> with tags</p>
+</li>
+<li><p class="first">Any tag is identified by its name and probably has some value</p>
+</li>
+<li><dl class="first docutils">
+<dt>Preset list of tags are interpreted as check-box tags, value for such</dt>
+<dd><p class="first last">tags is <em>boolean</em>, by default <em>false</em></p>
+</dd>
+</dl>
+<p>(The client receives this information in returning property <strong>check-tags</strong>)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Special tag has name <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>. This tag is associated with variant</dt>
+<dd><p class="first last">if and only if value of it is nonempty text</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Other tags are interpreted as “text” tags, he user can mark variants</dt>
+<dd><p class="first last">by this tag of this kind with text value, and text value can be empty</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Name of any tag (but <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>) must start with any letter (“alpha”)</dt>
+<dd><p class="first">symbol (any alphabet) and must not contain spaces; in terms of Java Script
+the criterium is as follows:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span>/^\S+$/u.test(name) &amp;&amp; (name[0].toLowerCase() != name[0].toUpperCase())
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Tags of variant is common between presences of variant in all datasets produced</dt>
+<dd><p class="first">from the same <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>. So the system controls state of tagging values
+for all variants of root dataset, and traces where and when last modification of
+this common state was made. Information about this state can be changed outside
+the client session. The client receives this information in properties:</p>
+<blockquote class="last">
+<div><ul class="simple" id="tags-state">
+<li><dl class="first docutils">
+<dt><strong>tags-state</strong></dt>
+<dd>Is some internal indicator value, <em>int</em> or <em>string</em>; if tag state
+is changing this indicator changes with it</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>upd-time</strong>, <strong>upd-from</strong></dt>
+<dd>Information when and from what workspace the tag state changed</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>op-tags</strong></dt>
+<dd>is just list of all “text” tags available; this information can also
+change with tag state</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Tag structure modifications are performed by the following scenario:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The client receives tags structure for variant in <strong>rec_tags</strong> property</li>
+<li>The client modifies this structure</li>
+<li>The client sends the modified copy as argument <strong>tags</strong> of the request</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="tag_select.html"><span class="doc">tag_select</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tag_select.html" title="tag_select"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="zone_list.html" title="zone_list"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dtree_cmp &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="export" href="export.html" />
+    <link rel="prev" title="dtree_check" href="dtree_check.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="export.html" title="export"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dtree_check.html" title="dtree_check"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">dtree_cmp</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#comment">Comment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dtree_check.html"
+                        title="previous chapter">dtree_check</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="export.html"
+                        title="next chapter">export</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/dtree_cmp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dtree-cmp">
+<h1>dtree_cmp<a class="headerlink" href="#dtree-cmp" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><strong>Comparison of decision trees</strong></div></blockquote>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><strong>dtree_cmp</strong></p>
+<blockquote>
+<div><p><strong>Arguments</strong>:</p>
+<blockquote>
+<div><p><strong>ds</strong>: dataset name</p>
+<p><strong>dtree</strong>: <em>optional</em> name of applying decision tree</p>
+<p><strong>code</strong>: <em>optional</em> code of applying decision tree</p>
+<p><strong>other</strong>: name of second decision tree <em>string</em></p>
+</div></blockquote>
+<p><strong>Return value</strong>:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line-block">
+<div class="line">“<strong>cmp</strong>”:  compare report</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em> of blocks</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Request reports difference between two <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a>
+<a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">codes</span></a>.</p>
+<p>First decision tree is set by either <strong>dtree</strong> or <strong>code</strong> (see discussion
+<a class="reference internal" href="../concepts/sol_work.html#dtree-code"><span class="std std-ref">here</span></a>)</p>
+<p>Second decision tree should be registered as <a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">solution item</span></a>, so it is stored on server side by name <strong>other</strong>.</p>
+<p>Result of comparison is split onto string blocks. In each block
+two first letters on the line are the same, value of first letter indicates
+meaning of the block, second letter on line is always space ‘ ‘.</p>
+</div>
+<div class="section" id="comment">
+<h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
+<p>The request is out of use in the current version. But it can be used to extend
+the system functionality in next releases.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="export.html" title="export"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dtree_check.html" title="dtree_check"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

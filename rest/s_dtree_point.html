@@ -1,0 +1,211 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Decision Tree Point descriptor &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Decision Tree Point Count descriptor" href="s_point_count.html" />
+    <link rel="prev" title="Property Status structure" href="s_prop_stat.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="s_point_count.html" title="Decision Tree Point Count descriptor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="s_prop_stat.html" title="Property Status structure"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Decision Tree Point descriptor</a><ul>
+<li><a class="reference internal" href="#format">Format</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#used-in-request">Used in request</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="s_prop_stat.html"
+                        title="previous chapter">Property Status structure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="s_point_count.html"
+                        title="next chapter">Decision Tree Point Count descriptor</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/s_dtree_point.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="decision-tree-point-descriptor">
+<h1>Decision Tree Point descriptor<a class="headerlink" href="#decision-tree-point-descriptor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="format">
+<span id="index-0"></span><h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em>,</div>
+<div class="line-block">
+<div class="line">“<strong>kind</strong>”: kind of point,</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Return&quot;</span></code>, “``”Label”`` <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;Error&quot;</span></code></div>
+</div>
+<div class="line">“<strong>level</strong>”: level of point, <code class="docutils literal notranslate"><span class="pre">0</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">1</span></code></div>
+<div class="line">“<strong>decision</strong>”: decision of point, <em>boolean</em> or <code class="docutils literal notranslate"><span class="pre">null</span></code></div>
+<div class="line">“<strong>code-frag</strong>”: HTML-presentation of code, <em>string</em></div>
+<div class="line">“<strong>actions</strong>: actions applicable to point, <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Data structure is used in returning properties of request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a> and contains
+information about <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point of decision tree</span></a>.</p>
+<p>There are 4 kinds of points:</p>
+<blockquote>
+<div><p><strong>If</strong> corresponds to <code class="docutils literal notranslate"><span class="pre">if</span></code> Python instruction,</p>
+<blockquote>
+<div><p>Has condition with atomic <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">condition</span></a> on filtering properties, and
+possibly complex structure formed by AND/OR/NOT operations</p>
+<p>Followed by point of type <strong>Return</strong> with <strong>level</strong> equal to <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</div></blockquote>
+<p><strong>Return</strong> corresponds to <code class="docutils literal notranslate"><span class="pre">return</span></code> Python instruction</p>
+<blockquote>
+<div><p>Only this kind of points has <strong>decision</strong> property with boolean value.</p>
+<p>There are two cases for <strong>Return</strong> points:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Point follows any <strong>If</strong> statement, only in this case <strong>level</strong> property</dt>
+<dd>equals to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</dd>
+</dl>
+</li>
+<li>Last point of decision tree is always <strong>If</strong> point with <strong>level</strong> equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt><strong>Label</strong> corresponds to instruction <code class="docutils literal notranslate"><span class="pre">label(...)</span></code> and defines</dt>
+<dd><a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">state label on decision tree</span></a>.</dd>
+</dl>
+<p><strong>Error</strong> corresponds to incorect Python-style block in decision tree</p>
+</div></blockquote>
+<p>Points of last two kinds are not applicable for counting items in dataset.</p>
+<p>If it is not discussed above, <strong>decision</strong> is always <code class="docutils literal notranslate"><span class="pre">null</span></code> and <strong>level</strong> is always <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Property <strong>code-frag</strong> contains ready HTML-presentation of code fragment that corresponds to
+point:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>Since it is being evaluated using <a class="reference external" href="https://pygments.org/">Pygments</a> package, it is essential for the User Interface</dt>
+<dd><p class="first last">to provide proper CSS support for Pygments styles;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Code fragment presentation of <strong>If</strong> point contains empty HTML <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags for</dt>
+<dd><p class="first">marking up  atomic conditions:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;dtree-atom-mark&quot;</span> <span class="pre">id=&quot;__atom_1-1&quot;&gt;&lt;/span&gt;</span></code>,</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">1-1</span></code> are replaced by two integers indexing atomic condition.</p>
+<p>Atomic condition might be marked by warning:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;dtree-atom-mark</span> <span class="pre">warn&quot;</span> <span class="pre">id=&quot;__atom_1-1&quot;</span> <span class="pre">title=&quot;...&quot;&gt;&lt;/span&gt;</span></code>,</p>
+<p>The Front End application can use this markup to set up proper access to atomic
+conditions and as result to support code  modifying actions of type <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code>,
+see details  <a class="reference internal" href="s_dtree_instr.html#dtree-atom-actions"><span class="std std-ref">here</span></a>.</p>
+<p class="last">See also description of property <strong>cond-atoms</strong>
+in <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Code fragment presentation of <strong>Error</strong> point uses HTML <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;line-error&quot;&gt;</span></code></dt>
+<dd><p class="first last">to to markup lines with bad code. Also it uses
+<code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;note-err&quot;</span> <span class="pre">title=&quot;...&quot;&gt;</span></code> with special symbol inside in presentation
+of the first line of error fragment. This <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> contains error message,
+and the user can see if when mouse cursor is over this span.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Actions of <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;</span></code> type available for the point are prepared in <strong>actions</strong> property.
+See list of all supported actions is <a class="reference internal" href="s_dtree_instr.html#dtree-instr-actions"><span class="std std-ref">here</span></a>.</p>
+</div>
+<div class="section" id="used-in-request">
+<h2>Used in request<a class="headerlink" href="#used-in-request" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="s_point_count.html" title="Decision Tree Point Count descriptor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="s_prop_stat.html" title="Property Status structure"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>solutions &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ds_stat" href="ds_stat.html" />
+    <link rel="prev" title="vsetup" href="vsetup.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ds_stat.html" title="ds_stat"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vsetup.html" title="vsetup"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">solutions</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="vsetup.html"
+                        title="previous chapter">vsetup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ds_stat.html"
+                        title="next chapter">ds_stat</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rest/solutions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="solutions">
+<h1>solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><strong>Solution items information</strong></div></blockquote>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><strong>solutions</strong></p>
+<blockquote>
+<div><p><strong>Arguments</strong>:</p>
+<blockquote>
+<div><strong>ds</strong>: dataset name</div></blockquote>
+<p><strong>Return value</strong>: lists of solution items available in dataset</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em></div>
+<div class="line-block">
+<div class="line">name of solution type, <em>string</em>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line">…</div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">}</span></code></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The request returns names of preset <a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">Solution items</span></a> available for <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a></p>
+<p>Panel names are split to groups by unit/property names for which these panels are made. Key for group is</p>
+<p><code class="docutils literal notranslate"><span class="pre">panel/</span></code> <em>property</em></p>
+<p>(In current version all panels are made for <code class="docutils literal notranslate"><span class="pre">Symbol</span></code>, so return dictionary contains now only
+<code class="docutils literal notranslate"><span class="pre">&quot;panel/Symbol&quot;</span></code> entry)</p>
+<p>Types of solution items supported in the current version:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="85%" />
+<col width="15%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>filter</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>dtree</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>zone</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>tab-schema</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>panel/<em>property</em></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The request might be used for experimental extensions of the system
+functionality and user interface.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">Solution items</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ds_stat.html" title="ds_stat"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vsetup.html" title="vsetup"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa REST API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>
