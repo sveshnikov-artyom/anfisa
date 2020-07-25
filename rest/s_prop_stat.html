@@ -112,8 +112,16 @@
 <div class="line">———————————–</div>
 <div class="line">“<strong>min</strong>”: <em>optional</em> minimum value, <em>int or float</em></div>
 <div class="line">“<strong>max</strong>”: <em>optional</em> maximum value, <em>int or float</em></div>
-<div class="line">“<strong>count</strong>”: <em>optional</em> count of variants, <em>int</em></div>
+<div class="line">“<strong>counts</strong>”: <em>optional</em></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em></div>
+<div class="line-block">
+<div class="line"><strong>[0]</strong>: count of transcripts (if detailed) or variants, <em>int</em></div>
+<div class="line"><strong>[1]</strong>: <em>optional</em> count of variants (if detailed), <em>int</em></div>
+</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 <div class="line"><br /></div>
+</div>
 <div class="line"><em>in case of</em> <strong>kind</strong> = <code class="docutils literal notranslate"><span class="pre">&quot;enum&quot;</span></code></div>
 <div class="line">———————————–</div>
 <div class="line">“<strong>variants</strong>”:  <em>optional</em> <code class="docutils literal notranslate"><span class="pre">[</span></code> values status <em>list</em></div>
@@ -121,8 +129,8 @@
 <div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em></div>
 <div class="line-block">
 <div class="line"><strong>[0]</strong>: value, <em>string</em></div>
-<div class="line"><strong>[1]</strong>: count of variants, <em>int</em></div>
-<div class="line"><strong>[2]</strong>: <em>optional</em> count of transcripts, <em>int</em></div>
+<div class="line"><strong>[1]</strong>: count of transcripts (if detailed) or variants, <em>int</em></div>
+<div class="line"><strong>[2]</strong>: <em>optional</em> count of variants (if detailed), <em>int</em></div>
 </div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code>, …  <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 <div class="line"><br /></div>
@@ -134,12 +142,14 @@
 <div class="line"><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list</em></div>
 <div class="line-block">
 <div class="line"><strong>[0]</strong>: value, <em>string</em></div>
-<div class="line"><strong>[1]</strong>: count of variants, <em>int</em></div>
-<div class="line"><strong>[2]</strong>: <em>optional</em> count of transcripts, <em>int</em></div>
+<div class="line"><strong>[1]</strong>: count of transcripts (if detailed) or variants, <em>int</em></div>
+<div class="line"><strong>[2]</strong>: <em>optional</em> count of variants (if detailed), <em>int</em></div>
 </div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">]</span></code>, … <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 </div>
 <div class="line">“<strong>err</strong>”: <em>optional</em>, error message, <em>string</em></div>
+<div class="line">“<strong>rq-id</strong>:  ID of request series</div>
+<div class="line">“<strong>no</strong>”: <em>optional</em> position on tree, <em>int as string</em></div>
 <div class="line-block">
 <div class="line"><strong>…</strong>: function environment</div>
 </div>
@@ -164,12 +174,17 @@ and <strong>variants</strong> for enum ones) do not present in structure.</p>
 for filtering properties (of numeric or enum type)
 is incomplete, use request <a class="reference internal" href="statunits.html"><span class="doc">statunits</span></a> to get them in complete
 state.</p>
-<p>Property <strong>sub-kind</strong> can have the following values:</p>
+<p>In <strong>detailed</strong> case (<a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> context) the main items for
+counting are <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>, so count values form
+pair of values in list, first one is for transcripts, second for <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a>.
+Otherwise only single variant count is provided in lists.</p>
+<p>Property <strong>sub-kind</strong> can have the following values (transcipt-based subkinds
+are provided only in <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> context):</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="44%" />
-<col width="56%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>kind</strong></th>
@@ -178,12 +193,18 @@ state.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&quot;numeric&quot;</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">&quot;int&quot;</span></code>
-<code class="docutils literal notranslate"><span class="pre">&quot;float&quot;</span></code></td>
+<td><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;int&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;float&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;transcript-int&quot;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">&quot;transcript-float&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">enum</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">&quot;status&quot;</span></code>
-<code class="docutils literal notranslate"><span class="pre">&quot;multi&quot;</span></code></td>
+<td><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;status&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;multi&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;transcript-status&quot;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">&quot;transcript-multi&quot;</span></code></p>
+</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">func</span></code></td>
 <td><em>type of function</em></td>
@@ -221,18 +242,27 @@ solution of this problem.</p>
 <h3>Functions support<a class="headerlink" href="#functions-support" title="Permalink to this headline">¶</a></h3>
 <p>For functions property status structure is formed in two different contexts:</p>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="first docutils">
 <dt>requests <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a>, <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a> just declare</dt>
-<dd>placement of function between filtering properties, so
+<dd><p class="first last">placement of function between filtering properties, so
 requests return structure with <code class="docutils literal notranslate"><span class="pre">null</span></code> as <strong>variants</strong>
-and additional properties of function environment</dd>
+and additional properties of function environment</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>request <a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a> returns property status</dt>
-<dd>with non-optional <strong>variants</strong> or <strong>err</strong> in case of error
-in evaluation</dd>
+<dd><p class="first">with non-optional <strong>variants</strong> or <strong>err</strong> in case of error
+in evaluation;</p>
+<p>the client can send multiple requests of such
+kind in short period of time, so for purposes of request identification
+the property status in this case contains also:</p>
+<ul class="last simple">
+<li>functional environment: values of all arguments,</li>
+<li>value <strong>rq_id</strong> (and <strong>no</strong> in context of decision tree)</li>
+</ul>
+</dd>
 </dl>
 </li>
 </ul>
