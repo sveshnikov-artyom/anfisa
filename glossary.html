@@ -141,9 +141,11 @@ The purpose of labels is setting proper parameters to some of complex <a class="
 <dd>In <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> context, where number of variants is not so large, the user can tag them manually. Tags are stored on the server side. See details in <a class="reference internal" href="rest/ws_tags.html"><span class="doc">ws_tags</span></a></dd>
 <dt id="term-zone">Zone</dt>
 <dd>In <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> the user can use zone selection as an additional mechanism of filtration.</dd>
+<dt id="term-primary-dataset">Primary dataset</dt>
+<dd>Dataset that was loaded in <a class="reference internal" href="#term-vault"><span class="xref std std-term">vault</span></a> directly. Usually it is <a class="reference internal" href="#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> with wide variety of variants.</dd>
 <dt id="term-secondary-workspace">Secondary workspace</dt>
-<dd>The user can create <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> datasets as result of <a class="reference internal" href="#term-filtration"><span class="xref std std-term">filtration</span></a> process. The typical scenario in the system is as follows. The user starts with <a class="reference internal" href="#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> with wide variety of variants, then comparatively small subset of variant is selected and put into secondary workspace,
-and then this subset is ready for careful detailed manual study</dd>
+<dd>The user can create <a class="reference internal" href="#term-workspace"><span class="xref std std-term">workspace</span></a> datasets as result of <a class="reference internal" href="#term-filtration"><span class="xref std std-term">filtration</span></a> process. The typical scenario in the system is as follows. The user starts with <a class="reference internal" href="#term-primary-dataset"><span class="xref std std-term">primary dataset</span></a>, selects comparatively small subset of variants and put into secondary workspace,
+and then this subset is ready for careful detailed manual study. The user can repeat selection procedure more than one time.</dd>
 <dt id="term-root-dataset">Root dataset</dt>
 <dd>For <a class="reference internal" href="#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a> it is original dataset that was loaded in <a class="reference internal" href="#term-vault"><span class="xref std std-term">vault</span></a> directly</dd>
 <dt id="term-viewing-property">Viewing property</dt>
@@ -187,7 +189,7 @@ are positive on the variant. Available only in <a class="reference internal" hre
 <dt id="term-export">Export</dt>
 <dd>Operation of creation (external) Excel document for selected variants. Selection
 should be limited (up to 300 entries). Document is stored on server side, see
-<a class="reference internal" href="configuration.html#export-cfg"><span class="std std-ref">configuration settings</span></a>.</dd>
+<a class="reference internal" href="adm/configuration.html#export-cfg"><span class="std std-ref">configuration settings</span></a>.</dd>
 <dt id="term-delayed-request">Delayed request</dt>
 <dd>A request that needs to be complete only if the main request has returned incomplete
 information. Forms series. See details in <a class="reference internal" href="concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a></dd>
@@ -202,7 +204,13 @@ these files were used by the UI directly, there would be a possibility that the 
 ignore changes in such a file and use some outdated cached copy of its previous version
 instead of the fresh version of it. The workaround for this problem is to create a mirror directory,
 copy into it all the necessary files but slightly modify their names in such a way that different
-versions of the same file will have different names. See <a class="reference internal" href="configuration.html#mirror-ui"><span class="std std-ref">mirror-ui configuration setting</span></a>.</dd>
+versions of the same file will have different names. See <a class="reference internal" href="adm/configuration.html#mirror-ui"><span class="std std-ref">mirror-ui configuration setting</span></a>.</dd>
+<dt id="term-annotation-pipeline">Annotation pipeline</dt>
+<dd>A process of preparation of <a class="reference internal" href="#term-primary-dataset"><span class="xref std std-term">primary dataset</span></a> information that thould be evaluated
+before creation if dataset in the system. See <a class="reference internal" href="adm/a_adm_formats.html"><span class="doc">Administration file formats reference</span></a> for details.</dd>
+<dt id="term-annotated-json-files">Annotated JSON files</dt>
+<dd>Result of <a class="reference internal" href="#term-annotation-pipeline"><span class="xref std std-term">annotation pipeline</span></a>, usually in the following formats:
+<code class="docutils literal notranslate"><span class="pre">*.json</span></code>, <code class="docutils literal notranslate"><span class="pre">*.json.gz</span></code>, <code class="docutils literal notranslate"><span class="pre">*.json.bz2</span></code></dd>
 </dl>
 </div>
 

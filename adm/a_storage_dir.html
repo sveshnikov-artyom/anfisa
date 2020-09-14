@@ -1,0 +1,175 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>storage.dir file format &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inventory (*.CFG) file format" href="a_inventory.html" />
+    <link rel="prev" title="adm_update.py - Update secondary datasets" href="adm_update.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="a_inventory.html" title="Inventory (*.CFG) file format"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="adm_update.html" title="adm_update.py - Update secondary datasets"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">storage.dir file format</a><ul>
+<li><a class="reference internal" href="#example-of-file">Example of file</a></li>
+<li><a class="reference internal" href="#comment">Comment</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="adm_update.html"
+                        title="previous chapter">adm_update.py - Update secondary datasets</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="a_inventory.html"
+                        title="next chapter">Inventory (*.CFG) file format</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/adm/a_storage_dir.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="storage-dir-file-format">
+<h1>storage.dir file format<a class="headerlink" href="#storage-dir-file-format" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">The file storage.dir presents some variant of integration solution: the system
+administrator can form this file in JSON format manually, with use of any text
+editor, put here all information about maintained datasets, and use path to
+this file in option <strong>–dir</strong> in administration tools: <a class="reference internal" href="storage.html"><span class="doc">app.storage - Dataset creation and upload</span></a> and
+<a class="reference internal" href="adm_update.html"><span class="doc">adm_update.py - Update secondary datasets</span></a>.</p>
+<p>If configuration of datasets changes, the user administrator
+needs to fix changes in storage.dir manually. On shell level, there is also
+the regime <strong>register</strong> in <a class="reference internal" href="storage.html"><span class="doc">app.storage - Dataset creation and upload</span></a>, it allows to register new dataset
+in storage.dir automatically.</p>
+<p>There is no strong need in this file in current state of the project, the system
+administrator can perform all administrative actions without it.</p>
+<p>The file includes:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">reference to the principal configuration file of the system <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a></p>
+</li>
+<li><p class="first">for each dataset to be created, currently or in future:</p>
+<blockquote>
+<div><ul class="simple">
+<li>name of dataset, as a key</li>
+<li><strong>“kind”</strong> of dataset, either <cite>ws</cite> or <cite>xl</cite></li>
+<li>either reference path to <cite>annotation json file</cite> <strong>“a-json”</strong>,</li>
+<li>or reference path to <a class="reference internal" href="a_inventory.html"><span class="doc">Inventory (*.CFG) file format</span></a> file <strong>“inv”</strong></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="example-of-file">
+<h2>Example of file<a class="headerlink" href="#example-of-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;anfisa.json&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/projects/anfisa/anfisa/anfisa.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;datasets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;PGP3140_panel_hl&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;ws&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;a-json&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/projects/anfisa/a-setup/data/pgp3140_anfisa.json.gz&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;xl_PGP3140_panel_hl&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;xl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/projects/anfisa/a-setup/data/examples/pgp3140_panel_hl/pgp3140_wgs.cfg&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comment">
+<h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
+<p>The discussed solution is intermediate one: in future the project will require
+a dashboard integration module for control all processes of data preparation and
+annotation. Up to this moment the project does not include such a dashboard, thus the
+storage.dir solution in an integration helper tool with minimal level of comfort in usage.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="a_inventory.html" title="Inventory (*.CFG) file format"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="adm_update.html" title="adm_update.py - Update secondary datasets"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

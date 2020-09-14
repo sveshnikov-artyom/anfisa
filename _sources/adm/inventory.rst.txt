@@ -1,0 +1,9 @@
+Inventory (*.CFG) file a_adm_format
+===================================
+
+.. index:: 
+    inventory (*.CFG); file format
+
+See also
+--------
+:doc:`a_adm_formats`

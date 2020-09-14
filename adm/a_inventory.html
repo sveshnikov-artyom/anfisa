@@ -1,0 +1,225 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Inventory (*.CFG) file format &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Notes on Zygocity" href="../zygocity.html" />
+    <link rel="prev" title="storage.dir file format" href="a_storage_dir.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../zygocity.html" title="Notes on Zygocity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="a_storage_dir.html" title="storage.dir file format"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inventory (*.CFG) file format</a><ul>
+<li><a class="reference internal" href="#example-of-inventory-file">Example of inventory file</a><ul>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="a_storage_dir.html"
+                        title="previous chapter">storage.dir file format</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../zygocity.html"
+                        title="next chapter">Notes on Zygocity</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/adm/a_inventory.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inventory-cfg-file-format">
+<h1>Inventory (*.CFG) file format<a class="headerlink" href="#inventory-cfg-file-format" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">The detailed description of inventory file format is a part of <a class="reference internal" href="../glossary.html#term-annotation-pipeline"><span class="xref std std-term">annotation pipeline</span></a>
+project, so here is a short description covering details important for Anfisa project:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>Main principle of inventory files usage: these files are the same for almost</dt>
+<dd><p class="first last">all datasets, so there is a generic variant of such a file. But in reality some cases
+might differ to each other, so there is an option to slightly modify prototype of
+such a file in particular case.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Most part of information in inventory file is part of <cite>annotation pipeline</cite></dt>
+<dd><p class="first">process. The only two information portion is used in Anfisa itself:</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>location of <cite>annotation json file&lt;annotation json files&gt;</cite> as main result</dt>
+<dd>of annotation process, as well as a main source file for dataset in Anfisa</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>supporting documentation for the case, in human readable formats: HTML and PNG,</dt>
+<dd>see the example (i.e. generic content) of inventory file, section “doc” for details.</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Format of inventory is a JSON format with some advanced features:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">//</span></code> comments are available</p>
+</li>
+<li><p class="first">macro replacement schema is supported:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>the macros <code class="docutils literal notranslate"><span class="pre">${DIR}</span></code> and <code class="docutils literal notranslate"><span class="pre">${NAME}</span></code> are  predefined,</dt>
+<dd>as directory path and name of inventory file itself (without extension *.cfg)</dd>
+</dl>
+</li>
+<li>more macro can be defined in “aliases” section</li>
+<li><dl class="first docutils">
+<dt>there is special construction <code class="docutils literal notranslate"><span class="pre">split()</span></code> in “aliases” section that allows</dt>
+<dd>to split alias <cite>${NAME}</cite> to series of other aliases</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>this logic allows us to have just the same content of inventory files for</dt>
+<dd>all datasets, and vary only names of inventory files</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="example-of-inventory-file">
+<h2>Example of inventory file<a class="headerlink" href="#example-of-inventory-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;CASE,PLATFORM,PROJECT&quot;</span><span class="p">:</span> <span class="s2">&quot;split(&#39;$</span><span class="si">{NAME}</span><span class="s2">&#39;, &#39;_&#39;)&quot;</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{NAME}</span><span class="s2">&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;case&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{CASE}</span><span class="s2">&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;assembly&quot;</span><span class="p">:</span> <span class="s2">&quot;GRCh37&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{PLATFORM}</span><span class="s2">&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/config.json&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;fam&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/$</span><span class="si">{CASE}</span><span class="s2">.fam&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;patient-ids&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/samples-$</span><span class="si">{CASE}</span><span class="s2">.csv&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;vcf&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/$</span><span class="si">{NAME}</span><span class="s2">.vcf&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;vep-json&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/$</span><span class="si">{NAME}</span><span class="s2">.vep.json&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;anno-log&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/annotations-$</span><span class="si">{TS}</span><span class="s2">.log&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;a-json&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/$</span><span class="si">{CASE}</span><span class="s2">_anfisa.json.gz&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/docs/notes.html&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Anamnesis&quot;</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/docs/pedigree.png&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;png&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;dest&quot;</span><span class="p">:</span> <span class="s2">&quot;pedigree.html&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Pedigree&quot;</span>
+
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{DIR}</span><span class="s2">/docs/fulldoc.html&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Full documentation&quot;</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="see-also">
+<h3>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../zygocity.html" title="Notes on Zygocity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="a_storage_dir.html" title="storage.dir file format"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

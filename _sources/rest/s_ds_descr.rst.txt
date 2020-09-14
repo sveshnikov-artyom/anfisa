@@ -32,6 +32,8 @@ Format
 |       "**metadata**":  metadata of dataset, *JSON structure*
 |       "**unit-groups**": group names of filtering properties,
 |           ``[`` *list of strings* ``]``
+|       "**cohorts**": *optional* list of cohort names 
+|           ``[`` *list of strings* ``]``
 
 Description
 -----------
@@ -45,7 +47,7 @@ context of two requests:
         details of connection between datasets are required: dataset 
         can be :term:`secondary<secondary workspace>`, so one needs to 
         know base of it. :term:`Root dataset` is defined always, and 
-        for a primary dataset equals to itself.
+        for a :term:`primary dataset` equals to itself.
 
     * :doc:`dsinfo` 
         returns descriptor for one dataset.
