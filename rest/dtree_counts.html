@@ -89,8 +89,8 @@
 <blockquote>
 <div><strong>Delayed evaluations of item counts for decision tree points</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>dtree_counts</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>dtree_counts</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -120,19 +120,11 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The request supports mechanism of delayed evaluation of <a class="reference internal" href="../concepts/status_report.html#dtree-points-report"><span class="std std-ref">decision tree point counters</span></a> in case when the main request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>
-has returned point counts in incomplete state.</p>
-<p><strong>rq_id</strong> argument should be get from result of initiation request.
-Arguments <strong>dtree</strong>, <strong>code</strong>, <strong>no</strong> should be the same as in initiation
-request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>.</p>
-<p><strong>points</strong> argument is list of point indexes that are required to be evaluated.
-Ordering of indexes in list are responsible for priorities of evaluation: first
-entry has highest priority.</p>
-<p>Returning property <strong>point-count</strong> is list of length equal to count of all points
-in tree, and it might contain entries for points not requested by <strong>points</strong> argument.
-On another side, the request can return no new data at all, if evaluation process
-on server continues too long. However, after numerous requests all count descriptors
-will be evaluated in a final time. And the same input argument <strong>rq_id</strong> is
+<p>The request supports mechanism of delayed evaluation of <a class="reference internal" href="../concepts/status_report.html#dtree-points-report"><span class="std std-ref">decision tree point counters</span></a> in case when the main request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a> has returned point counts in incomplete state.</p>
+<p><strong>rq_id</strong> argument should be get from result of initiation request.</p>
+<p>Arguments <strong>dtree</strong>, <strong>code</strong>, <strong>no</strong> should be the same as in initiation request <a class="reference internal" href="dtree_set.html"><span class="doc">dtree_set</span></a>.</p>
+<p><strong>points</strong> argument is list of point indexes that are required to be evaluated. Ordering of indexes in list are responsible for priorities of evaluation: first entry has highest priority.</p>
+<p>Returning property <strong>point-count</strong> is list of length equal to count of all points in tree, and it might contain entries for points not requested by <strong>points</strong> argument. On another side, the request can return no new data at all, if evaluation process on server continues too long. However, after numerous requests all count descriptors will be evaluated in a final time. And the same input argument <strong>rq_id</strong> is
 important for this mechanism.</p>
 </div>
 <div class="section" id="see-also">

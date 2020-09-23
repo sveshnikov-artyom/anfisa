@@ -84,10 +84,8 @@
             
   <div class="section" id="solution-items">
 <h1>Solution items<a class="headerlink" href="#solution-items" title="Permalink to this headline">¶</a></h1>
-<p>Solution items are configurable objects that used by the user in work with system.
-In the current version of the system we support the following kinds of them:</p>
-<blockquote>
-<div><ul>
+<p>Solution items are configurable objects that used by the user in work with system. In the current version of the system we support the following kinds of them:</p>
+<ul>
 <li><p class="first">items with open control, can be pre-set or dynamical</p>
 <blockquote>
 <div><ul class="simple">
@@ -97,58 +95,40 @@ In the current version of the system we support the following kinds of them:</p>
 </div></blockquote>
 </li>
 <li><p class="first">preset items with hidden control</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference internal" href="../glossary.html#term-gene-list"><span class="xref std std-term">gene lists</span></a></li>
-<li>configuration of <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a> and <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tags</span></a></li>
+</li>
 </ul>
+<ul>
+<li><p class="first"><a class="reference internal" href="../glossary.html#term-gene-list"><span class="xref std std-term">gene lists</span></a></p>
+</li>
+<li><p class="first">configuration of <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a> and <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tags</span></a></p>
+</li>
+<li><p class="first">configuration of <a class="reference internal" href="view_pre.html#tabular-view"><span class="std std-ref">tabular partial view presentation</span></a> and <a class="reference internal" href="../rest/csv_export.html"><span class="doc">cvs export</span></a> regimes</p>
+<blockquote>
+<div><p>See details in <a class="reference internal" href="../appcfg/solution_py.html"><span class="doc">Configuration of solution pack API</span></a>.</p>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
-<p>Not all preset items are visible in context of any dataset: there exists internal
-configuration mechanism that hides preset items if applied dataset does not satisfy
-required modes.</p>
+<p>Not all preset items are visible in context of any dataset: there exists internal configuration mechanism that hides preset items if applied dataset does not satisfy required modes.</p>
 <p>Items with open control satisfy the following logic:</p>
-<blockquote>
-<div><ul>
-<li><dl class="first docutils">
-<dt>There are preset items: they are set up in the system configuration, the</dt>
-<dd><p class="first">user can use them and derive operative items starting from them. But the user
-can not modify these items.</p>
-<p class="last">Preset item always have name, and its name starts with special symbol <code class="docutils literal notranslate"><span class="pre">⏚</span></code>,</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Dynamical items: the user can fix a working item (filter, decision tree) as</dt>
-<dd><p class="first">solution one by just setting its name. It is possible also to rename or delete
-dynamical solution item.</p>
-<p>Dynamical items are supported common for all datasets derived from the
-same <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>.</p>
-<p class="last">Note: not all dynamical items are visible in all datasets in the same root node,
-since some of them created for an <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> are
-not good in context of <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a>, so they are invisible there.</p>
-</dd>
-</dl>
-</li>
+<ul class="simple">
+<li>There are preset items: they are set up in the system configuration, the user can use them and derive operative items starting from them. But the user can not modify these items.</li>
 </ul>
-</div></blockquote>
+<p>Preset item always have name, and its name starts with special symbol <code class="docutils literal notranslate"><span class="pre">⏚</span></code>,</p>
+<ul class="simple">
+<li>Dynamical items: the user can fix a working item (filter, decision tree) as solution one by just setting its name. It is possible also to rename or delete dynamical solution item.</li>
+</ul>
+<p>Dynamical items are supported common for all datasets derived from the same <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>.</p>
+<p><em>Note</em>: not all dynamical items are visible in all datasets in the same root node, since some of them created for an <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> are not good in context of <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a>, so they are invisible there.</p>
 <p>There are plans to extend this spectrum in the future versions by the following ways:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>extend spectrum of kinds</li>
 <li>extend control level of existing item kinds from hidden to open one</li>
-<li><dl class="first docutils">
-<dt>form “Solution Pool” as autonomous repository with wide spectrum of different</dt>
-<dd>solution items useful in wide spectrum of contexts</dd>
-</dl>
-</li>
+<li>form “Solution Pool” as autonomous repository with wide spectrum of different solution items useful in wide spectrum of contexts</li>
 </ul>
-</div></blockquote>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="sol_work.html"><span class="doc">Solution items in work</span></a></p>
+<p><a class="reference internal" href="../appcfg/solution_py.html"><span class="doc">Configuration of solution pack API</span></a></p>
 </div>
 </div>
 

@@ -36,7 +36,7 @@
           <a href="storage.html" title="app.storage - Dataset creation and upload"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -45,6 +45,7 @@
   <ul>
 <li><a class="reference internal" href="#">app.adm_mongo - MongoDB storage administration</a><ul>
 <li><a class="reference internal" href="#comments-on-options">Comments on options</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
 </ul>
 </li>
 </ul>
@@ -84,35 +85,16 @@
             
   <div class="section" id="app-adm-mongo-mongodb-storage-administration">
 <h1>app.adm_mongo - MongoDB storage administration<a class="headerlink" href="#app-adm-mongo-mongodb-storage-administration" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">Some kinds of <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">solution items</span></a> are stored in a
-separated storage on the server side, in Mongo DB instance. The
-administration utility app.adm_mongo is used to view, dump, restore and clean up
-this information.</p>
+<p id="index-0">Some kinds of <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">solution items</span></a> are stored in a separated storage on the server side, in Mongo DB instance. The administration utility app.adm_mongo is used to view, dump, restore and clean up this information.</p>
 <p>The system used Mongo DB storage in a very soft ant flexible manner:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>The can be a situation when a dataset is present but not registered on</dt>
-<dd>Mongo DB level; it just means that there is no specific information
-on dataset that was stored in Mongo DB</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Vice versa: there can be a dataset registered in Mongo DB but not present</dt>
-<dd>in the system; it means that a dataset with this name existed some time
-before in the system, some specific information on this dataset was stored
-in Mongo DB, but later the dataset was removed.</dd>
-</dl>
-</li>
+<li>The can be a situation when a dataset is present but not registered on Mongo DB level; it just means that there is no specific information on dataset that was stored in Mongo DB</li>
+<li>Vice versa: there can be a dataset registered in Mongo DB but not present in the system; it means that a dataset with this name existed some time before in the system, some specific information on this dataset was stored in Mongo DB, but later the dataset was removed.</li>
 </ul>
 </div></blockquote>
-<p>In practice, these flexible features of Mongo DB layer are useful. Especially
-in case of re-creation of dataset by new version of data. But sometimes there can
-be a need to make clean up procedure in Mongo DB layer, and the utility provides
-mode <strong>drop</strong> for it.</p>
-<p>The utility output is data of JSON format, or multiple JSON records, one per line.
-In case of use option <strong>–pretty</strong> the output is formally incorrect, so use this
-option only for view purposes.</p>
+<p>In practice, these flexible features of Mongo DB layer are useful. Especially in case of re-creation of dataset by new version of data. But sometimes there can be a need to make clean up procedure in Mongo DB layer, and the utility provides mode <strong>drop</strong> for it.</p>
+<p>The utility output is data of JSON format, or multiple JSON records, one per line. In case of use option <strong>–pretty</strong> the output is formally incorrect, so use this option only for view purposes.</p>
 <p>Here are the options of the utility:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_HOME
 $ python -m app.adm_mongo --help
@@ -135,15 +117,12 @@ optional arguments:
 </div>
 <div class="section" id="comments-on-options">
 <h2>Comments on options<a class="headerlink" href="#comments-on-options" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first"><strong>–config</strong> option: path to <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a></p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–aspects</strong> There are 4 kinds of information that are stored in Mongo DB in the current</dt>
-<dd><p class="first">version of the system. On level of the utility they form <em>aspects</em> of information,
-distinguished by single capital letters:</p>
-<ul class="simple">
+<li><p class="first"><strong>–aspects</strong> There are 4 kinds of information that are stored in Mongo DB in the current version of the system. On level of the utility they form <em>aspects</em> of information, distinguished by single capital letters:</p>
+<blockquote>
+<div><ul class="simple">
 <li><strong>F</strong> - <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a></li>
 <li><strong>D</strong> - <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision trees</span></a></li>
 <li><strong>T</strong> - <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tags</span></a></li>
@@ -152,10 +131,8 @@ distinguished by single capital letters:</p>
 </ul>
 <p>The default value of <strong>–aspects</strong> is <cite>FDT</cite></p>
 <p>Aspects <strong>F</strong>, <strong>D</strong>, <strong>T</strong> are applicable to <a class="reference internal" href="../glossary.html#term-primary-dataset"><span class="xref std std-term">primary datasets</span></a> only.</p>
-<p class="last">Aspect <strong>I</strong> is applicable to any dataset in the system, and it is excluded from the default
-value of <strong>–aspects</strong></p>
-</dd>
-</dl>
+<p>Aspect <strong>I</strong> is applicable to any dataset in the system, and it is excluded from the default value of <strong>–aspects</strong></p>
+</div></blockquote>
 </li>
 <li><p class="first"><strong>–mode</strong></p>
 <blockquote>
@@ -170,16 +147,13 @@ value of <strong>–aspects</strong></p>
 <li><dl class="first docutils">
 <dt><strong>dump</strong></dt>
 <dd><p class="first">Reports contents of Mongo DB correspondent to the determined databases and determined aspects.</p>
-<p class="last">Note: use option <strong>–pretty</strong> for view purposes and do not use this options if you
-need back up data and expect to use output in further <strong>restore</strong> operation(s)</p>
+<p class="last"><em>Note</em>: use option <strong>–pretty</strong> for view purposes and do not use this options if you need back up data and expect to use output in further <strong>restore</strong> operation(s)</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>restore</strong></dt>
-<dd><p class="first">This mode is used either to restore data from back-up, or to populate specific
-information items between datasets. Use empty datasets options in the first case,
-and only the single dataset name in second one.</p>
+<dd><p class="first">This mode is used either to restore data from back-up, or to populate specific information items between datasets. Use empty datasets options in the first case, and only the single dataset name in second one.</p>
 <p>The content of restored data are read from standard input, for example</p>
 <dl class="last docutils">
 <dt>::</dt>
@@ -191,28 +165,22 @@ and only the single dataset name in second one.</p>
 </li>
 <li><dl class="first docutils">
 <dt><strong>drop</strong></dt>
-<dd><p class="first last">The mode just cleans up all data from Mongo DB that corresponds to datasets and
-<strong>–aspect</strong> options</p>
+<dd><p class="first last">The mode just cleans up all data from Mongo DB that corresponds to datasets and <strong>–aspect</strong> options</p>
 </dd>
 </dl>
 </li>
 </ul>
 </div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–pretty</strong> option affects only <strong>dump</strong> mode, and makes output readable, do not use this</dt>
-<dd><p class="first last">option to store in files and further attempts to use <strong>restore</strong> mode</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–pretty</strong> option affects only <strong>dump</strong> mode, and makes output readable, do not use this option to store in files and further attempts to use <strong>restore</strong> mode</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–dry</strong> option, affects only in <strong>restore</strong> mode: does not perform real</dt>
-<dd><p class="first last">restore operation but reports (to standard error stream) on all the changes in data</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–dry</strong> option, affects only in <strong>restore</strong> mode: does not perform real restore operation but reports (to standard error stream) on all the changes in data</p>
 </li>
 </ul>
-</div></blockquote>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="admin.html"><span class="doc">Administration aspects overview</span></a></p>
 </div>
 </div>
 
@@ -235,7 +203,7 @@ and only the single dataset name in second one.</p>
           <a href="storage.html" title="app.storage - Dataset creation and upload"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

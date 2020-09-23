@@ -84,33 +84,15 @@
             
   <div class="section" id="filtration-procedures">
 <h1>Filtration procedures<a class="headerlink" href="#filtration-procedures" title="Permalink to this headline">¶</a></h1>
-<p>Filtration is the most important functionality of the system. A dataset contains many
-<a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> with a lot of associated data, and the system provides filtration
-tools to make effective selection of variants and their <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>.</p>
-<p>There are two types of filtration tools, and both are based on <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a> applied
-to <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a> of variants (or transcripts).</p>
-<p>There is additional mechanism of <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a> which are aggregation information
-objects that are used in conditions like filtering properties if arguments of function
-is properly set.) See <a class="reference internal" href="../rest/func_ref.html"><span class="doc">Filtering functions</span></a> for details and reference.</p>
-<p>Thus conditions on filtering properties and functions are base atomic object of any
-filtration procedure, and any filtration procedure contains then and possibly join them
-somehow.</p>
+<p>Filtration is the most important functionality of the system. A dataset contains many <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> with a lot of associated data, and the system provides filtration tools to make effective selection of variants and their <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>.</p>
+<p>There are two types of filtration tools, and both are based on <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a> applied to <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a> of variants (or transcripts).</p>
+<p>There is additional mechanism of <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a> which are aggregation information objects that are used in conditions like filtering properties if arguments of function is properly set.) See <a class="reference internal" href="../rest/func_ref.html"><span class="doc">Filtering functions</span></a> for details and reference.</p>
+<p>Thus conditions on filtering properties and functions are base atomic object of any filtration procedure, and any filtration procedure contains then and possibly join them somehow.</p>
 <p>Typed of filtration procedures:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">Filter</span></a> is just sequence of (atomic) <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a>, and this sequence</dt>
-<dd>applies to variants(transcripts) one by one, in conjunctional way; so the result condition
-of filter is a join of (atomic) conditions by operator AND</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> is more advanced filtration tool. It allows to combine atomic</dt>
-<dd>conditions by all logical operators AND, OR and NOT and build essentially more
-complex (but good enough for reading and understanding) rules of selection.
-However, the base atomic  conditions used here are the same <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a> as above.</dd>
-</dl>
-</li>
+<li><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">Filter</span></a> is just sequence of (atomic) <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a>, and this sequence applies to variants(transcripts) one by one, in conjunctional way; so the result condition of filter is a join of (atomic) conditions by operator AND</li>
+<li><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> is more advanced filtration tool. It allows to combine atomic conditions by all logical operators AND, OR and NOT and build essentially more complex (but good enough for reading and understanding) rules of selection. However, the base atomic  conditions used here are the same <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a> as above.</li>
 </ul>
 </div></blockquote>
 <div class="section" id="see-also">

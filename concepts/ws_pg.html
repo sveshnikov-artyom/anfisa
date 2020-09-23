@@ -84,13 +84,9 @@
             
   <div class="section" id="workspace-page">
 <h1>Workspace page<a class="headerlink" href="#workspace-page" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">WS-dataset</span></a> page is the most complex of working pages, because it is used
-by the user for the most important goals: to detect single variant (or small number
-of variants) as a final result of dataset analysis, from large (but comparatively
-small, up to some thousands of variants) dataset.</p>
+<p><a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">WS-dataset</span></a> page is the most complex of working pages, because it is used by the user for the most important goals: to detect single variant (or small number of variants) as a final result of dataset analysis, from large (but comparatively small, up to some thousands of variants) dataset.</p>
 <p>The page supports the following functionality issues:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first"><a class="reference internal" href="view.html#full-viewing-regime"><span class="std std-ref">Full viewing regime</span></a> as the main regime</p>
 </li>
 <li><p class="first">Full complex of <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a> with its features:</p>
@@ -98,61 +94,35 @@ small, up to some thousands of variants) dataset.</p>
 <div><ul class="simple">
 <li><a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a></li>
 <li>support <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a> as <a class="reference internal" href="sol_work.html"><span class="doc">Solution items in work</span></a></li>
-<li><dl class="first docutils">
-<dt>the logic of regime requires top detailization of information, so</dt>
-<dd><a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> are used as <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> items
-instead of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a></dd>
-</dl>
-</li>
+<li>the logic of regime requires top detailization of information, so  <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> are used as <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> items instead of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a></li>
 </ul>
 </div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>manual user work with <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> tools to associate variants</dt>
-<dd><p class="first">with tags and notes</p>
-<p class="last">Front End can support tools to navigate the user between variants with fixed tag.
-Take care with these tools: the user can drop tag from variant and might be
-confused by tag navigation response.</p>
-</dd>
-</dl>
+<li><p class="first">manual user work with <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> tools to associate variants with tags and notes</p>
+<blockquote>
+<div><p>Front End can support tools to navigate the user between variants with fixed tag. Take care with these tools: the user can drop tag from variant and might be confused by tag navigation response.</p>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">Zone</span></a> panel that provides “secondary” <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> tool that can be</dt>
-<dd><p class="first last">combined with <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a></p>
-</dd>
-</dl>
+<li><p class="first"><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">Zone</span></a> panel that provides “secondary” <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> tool that can be combined with <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a></p>
 </li>
 <li><p class="first">operation support:</p>
 <blockquote>
 <div><ul class="simple">
 <li>creation of <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a></li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-export"><span class="xref std std-term">Export</span></a> operation: form and provide access to download Excel document</dt>
-<dd>with properties of filtered variants, in case if count of variants is limited
-(up to 300 variants).</dd>
-</dl>
-</li>
+<li><a class="reference internal" href="../glossary.html#term-export"><span class="xref std std-term">Export</span></a> operation: form and provide access to download Excel document with properties of filtered variants, in case if count of variants is limited (up to 300 variants).</li>
 </ul>
 </div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>Special feature of Workspace page: Rules are available in <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a>.</dt>
-<dd><p class="first">Rules is special aggregated <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset property</span></a> that detects what
-<a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a> are positive on the variant.</p>
-<p class="last">This issue closes up long circle of functionality logic: decision trees are
-complex <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a> that can be used for detection
-for variety of properties of variants, so at the WS-dataset working page
-the user can apply all of them to get final result.</p>
-</dd>
-</dl>
+<li><p class="first">Special feature of Workspace page: Rules are available in <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a>. Rules is special aggregated <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset property</span></a> that detects what <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a> are positive on the variant.</p>
+<blockquote>
+<div><p>This issue closes up long circle of functionality logic: decision trees are complex <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a> that can be used for detection for variety of properties of variants, so at the WS-dataset working page the user can apply all of them to get final result.</p>
+</div></blockquote>
 </li>
 </ul>
-</div></blockquote>
 <div class="section" id="rest-api-requests">
 <h2>REST API requests<a class="headerlink" href="#rest-api-requests" title="Permalink to this headline">¶</a></h2>
 <p>For support WS-dataset work page:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference internal" href="../rest/dsinfo.html"><span class="doc">dsinfo</span></a></dt>
 <dd>Dataset information</dd>
@@ -190,7 +160,6 @@ the user can apply all of them to get final result.</p>
 </li>
 <li>see also <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a></li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 

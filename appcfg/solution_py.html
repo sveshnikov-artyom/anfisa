@@ -1,0 +1,300 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Configuration of solution pack API &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration of viewing schema API" href="view_schema_py.html" />
+    <link rel="prev" title="Code configuration layer overview" href="code_config.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="view_schema_py.html" title="Configuration of viewing schema API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="code_config.html" title="Code configuration layer overview"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration of solution pack API</a><ul>
+<li><a class="reference internal" href="#solution-pack-api">Solution Pack API</a></li>
+<li><a class="reference internal" href="#logic-of-solution-item-requirements-for-dataset">Logic of solution item requirements for dataset</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="code_config.html"
+                        title="previous chapter">Code configuration layer overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="view_schema_py.html"
+                        title="next chapter">Configuration of viewing schema API</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/appcfg/solution_py.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuration-of-solution-pack-api">
+<h1>Configuration of solution pack API<a class="headerlink" href="#configuration-of-solution-pack-api" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">This is description of part of API of code configuration layer dealing with <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a>. Here we explain application of this API in the source file</p>
+<p><code class="docutils literal notranslate"><span class="pre">app/config/solution.py</span></code></p>
+<div class="section" id="solution-pack-api">
+<h2>Solution Pack API<a class="headerlink" href="#solution-pack-api" title="Permalink to this headline">¶</a></h2>
+<p>Solution pack is a named collection of named <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a> of various kinds. Solution items are being registered in solution pack with option <strong>requires</strong>: what <em>modes</em> should be hold on dataset to make this item available.</p>
+<p><em>Note</em>: to prevent mistakes in usage of solution items of different types, name of any solution item must be unique between all names of solution items.</p>
+<p>Solution packs should be defined in process before work with any dataset. Creation of dataset is simple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_pack</span> <span class="o">=</span> <span class="n">SolutionPack</span><span class="p">(</span><span class="s2">&quot;CASE&quot;</span><span class="p">)</span>
+
+<span class="c1"># ...</span>
+<span class="c1"># and later, after configuration:</span>
+<span class="n">SolutionPack</span><span class="o">.</span><span class="n">regPack</span><span class="p">(</span><span class="n">base_pack</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instance of class SolutionPack provides the following methods for registering various solution items:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SolutionPack</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">regFilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flt_name</span><span class="p">,</span> <span class="n">cond_seq</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">regDTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree_name</span><span class="p">,</span> <span class="n">fname_seq</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">regItemDict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">the_dict</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">regPanel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">panel_name</span><span class="p">,</span> <span class="n">panel_type</span><span class="p">,</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">items</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">regZone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zone_title</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">regTabSchema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tab_schema</span><span class="p">,</span> <span class="n">requires</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="c1"># Helpers</span>
+
+<span class="k">class</span> <span class="nc">ConditionMaker</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">condNum</span><span class="p">(</span><span class="n">unit_name</span><span class="p">,</span>
+            <span class="n">min_val</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_eq</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">max_val</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_eq</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">condEnum</span><span class="p">(</span><span class="n">unit_name</span><span class="p">,</span> <span class="n">variants</span><span class="p">,</span> <span class="n">join_mode</span> <span class="o">=</span> <span class="s2">&quot;OR&quot;</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">condFunc</span><span class="p">(</span><span class="n">unit_name</span><span class="p">,</span> <span class="n">func_args</span><span class="p">,</span> <span class="n">variants</span><span class="p">,</span> <span class="n">join_mode</span> <span class="o">=</span> <span class="s2">&quot;OR&quot;</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">cfgPathSeq</span><span class="p">(</span><span class="n">seq_file_names</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">cfgPath</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">ReportTabSchema</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">use_tags</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">addField</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">field_path</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">addMustiStrField</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">separator</span><span class="p">,</span> <span class="n">field_path_seq</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="c1"># System configuration callback</span>
+<span class="k">def</span> <span class="nf">completeDsModes</span><span class="p">(</span><span class="n">ds_h</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><em>Remarks</em>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>All functions for registration has the same argument <strong>requires</strong>. If not empty, the value of it should be set of strings, meaning modes that should be hold for dataset to make the redistered item available.</li>
+<li>For two types of solution items, filters and decision tree codes, their names automatically completes with prefix symbol <cite>⏚</cite> to make distinction between these preset items and dynamical ones, see <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a> for detais.</li>
+<li>For two kinds of solution items, decision tree codes and panels definition of item requires file with content. In the the current version of system these files are fixed in repository and located in code subdirectory <code class="docutils literal notranslate"><span class="pre">app/configure/files</span></code>. Extensions for these files are <code class="docutils literal notranslate"><span class="pre">.pyt</span></code> and <code class="docutils literal notranslate"><span class="pre">.lst</span></code> corespondently.</li>
+</ul>
+<p>Helper functions <code class="docutils literal notranslate"><span class="pre">cfgPathSeq()</span></code> and <code class="docutils literal notranslate"><span class="pre">cfgPath()</span></code> are used in code to transform file names of this files to their full path in <code class="docutils literal notranslate"><span class="pre">app/configure/files</span></code> directory, correspondently for list of names and for a single name.</p>
+</div></blockquote>
+<ul>
+<li><p class="first"><strong>regFilter</strong> (self, flt_name, cond_seq, requires = None)</p>
+<blockquote>
+<div><p>Registration of <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> as naming solution item.</p>
+<p><em>Note</em> The name of filter automatically completes with prefix symbol <cite>⏚</cite> to make distinction between these preset items and dynamical ones, see <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">Solution items in work</span></a> for detais.</p>
+<p><em>Example</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_pack</span><span class="o">.</span><span class="n">regFilter</span><span class="p">(</span><span class="s2">&quot;HighConfidence&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="n">ConditionMaker</span><span class="o">.</span><span class="n">condEnum</span><span class="p">(</span><span class="s2">&quot;FT&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;PASS&quot;</span><span class="p">]),</span>
+    <span class="n">ConditionMaker</span><span class="o">.</span><span class="n">condNum</span><span class="p">(</span><span class="s2">&quot;Max_GQ&quot;</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="n">ConditionMaker</span><span class="o">.</span><span class="n">condNum</span><span class="p">(</span><span class="s2">&quot;FS&quot;</span><span class="p">,</span> <span class="n">max_val</span> <span class="o">=</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="n">ConditionMaker</span><span class="o">.</span><span class="n">condNum</span><span class="p">(</span><span class="s2">&quot;QUAL&quot;</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)]</span>
+    <span class="n">requires</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;WS&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Here is a definition and registration of filter with name <code class="docutils literal notranslate"><span class="pre">HighConfidence</span></code> (for users <code class="docutils literal notranslate"><span class="pre">⏚HighConfidence</span></code>) available if mode <code class="docutils literal notranslate"><span class="pre">WS</span></code> is on, i.e. if dataset is a <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a>.</p>
+<p>Content of filter is sequence of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a>, to create a condition one needs to use the helpers in class <code class="docutils literal notranslate"><span class="pre">ConditionMaker</span></code>. The document <a class="reference internal" href="../rest/s_condition.html"><span class="doc">Condition descriptor</span></a> detailed description of another presentation of the same objects, see it for explanation and details.</p>
+<p>Different meaningful filters contain duplication of the same conditions, so in practical application code (in <code class="docutils literal notranslate"><span class="pre">app/config/solution.py</span></code>) lists of conditons are constructed as concatenation of various predefined lists.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>regDTree</strong> (self, tree_name, fname_seq, requires = None)</p>
+<blockquote>
+<div><p>Registration of <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree code</span></a> as naming solution item.</p>
+<p><em>Example</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_pack</span><span class="o">.</span><span class="n">regDTree</span><span class="p">(</span><span class="s2">&quot;Trio Candidates&quot;</span><span class="p">,</span>
+    <span class="n">cfgPathSeq</span><span class="p">([</span><span class="s2">&quot;quality.pyt&quot;</span><span class="p">,</span> <span class="s2">&quot;rare.pyt&quot;</span><span class="p">,</span> <span class="s2">&quot;trio.pyt&quot;</span><span class="p">]),</span>
+    <span class="n">requires</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;trio_base&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Different meaningful decision tree codes contain duplication of the same blocks, so the method provides construction of decision tree from sequence of portions of code.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>regPanel</strong> (self, panel_name, panel_type, fname = None, items = None, requires = None)</p>
+<blockquote>
+<div><p>Registration of panels, in other words <a class="reference internal" href="../glossary.html#term-gene-list"><span class="xref std std-term">gene lists</span></a>. Most panels are used for preparation of panel <a class="reference internal" href="../glossary.html#term-unit"><span class="xref std std-term">units</span></a> (see details in <a class="reference internal" href="flt_schema_py.html"><span class="doc">Configuration of filtration schema API</span></a> the discussion of <strong>panelsUnit()</strong> function).</p>
+<p>Items in panel can be defined either via file name or items directly.</p>
+<p><em>Example</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_pack</span><span class="o">.</span><span class="n">regPanel</span><span class="p">(</span><span class="s2">&quot;ACMG59&quot;</span><span class="p">,</span> <span class="s2">&quot;Symbol&quot;</span><span class="p">,</span>
+    <span class="n">cfgPath</span><span class="p">(</span><span class="s2">&quot;acmg59.lst&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In the current version of system the following types of panels are used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;Symbol&quot;</span></code> panel type is used define sets of gene identifiers</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;_tags&quot;</span></code> panel type is used for panel <code class="docutils literal notranslate"><span class="pre">&quot;Check-Tags&quot;</span></code> to define set of checked <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tags</span></a> (see <a class="reference internal" href="../rest/ws_tags.html"><span class="doc">ws_tags</span></a> for details)</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>regItemDict</strong> (self, name, the_dict, requires = None)</p>
+<blockquote>
+<div><p>Registration of dictionary of items.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>regZone</strong> (self, zone_title, unit_name, requires = None)</p>
+<blockquote>
+<div><p>Registration of <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> as naming solution item</p>
+<p>Unit name must correspond to <a class="reference internal" href="../glossary.html#term-enumerated-property"><span class="xref std std-term">enumerated property</span></a> that presents in dataset. (One “zone” dealing with tags is predefined)</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>regTabSchema</strong> (self, tab_schema, requires = None)</p>
+<blockquote>
+<div><p>Registration of instance of <code class="docutils literal notranslate"><span class="pre">ReportTabSchema</span></code> helper class that defines tabular representation of selected data for records.</p>
+<p>These instances are used in functionality of <a class="reference internal" href="../rest/csv_export.html"><span class="doc">export in CSV format</span></a> and <a class="reference internal" href="../rest/tab_report.html"><span class="doc">representation variant data in tabulated form</span></a>.</p>
+<p>For explanation of paths used in field definitions see <a class="reference internal" href="ajson.html#json-path-loc"><span class="std std-ref">here</span></a></p>
+<p><em>Example</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">csv_tab_schema</span> <span class="o">=</span> <span class="n">ReportTabSchema</span><span class="p">(</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span> <span class="n">use_tags</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">csv_tab_schema</span><span class="o">.</span><span class="n">addField</span><span class="p">(</span><span class="s2">&quot;chromosome&quot;</span><span class="p">,</span> <span class="s2">&quot;/_filters/chromosome&quot;</span><span class="p">)</span>
+<span class="n">csv_tab_schema</span><span class="o">.</span><span class="n">addMustiStrField</span><span class="p">(</span><span class="s2">&quot;variant&quot;</span><span class="p">,</span> <span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s2">&quot;/_filters/chromosome&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/_filters/start&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/_filters/ref&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/_filters/alt&quot;</span><span class="p">])</span>
+<span class="n">base_pack</span><span class="o">.</span><span class="n">regTabSchema</span><span class="p">(</span><span class="n">csv_tab_schema</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="logic-of-solution-item-requirements-for-dataset">
+<h2>Logic of solution item requirements for dataset<a class="headerlink" href="#logic-of-solution-item-requirements-for-dataset" title="Permalink to this headline">¶</a></h2>
+<p id="dataset-modes">The inscance of solution pack is being created on the very start of the service (as well as of <code class="docutils literal notranslate"><span class="pre">../adm/storage</span></code> utility), and then datasets are loaded (resp. created) with usage of this fixed solution pack. But not all solution items are applicable for all datasets, so the logic of requirements is provided.</p>
+<p>On creation of dataset the system determines what modes are applicable for the dataset:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">modes stored in <a class="reference internal" href="ajson.html#metadata-fields"><span class="std std-ref">metadata</span></a> are regisered for dataset</p>
+</li>
+<li><p class="first">modes either <code class="docutils literal notranslate"><span class="pre">WS</span></code> or <code class="docutils literal notranslate"><span class="pre">XL</span></code> are regisered dependently of dataset type</p>
+</li>
+<li><p class="first">mode <code class="docutils literal notranslate"><span class="pre">ZYG</span></code>, if dataset provides information about zygosity of variants (usually yes)</p>
+</li>
+<li><p class="first">the system configuration callback <code class="docutils literal notranslate"><span class="pre">completeDsModes()</span></code> is being evaluated; in case of data schema <cite>CASE</cite> in the current version of the system the following modes can be registered inside this callback (see reference of <a class="reference internal" href="ajson.html#metadata-fields"><span class="std std-ref">metadata fields</span></a> for explanation of terms used below):</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">trio</span></code> if family has at least one sample with both parents in case</li>
+<li><code class="docutils literal notranslate"><span class="pre">trio_pure</span></code> if proband has both parens in case</li>
+<li><code class="docutils literal notranslate"><span class="pre">cohorts</span></code> if cohorts are defined in dataset</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Thus at the very beginning of work with a dataset the lits of its modes is determined, so any solution item is applicable for the dataset if its required modes are all applicable for dataset.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="code_config.html"><span class="doc">Code configuration layer overview</span></a></p>
+<p><a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">Solution items</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="view_schema_py.html" title="Configuration of viewing schema API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="code_config.html" title="Code configuration layer overview"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

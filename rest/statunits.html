@@ -89,8 +89,8 @@
 <blockquote>
 <div><strong>Delayed evaluations for filtering property status data</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>statunits</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>statunits</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -99,9 +99,8 @@
 <p><strong>rq_id</strong>: ID of request series</p>
 <p><strong>filter</strong>: <em>optional</em> name of applying filter</p>
 <dl class="docutils">
-<dt><strong>conditions</strong>: <em>optional</em> list of applying</dt>
-<dd><a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a>
-<em>in JSON string representation</em></dd>
+<dt><strong>conditions</strong>: <em>optional</em> list of applying <a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a></dt>
+<dd><em>in JSON string representation</em></dd>
 </dl>
 <p><strong>dtree</strong>: <em>optional</em> name of applying decision tree</p>
 <p><strong>code</strong>: <em>optional</em> code of applying decision tree</p>
@@ -127,15 +126,9 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Requests of this type initiates <a class="reference internal" href="../concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a>
-and form series of requests initiated by request
-<a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a> or <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a>, see details in references.</p>
-<p><strong>rq_id</strong> argument should be get from result of initiation request.
-Arguments <strong>filter</strong>, <strong>conditions</strong> or <strong>dtree</strong>, <strong>code</strong>, <strong>no</strong>
-should be the same as in initiation request.</p>
-<p>Returning data must contain status report for first property (the first
-entry in <strong>units</strong> as property name), other properties can be not evaluated
-if there is no enough time (see details for argument <strong>tm</strong> in references).</p>
+<p>Requests of this type initiates <a class="reference internal" href="../concepts/status_report.html"><span class="doc">Status report mechanism with delays</span></a> and form series of requests initiated by request <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a> or <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a>, see details in references.</p>
+<p><strong>rq_id</strong> argument should be get from result of initiation request. Arguments <strong>filter</strong>, <strong>conditions</strong> or <strong>dtree</strong>, <strong>code</strong>, <strong>no</strong> should be the same as in initiation request.</p>
+<p>Returning data must contain status report for first property (the first entry in <strong>units</strong> as property name), other properties can be not evaluated if there is no enough time (see details for argument <strong>tm</strong> in references).</p>
 </div>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

@@ -94,58 +94,21 @@
 <h1>Filtering functions<a class="headerlink" href="#filtering-functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Functions are aggregated information items that can be used in <a class="reference internal" href="../concepts/filtration.html"><span class="doc">Filtration procedures</span></a> as well
-as <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a>. Difference between application of an
-<a class="reference internal" href="../glossary.html#term-enumerated-property"><span class="xref std std-term">enumerated property</span></a> and application of a function is in parameters: the
-function requires proper settings for them.</p>
-<p>Up to now all functions behave as <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset property</span></a>: even if result is <code class="docutils literal notranslate"><span class="pre">True</span></code> value,
-there is no reason to keep <code class="docutils literal notranslate"><span class="pre">False</span></code> value of rest of items in dataset (variants or transcripts).</p>
-<p>The list and format of function parameters are specific for the function.
-Each parameter value must be data structure in JSON format.
-So the Front End application needs to handle each function in a specific way.</p>
+<p>Functions are aggregated information items that can be used in <a class="reference internal" href="../concepts/filtration.html"><span class="doc">Filtration procedures</span></a> as well as <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a>. Difference between application of an <a class="reference internal" href="../glossary.html#term-enumerated-property"><span class="xref std std-term">enumerated property</span></a> and application of a function is in parameters: the function requires proper settings for them.</p>
+<p>Up to now all functions behave as <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset property</span></a>: even if result is <code class="docutils literal notranslate"><span class="pre">True</span></code> value, there is no reason to keep <code class="docutils literal notranslate"><span class="pre">False</span></code> value of rest of items in dataset (variants or transcripts).</p>
+<p>The list and format of function parameters are specific for the function. Each parameter value must be data structure in JSON format. So the Front End application needs to handle each function in a specific way.</p>
 <p>The logic of function usage is as following:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt>API requests <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a> and <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a> deliver on the client</dt>
-<dd><a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for all applicable functions. Thus the Front End gets information
-of placement of functions in list of filtering properties, and so called
-environment information for each function.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>The user can select function and set its parameters to build condition; the Front End</dt>
-<dd>needs to support this process with use of environment information</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>When parameters a set, the request <a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a> delivers on the client</dt>
-<dd><a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for this function, with information about available value
-variants. Thus the user can make proper selection of variants and complete
-the condition (see <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> for details of condition format).</dd>
-</dl>
-</li>
+<ul class="simple">
+<li>API requests <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a> and <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a> deliver on the client <a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for all applicable functions. Thus the Front End gets information of placement of functions in list of filtering properties, and so called environment information for each function.</li>
+<li>The user can select function and set its parameters to build condition; the Front End needs to support this process with use of environment information</li>
+<li>When parameters a set, the request <a class="reference internal" href="statfunc.html"><span class="doc">statfunc</span></a> delivers on the client <a class="reference internal" href="s_prop_stat.html"><span class="doc">Property Status structure</span></a> for this function, with information about available value variants. Thus the user can make proper selection of variants and complete the condition (see <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> for details of condition format).</li>
 </ul>
-</div></blockquote>
-<p>Since work with functions is a complex one, there might be additional requirements
-for Front End application to provide support of necessary “short cuts”:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt>function environment should be used to set “standard” configurations of function</dt>
-<dd>parameters;</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>in cases when list of function values is expected (for example if value</dt>
-<dd>is single <code class="docutils literal notranslate"><span class="pre">True</span></code>), these values should be pre-selected in interface
-without extra user click</dd>
-</dl>
-</li>
+<p>Since work with functions is a complex one, there might be additional requirements for Front End application to provide support of necessary “short cuts”:</p>
+<ul class="simple">
+<li>function environment should be used to set “standard” configurations of function parameters;</li>
+<li>in cases when list of function values is expected (for example if value is single <code class="docutils literal notranslate"><span class="pre">True</span></code>), these values should be pre-selected in interface without extra user click</li>
 </ul>
-</div></blockquote>
-<p>Most part of currently available functions implement functionality dealing with
-zygocity properties of variants. See <a class="reference internal" href="../zygocity.html"><span class="doc">Notes on Zygocity</span></a> for explanations</p>
+<p>Most part of currently available functions implement functionality dealing with zygosity properties of variants. See <a class="reference internal" href="../zygosity.html"><span class="doc">Notes on Zygosity</span></a> for explanations</p>
 <p>Examples are given in form of Python dialect used in <a class="reference internal" href="../concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a>.</p>
 </div>
 <div class="section" id="function-reference">
@@ -202,8 +165,7 @@ zygocity properties of variants. See <a class="reference internal" href="../zygo
 <div><code class="docutils literal notranslate"><span class="pre">[&quot;Homozygous</span> <span class="pre">Recessive&quot;,</span> <span class="pre">&quot;X-linked&quot;,</span> <span class="pre">&quot;Autosomal</span> <span class="pre">Dominant&quot;,</span> <span class="pre">&quot;Compensational&quot;]</span></code></div></blockquote>
 </div></blockquote>
 </div></blockquote>
-<p>Function selects variants with <a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">Standard Zygocity Scenarios</span></a>
-if problem group is defined.</p>
+<p>Function selects variants with <a class="reference internal" href="../zygosity.html#standard-zygosity-scenarios"><span class="std std-ref">Standard Zygosity Scenarios</span></a> if problem group is defined.</p>
 <p><strong>Examples</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Inheritance_mode</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;Homozygous Recessive&quot;</span><span class="p">,</span> <span class="s2">&quot;X-linked&quot;</span><span class="p">}</span>
@@ -224,17 +186,8 @@ if problem group is defined.</p>
 <p>Facts useful for debug purposes</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>for fixed problem group variant sets of types <code class="docutils literal notranslate"><span class="pre">&quot;Homozygous</span> <span class="pre">Recessive&quot;</span></code> and</dt>
-<dd><code class="docutils literal notranslate"><span class="pre">&quot;X-linked&quot;</span></code> never intersect; variants from chromosome X present in the first
-set only if there is no a male sample in case</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>for different problem groups variant sets of type <code class="docutils literal notranslate"><span class="pre">&quot;Autosomal</span> <span class="pre">Dominant&quot;</span></code> never</dt>
-<dd>intersect; the same is true for type <code class="docutils literal notranslate"><span class="pre">&quot;Compensational&quot;</span></code></dd>
-</dl>
-</li>
+<li>for fixed problem group variant sets of types <code class="docutils literal notranslate"><span class="pre">&quot;Homozygous</span> <span class="pre">Recessive&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;X-linked&quot;</span></code> never intersect; variants from chromosome X present in the first set only if there is no a male sample in case</li>
+<li>for different problem groups variant sets of type <code class="docutils literal notranslate"><span class="pre">&quot;Autosomal</span> <span class="pre">Dominant&quot;</span></code> never intersect; the same is true for type <code class="docutils literal notranslate"><span class="pre">&quot;Compensational&quot;</span></code></li>
 </ul>
 </div></blockquote>
 <span class="target" id="custom-inheritance"></span></div>
@@ -245,7 +198,7 @@ set only if there is no a male sample in case</dd>
 <div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;custom-inheritance-z&quot;</span></code></p>
 <p><strong>Parameters</strong>:</p>
 <blockquote>
-<div><strong>scenario</strong>, <a class="reference internal" href="../zygocity.html#zygocity-scenario"><span class="std std-ref">scenario</span></a> <em>structure</em></div></blockquote>
+<div><strong>scenario</strong>, <a class="reference internal" href="../zygosity.html#zygosity-scenario"><span class="std std-ref">scenario</span></a> <em>structure</em></div></blockquote>
 <p><strong>Environment properties</strong>:</p>
 </div></blockquote>
 <div class="line-block">
@@ -255,7 +208,7 @@ set only if there is no a male sample in case</dd>
 <blockquote>
 <div><strong>Values</strong>: <code class="docutils literal notranslate"><span class="pre">[&quot;True&quot;]</span></code></div></blockquote>
 </div></blockquote>
-<p>The function selects variants by a fixed <a class="reference internal" href="../zygocity.html#zygocity-scenario"><span class="std std-ref">Zygocity Scenario</span></a>.</p>
+<p>The function selects variants by a fixed <a class="reference internal" href="../zygosity.html#zygosity-scenario"><span class="std std-ref">Zygosity Scenario</span></a>.</p>
 <p>In terms of functionality it is an extension of <a class="reference internal" href="#inheritance-mode"><span class="std std-ref">Inheritance_Mode()</span></a> function.</p>
 <p><strong>Example</strong></p>
 <blockquote>
@@ -266,8 +219,7 @@ set only if there is no a male sample in case</dd>
 </div></blockquote>
 <p><strong>Additional interface requirements</strong>:</p>
 <blockquote>
-<div><p>There should be an easy way to reset <strong>scenario</strong> to one of
-<a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">standard scenarios</span></a> with default problem group.</p>
+<div><p>There should be an easy way to reset <strong>scenario</strong> to one of <a class="reference internal" href="../zygosity.html#standard-zygosity-scenarios"><span class="std std-ref">standard scenarios</span></a> with default problem group.</p>
 <p>The user interface needs to keep check for <code class="docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code> value selection on.</p>
 </div></blockquote>
 <span class="target" id="compound-heterozygous"></span></div>
@@ -277,13 +229,13 @@ set only if there is no a male sample in case</dd>
 <div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;comp-hets&quot;</span></code></p>
 <p><strong>Parameters</strong>:</p>
 <div class="line-block">
-<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
+<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygosity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
 <div class="line"><strong>state</strong>, <em>optional</em> <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state label</span></a>, <em>string</em></div>
 </div>
 <p><strong>Environment properties</strong>:</p>
 <div class="line-block">
 <div class="line"><strong>“trio-variants”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for subject samples of trio, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
-<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygosity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 <div class="line"><strong>labels</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state labels</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 </div>
 <dl class="docutils">
@@ -291,20 +243,12 @@ set only if there is no a male sample in case</dd>
 <dd><em>list</em> equals to <strong>trio-variants</strong> environment property</dd>
 </dl>
 </div></blockquote>
-<p>The function detects <a class="reference internal" href="../zygocity.html#compound-heterozygous"><span class="std std-ref">compound heterozygous</span></a> variants for all trio
-presenting in the <a class="reference internal" href="../glossary.html#term-case"><span class="xref std std-term">case</span></a> of <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. Function is available only if
-(at least one, usually one) trio is included in case, i.e. environment property <strong>trio-variants</strong>
-is nonempty.</p>
-<p>Special notation: if proband is subject of trio, <code class="docutils literal notranslate"><span class="pre">&quot;Proband&quot;</span></code> is used as identifier of trio,
-otherwise trio is identified by id of its subject.</p>
+<p>The function detects <a class="reference internal" href="../zygosity.html#compound-heterozygous"><span class="std std-ref">compound heterozygous</span></a> variants for all trio presenting in the <a class="reference internal" href="../glossary.html#term-case"><span class="xref std std-term">case</span></a> of <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. Function is available only if (at least one, usually one) trio is included in case, i.e. environment property <strong>trio-variants</strong> is nonempty.</p>
+<p>Special notation: if proband is subject of trio, <code class="docutils literal notranslate"><span class="pre">&quot;Proband&quot;</span></code> is used as identifier of trio, otherwise trio is identified by id of its subject.</p>
 <p>Default value for <strong>approx</strong> parameter is the first item in <strong>approx-modes</strong> environment property.</p>
 <p>The parameter <strong>state</strong> can be either <code class="docutils literal notranslate"><span class="pre">null</span></code> or value from <strong>labels</strong> environment property.</p>
-<p>In common context <strong>labels</strong> is empty, and <strong>state</strong> parameter can be only <code class="docutils literal notranslate"><span class="pre">null</span></code> or
-undefined. So the detection procedure is run on the current state of variants filtering
-process.</p>
-<p>Different situation can happen only in case of <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a>, and only if there is
-а definition of label in code <em>before</em> function evaluation. In this case detection procedure
-is run on labeled state (<a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>) of filtering process.</p>
+<p>In common context <strong>labels</strong> is empty, and <strong>state</strong> parameter can be only <code class="docutils literal notranslate"><span class="pre">null</span></code> or undefined. So the detection procedure is run on the current state of variants filtering process.</p>
+<p>Different situation can happen only in case of <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a>, and only if there is а definition of label in code <em>before</em> function evaluation. In this case detection procedure is run on labeled state (<a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree point</span></a>) of filtering process.</p>
 <p><strong>Examples</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Compound_Heterozygous</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Proband</span><span class="p">}</span>
@@ -323,25 +267,22 @@ is run on labeled state (<a class="reference internal" href="../glossary.html#te
 <div><p><strong>sub-type</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;comp-request&quot;</span></code></p>
 <p><strong>Parameters</strong>:</p>
 <div class="line-block">
-<div class="line"><strong>request</strong>, <a class="reference internal" href="../zygocity.html#compound-request"><span class="std std-ref">compound request</span></a> <em>structure</em></div>
-<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
+<div class="line"><strong>request</strong>, <a class="reference internal" href="../zygosity.html#compound-request"><span class="std std-ref">compound request</span></a> <em>structure</em></div>
+<div class="line"><strong>approx</strong>, <em>optional</em> <a class="reference internal" href="../zygosity.html#gene-aproximations"><span class="std std-ref">gene approximation variant</span></a>, <em>string</em></div>
 <div class="line"><strong>state</strong>, <em>optional</em> <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state label</span></a>, <em>string</em></div>
 </div>
 <p><strong>Environment properties</strong>:</p>
 <div class="line-block">
 <div class="line"><strong>“family”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id for all samples in case, first is proband <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 <div class="line"><strong>“affected”</strong>:  <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> id, default problem group <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
-<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygocity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
+<div class="line"><strong>“approx-modes”</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../zygosity.html#gene-aproximations"><span class="std std-ref">gene approximation variants</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 <div class="line"><strong>labels</strong>: <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>list of</em> available <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">decision tree state labels</span></a>, <em>strings</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></div>
 </div>
 <p><strong>Values</strong>: <code class="docutils literal notranslate"><span class="pre">[&quot;True&quot;]</span></code></p>
 </div></blockquote>
-<p>The function evaluates <a class="reference internal" href="../zygocity.html#compound-request"><span class="std std-ref">compound request</span></a>.</p>
-<p>In terms of functionality it is a wide extension of
-<a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> function</p>
-<p>All comments on parameters <strong>approx</strong> and <strong>state</strong>, environment properties
-<strong>approx-modes</strong> and <strong>labels</strong> from function
-<a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> are actual in this context.</p>
+<p>The function evaluates <a class="reference internal" href="../zygosity.html#compound-request"><span class="std std-ref">compound request</span></a>.</p>
+<p>In terms of functionality it is a wide extension of <a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> function</p>
+<p>All comments on parameters <strong>approx</strong> and <strong>state</strong>, environment properties <strong>approx-modes</strong> and <strong>labels</strong> from function <a class="reference internal" href="#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> are actual in this context.</p>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Compound_Request(request = [
@@ -350,16 +291,10 @@ is run on labeled state (<a class="reference internal" href="../glossary.html#te
 </pre></div>
 </div>
 </div></blockquote>
-<p>The example demonstrates realization of Compound_Heterozygous() functionality
-for trio <code class="docutils literal notranslate"><span class="pre">[&quot;bgm9001a1&quot;,</span> <span class="pre">&quot;bgm9001u1&quot;,</span> <span class="pre">&quot;bgm9001u2&quot;]</span></code>.</p>
+<p>The example demonstrates realization of Compound_Heterozygous() functionality for trio <code class="docutils literal notranslate"><span class="pre">[&quot;bgm9001a1&quot;,</span> <span class="pre">&quot;bgm9001u1&quot;,</span> <span class="pre">&quot;bgm9001u2&quot;]</span></code>.</p>
 <p><strong>Additional interface requirements</strong>:</p>
-<blockquote>
-<div><p>There should be an easy way to setup any scenario in request sequence to
-form of any of <a class="reference internal" href="../zygocity.html#standard-zygocity-scenarios"><span class="std std-ref">Standard Zygocity Scenarios</span></a>
-applied to default problem group of the case.
-(See details in discussion of <a class="reference internal" href="#inheritance-mode"><span class="std std-ref">Inheritance_mode()</span></a>)</p>
+<p>There should be an easy way to setup any scenario in request sequence to form of any of <a class="reference internal" href="../zygosity.html#standard-zygosity-scenarios"><span class="std std-ref">Standard Zygosity Scenarios</span></a> applied to default problem group of the case. (See details in discussion of <a class="reference internal" href="#inheritance-mode"><span class="std std-ref">Inheritance_mode()</span></a>)</p>
 <p>The user interface needs to keep check for <code class="docutils literal notranslate"><span class="pre">&quot;True&quot;</span></code> value selection on.</p>
-</div></blockquote>
 </div>
 </div>
 </div>

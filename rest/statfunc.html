@@ -89,8 +89,8 @@
 <blockquote>
 <div><strong>Function filtering support</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>statfunc</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>statfunc</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -98,9 +98,8 @@
 <p><strong>rq_id</strong>: ID of request series</p>
 <p><strong>filter</strong>: <em>optional</em> name of applying filter</p>
 <dl class="docutils">
-<dt><strong>conditions</strong>: <em>optional</em> list of applying</dt>
-<dd><a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a>
-<em>in JSON string representation</em></dd>
+<dt><strong>conditions</strong>: <em>optional</em> list of applying <a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a></dt>
+<dd><em>in JSON string representation</em></dd>
 </dl>
 <p><strong>dtree</strong>: <em>optional</em> name of applying decision tree</p>
 <p><strong>code</strong>: <em>optional</em> code of applying decision tree</p>
@@ -116,22 +115,18 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Request returns status report for <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">function</span></a> applied to
-selection determined by arguments:</p>
-<blockquote>
-<div><ul>
-<li><p class="first">filter applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion
-<a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</p>
+<p>Request returns status report for <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">function</span></a> applied to selection determined by arguments:</p>
+<ul>
+<li><p class="first">filter applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion <a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</p>
 </li>
-<li><p class="first">decision tree applies if either <strong>dtree</strong> or <strong>code</strong> is set (see discussion
-<a class="reference internal" href="../concepts/sol_work.html#dtree-code"><span class="std std-ref">here</span></a>)</p>
-<p>in this case <strong>no</strong> is necessary, since decision tree
-defines series of selections</p>
+<li><p class="first">decision tree applies if either <strong>dtree</strong> or <strong>code</strong> is set (see discussion <a class="reference internal" href="../concepts/sol_work.html#dtree-code"><span class="std std-ref">here</span></a>)</p>
+<blockquote>
+<div><p>in this case <strong>no</strong> is necessary, since decision tree defines series of selections</p>
+</div></blockquote>
 </li>
 <li><p class="first">otherwise selection is the full list of variants in dataset</p>
 </li>
 </ul>
-</div></blockquote>
 <p>See discussion and functions reference in <a class="reference internal" href="func_ref.html"><span class="doc">Filtering functions</span></a>.</p>
 </div>
 <div class="section" id="see-also">

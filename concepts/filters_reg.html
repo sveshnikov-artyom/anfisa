@@ -99,31 +99,18 @@
 <div class="section" id="user-logic">
 <h2>User logic<a class="headerlink" href="#user-logic" title="Permalink to this headline">¶</a></h2>
 <p>Filtering regime is supported in main <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> pages:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>for <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> in <a class="reference internal" href="ws_pg.html"><span class="doc">Workspace page</span></a></li>
 <li>for <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a> in <a class="reference internal" href="xl_pg.html"><span class="doc">XL-dataset work page</span></a>.</li>
 </ul>
-</div></blockquote>
-<p>The principal scenario of this regime is to build <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a>, i.e. sequence
-of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a>.</p>
+<p>The principal scenario of this regime is to build <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a>, i.e. sequence of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a>.</p>
 <p>The principal feature of the regime is as follows:</p>
 <blockquote>
-<div>On each stage the user has complete information for all filtering properties
-values distributions.</div></blockquote>
-<p>This feature is complex one and rather heavy to support, however
-it is very important part of functionality, since it essentially helps the user in
-understanding what is happening in current selection and in keeping control over
-the filtering procedure.</p>
-<p>In simple scenario the user adds conditions to filter one by one in an interactive way,
-and the user interface can guarantee that the resulting filter is built is consistent,
-i.e. it select nonempty set of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> (<a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>).</p>
-<p>Also the user can modify (update) conditions in sequence, and under these circumstances
-there can not be a guaranty in keeping filter consistent. So the user needs to do
-this updates more responsively.</p>
-<p>The regime uses <a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a>. It is critical in case of large dataset, since
-the user can work with data without long delays, in situation where the complete list
-of results of required data evaluations take long time.</p>
+<div>On each stage the user has complete information for all filtering properties values distributions.</div></blockquote>
+<p>This feature is complex one and rather heavy to support, however it is very important part of functionality, since it essentially helps the user in understanding what is happening in current selection and in keeping control over the filtering procedure.</p>
+<p>In simple scenario the user adds conditions to filter one by one in an interactive way, and the user interface can guarantee that the resulting filter is built is consistent, i.e. it select nonempty set of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> (<a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>).</p>
+<p>Also the user can modify (update) conditions in sequence, and under these circumstances there can not be a guaranty in keeping filter consistent. So the user needs to do this updates more responsively.</p>
+<p>The regime uses <a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a>. It is critical in case of large dataset, since the user can work with data without long delays, in situation where the complete list of results of required data evaluations take long time.</p>
 </div>
 <div class="section" id="interface-logic">
 <h2>Interface logic<a class="headerlink" href="#interface-logic" title="Permalink to this headline">¶</a></h2>
@@ -131,44 +118,37 @@ of results of required data evaluations take long time.</p>
 <div class="section" id="control-areas">
 <h3>Control areas<a class="headerlink" href="#control-areas" title="Permalink to this headline">¶</a></h3>
 <p>There are 4 areas on filtering panel:</p>
+<ul>
+<li><p class="first">Units (filtering properties) area</p>
 <blockquote>
-<div><ul class="simple">
-<li>Units (filtering properties) area</li>
-</ul>
-<p>The area is split onto blocks representing one <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering property</span></a> or
-<a class="reference internal" href="../glossary.html#term-filtering-function"><span class="xref std std-term">filtering function</span></a>. Blocks are grouped thematically with common title for group.</p>
-<p>Filtering property block is being rendered with name, title(optional), and information
-of values distribution from property status descriptor (see <a class="reference internal" href="../rest/s_prop_stat.html"><span class="doc">Property Status structure</span></a>).
-It is visible if property status is incomplete.</p>
-<ul class="simple">
-<li>Current condition area</li>
-</ul>
-<p>This area is used for create or update condition for a filtering property and function.
-It looks and behave different for different kind of filtering property or function:
-for numeric properties it is small, for enumerated ones it contains possibly
-large control for variants of values, for functions it might be even more wide
-if parameter settings are complex.</p>
-<ul class="simple">
-<li>Conditions area</li>
-</ul>
-<p>Split on blocks for each condition in current filter. Empty if current filter is empty.</p>
-<ul class="simple">
-<li>Naming area</li>
-</ul>
-<p>The area needs to support load, create, update and delete named filters
-(see <a class="reference internal" href="sol_work.html"><span class="doc">Solution items in work</span></a> for details)</p>
+<div><p>The area is split onto blocks representing one <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering property</span></a> or <a class="reference internal" href="../glossary.html#term-filtering-function"><span class="xref std std-term">filtering function</span></a>. Blocks are grouped thematically with common title for group.</p>
+<p>Filtering property block is being rendered with name, title(optional), and information of values distribution from property status descriptor (see <a class="reference internal" href="../rest/s_prop_stat.html"><span class="doc">Property Status structure</span></a>). It is visible if property status is incomplete.</p>
 </div></blockquote>
+</li>
+<li><p class="first">Current condition area</p>
+<blockquote>
+<div><p>This area is used for create or update condition for a filtering property and function. It looks and behave different for different kind of filtering property or function: for numeric properties it is small, for enumerated ones it contains possibly large control for variants of values, for functions it might be even more wide if parameter settings are complex.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Conditions area</p>
+<blockquote>
+<div><p>Split on blocks for each condition in current filter. Empty if current filter is empty.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Naming area</p>
+<blockquote>
+<div><p>The area needs to support load, create, update and delete named filters (see <a class="reference internal" href="sol_work.html"><span class="doc">Solution items in work</span></a> for details)</p>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="not-ready-controls">
 <h3>Not-ready controls<a class="headerlink" href="#not-ready-controls" title="Permalink to this headline">¶</a></h3>
 <p>There are controls needed to work out various not-ready situations:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">Shadow for the whole Units area</p>
 <blockquote>
-<div><p>In use until request <a class="reference internal" href="../rest/ds_stat.html"><span class="doc">ds_stat</span></a> is not complete. The user sees some shadowed previous
-content of the area but the interface is not responsible for it. (It is possible
-to clear the area, but it might be uncomfortable for the user)</p>
+<div><p>In use until request <a class="reference internal" href="../rest/ds_stat.html"><span class="doc">ds_stat</span></a> is not complete. The user sees some shadowed previous content of the area but the interface is not responsible for it. (It is possible to clear the area, but it might be uncomfortable for the user)</p>
 </div></blockquote>
 </li>
 <li><p class="first">State “Loading information…” for Current condition area</p>
@@ -182,9 +162,7 @@ to clear the area, but it might be uncomfortable for the user)</p>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
-<p>All these features are important only in case of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a> where
-request evaluation might take long time.</p>
+<p>All these features are important only in case of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a> where request evaluation might take long time.</p>
 <div class="section" id="technical-details">
 <h4>Technical details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h4>
 </div>
@@ -192,36 +170,19 @@ request evaluation might take long time.</p>
 <div class="section" id="priority-of-properties-in-status-report-mechanism">
 <h3>Priority of properties in status report mechanism<a class="headerlink" href="#priority-of-properties-in-status-report-mechanism" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div>Priority of properties can be controlled in request <a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a> by
-reordering items in <strong>units</strong> argument. If the user clicks on some property, it should
-be loaded with top priority. Next priority have properties that are visible by the user
-(if the user can scroll Units area). All other properties might be loaded later.</div></blockquote>
+<div>Priority of properties can be controlled in request <a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a> by reordering items in <strong>units</strong> argument. If the user clicks on some property, it should be loaded with top priority. Next priority have properties that are visible by the user (if the user can scroll Units area). All other properties might be loaded later.</div></blockquote>
 </div>
 <div class="section" id="current-selection">
 <h3>Current selection<a class="headerlink" href="#current-selection" title="Permalink to this headline">¶</a></h3>
 <p>Current selection in filtering panel is a synchronized complex of selections:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>filtering property in Current Condition area</li>
 <li>the same filtering property is selected in Units area</li>
-<li><dl class="first docutils">
-<dt>if Conditions area contain conditions using the same</dt>
-<dd>filtering property, one of them is selected; otherwise
-selection in Conditions area is empty</dd>
-</dl>
-</li>
+<li>if Conditions area contain conditions using the same filtering property, one of them is selected; otherwise selection in Conditions area is empty</li>
 </ul>
-</div></blockquote>
-<p>To change selection the user can pick units (filtering properties) as well as
-conditions. If unit is selected, the first condition with this property should
-be selected automatically.</p>
-<p>There is essential difference in setting up Current Condition area by a property
-without existing condition, or by existing condition. In the first case the interface
-can use status property descriptors to guarantee nonempty result of condition being created,
-otherwise only update logic is possible without any guarantee.</p>
-<p>If the user selects a filtering property, and the client does not have its status descriptor
-yet, the Current Condition area needs to keep state “Loading information…” until
-the request <a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a> with the required descriptor is being completed.</p>
+<p>To change selection the user can pick units (filtering properties) as well as conditions. If unit is selected, the first condition with this property should be selected automatically.</p>
+<p>There is essential difference in setting up Current Condition area by a property without existing condition, or by existing condition. In the first case the interface can use status property descriptors to guarantee nonempty result of condition being created, otherwise only update logic is possible without any guarantee.</p>
+<p>If the user selects a filtering property, and the client does not have its status descriptor yet, the Current Condition area needs to keep state “Loading information…” until the request <a class="reference internal" href="../rest/statunits.html"><span class="doc">statunits</span></a> with the required descriptor is being completed.</p>
 </div>
 <div class="section" id="enumerated-properties-in-current-condition-area">
 <h3>Enumerated properties in Current Condition area<a class="headerlink" href="#enumerated-properties-in-current-condition-area" title="Permalink to this headline">¶</a></h3>
@@ -231,33 +192,17 @@ the request <a class="reference internal" href="../rest/statunits.html"><span cl
 <li><p class="first">Join mode. There are 3 possible variant of join mode for enumerated condition:</p>
 <blockquote>
 <div><p>join mode: <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;AND&quot;</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;NOT&quot;</span></code></p>
-<p>Mode <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> is common for most part of conditions, it needs to be either
-pre selected or even hidden to choice.</p>
+<p>Mode <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> is common for most part of conditions, it needs to be either pre selected or even hidden to choice.</p>
 <p>Note also that in case of <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status property</span></a> operation AND is out of sense.</p>
 </div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>Values with zero counts. There can be many variants in list of values that</dt>
-<dd><p class="first">are absent in current filtering selection, and property status descriptor
-contains these values with zero counts. These values should be hidden
-for the user in normal situation.</p>
-<p>But in case where condition over property uses these values, they
-needs to be visible. So checkbox “Show zeros” needs to be provided in
-the user interface to resolve this coincidence.</p>
-<p class="last">One more problem: condition might use variant of value that does not
-present in property status descriptor at all. To work out this situation
-accurately these values need to be added to the rendering list of values,
-with zero counts.</p>
-</dd>
-</dl>
+<li><p class="first">Values with zero counts. There can be many variants in list of values that are absent in current filtering selection, and property status descriptor contains these values with zero counts. These values should be hidden for the user in normal situation.</p>
+<blockquote>
+<div><p>But in case where condition over property uses these values, they needs to be visible. So checkbox “Show zeros” needs to be provided in the user interface to resolve this coincidence.</p>
+<p>One more problem: condition might use variant of value that does not present in property status descriptor at all. To work out this situation accurately these values need to be added to the rendering list of values, with zero counts.</p>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>Long lists. Length of value variants can be very long, especially in case</dt>
-<dd><p class="first last">of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a>. It might cause heavy but worthless
-traffic between the server and client. In future releases we are planning
-to comlexify API for these cases to provide more effective and useful solution.</p>
-</dd>
-</dl>
+<li><p class="first">Long lists. Length of value variants can be very long, especially in case of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a>. It might cause heavy but worthless traffic between the server and client. In future releases we are planning to comlexify API for these cases to provide more effective and useful solution.</p>
 </li>
 </ul>
 </div>
@@ -265,8 +210,7 @@ to comlexify API for these cases to provide more effective and useful solution.<
 <div class="section" id="rest-api-requests">
 <h2>REST API requests<a class="headerlink" href="#rest-api-requests" title="Permalink to this headline">¶</a></h2>
 <p>For support filtering regime:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference internal" href="../rest/ds_stat.html"><span class="doc">ds_stat</span></a></dt>
 <dd>Principal request to support the regime</dd>
@@ -283,7 +227,6 @@ to comlexify API for these cases to provide more effective and useful solution.<
 </dl>
 </li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 

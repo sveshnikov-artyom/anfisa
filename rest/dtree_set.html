@@ -90,8 +90,8 @@
 <blockquote>
 <div><strong>Decision tree page setup</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>dtree_set</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>dtree_set</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -162,61 +162,33 @@
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>The request is the principal one for organizing <a class="reference internal" href="../concepts/dtree_pg.html"><span class="doc">Decision tree work page</span></a> for all <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a>.</p>
-<p>If <strong>dtree</strong> argument is set, <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> with this name should be registered on
-the server side as <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution item</span></a>. Otherwise the argument <strong>code</strong> must
-contain <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree code</span></a>.</p>
+<p>If <strong>dtree</strong> argument is set, <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> with this name should be registered on the server side as <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution item</span></a>. Otherwise the argument <strong>code</strong> must contain <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree code</span></a>.</p>
 <p>If <strong>instr</strong> argument is set (see details in <a class="reference internal" href="s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a>) and instruction
 is of type <code class="docutils literal notranslate"><span class="pre">&quot;DTREE&quot;</span></code>, request modifies decision tree <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution item</span></a>: create, update or
 delete item with given name.</p>
-<p>If <strong>instr</strong> argument is set and instruction is of other types (<code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;POINT&quot;</span></code> <em>or</em>
-<code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code>), the code of decision tree is being modified in request, and returning property
-<strong>code</strong> contains result of modifications. See <a class="reference internal" href="s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for details.</p>
+<p>If <strong>instr</strong> argument is set and instruction is of other types (<code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;POINT&quot;</span></code> <em>or</em> <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code>), the code of decision tree is being modified in request, and returning property <strong>code</strong> contains result of modifications. See <a class="reference internal" href="s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for details.</p>
 <p>Returning properties:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><strong>code</strong>: Decision tree is defined by its code written in a dialect of Python. Returning</dt>
-<dd>property <strong>code</strong> contains actual state of it.</dd>
-<dt><strong>points</strong>: Decision tree splits into sequence of</dt>
-<dd><a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree points</span></a>. Each point sontrols one
-or more lines in Python code, possibly with comment lines. Property <strong>points</strong> contain
-information on them, see <a class="reference internal" href="s_dtree_point.html"><span class="doc">Decision Tree Point descriptor</span></a> for details.</dd>
-<dt><strong>point-counts</strong>: Another portion of information for points, in form of list of</dt>
-<dd><a class="reference internal" href="s_point_count.html"><span class="doc">Decision Tree Point Count descriptor</span></a>. Information can be incomplete, since evaluation of counts
-might be heavy procedure. Input argument <strong>tm</strong> controls the timeout in this case.
-To receive from server rest of counts the client needs to start series of delayed
-request <a class="reference internal" href="dtree_counts.html"><span class="doc">dtree_counts</span></a> using property <strong>rq-id</strong> as input argument.
-See details of this mechanism <a class="reference internal" href="../concepts/status_report.html#dtree-points-report"><span class="std std-ref">here</span></a></dd>
-<dt><strong>cond-atoms</strong>: Point of kind <code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code> contains one or many</dt>
-<dd><p class="first"><a class="reference internal" href="../glossary.html#term-decision-tree-atomic-condition"><span class="xref std std-term">decision tree atomic conditions</span></a>, or in short
-form “atoms”. Atoms are
-active zones in user interface: the user can change atomic condition and it
-causes modification of decision tree of kind <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code></p>
-<p class="last">Atoms are indexed by pair of integers: index of point and index in list of
-point atoms, so property <strong>cond-atoms</strong> is organized as dictionary with
-integer keys(indexes of points of type <code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code>) and values as
-list of <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> structures.</p>
-</dd>
-<dt><strong>labels</strong>: The property contains all <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">state labels</span></a></dt>
-<dd>defined on decision tree, it might be used for rendering purposes.</dd>
-<dt><strong>error</strong>, <strong>line</strong>, <strong>pos</strong>: in case of errors in code of decision tree, these tree</dt>
-<dd>properties refer first error in the code, it might be used in rendering or work with
-code of decision tree</dd>
-</dl>
+<div><p><strong>code</strong>: Decision tree is defined by its code written in a dialect of Python. Returning property <strong>code</strong> contains actual state of it.</p>
+<p><strong>points</strong>: Decision tree splits into sequence of <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">decision tree points</span></a>. Each point sontrols one or more lines in Python code, possibly with comment lines. Property <strong>points</strong> contain information on them, see <a class="reference internal" href="s_dtree_point.html"><span class="doc">Decision Tree Point descriptor</span></a> for details.</p>
+<p><strong>point-counts</strong>: Another portion of information for points, in form of list of <a class="reference internal" href="s_point_count.html"><span class="doc">Decision Tree Point Count descriptor</span></a>. Information can be incomplete, since evaluation of counts might be heavy procedure. Input argument <strong>tm</strong> controls the timeout in this case. To receive from server rest of counts the client needs to start series of delayed request <a class="reference internal" href="dtree_counts.html"><span class="doc">dtree_counts</span></a> using property <strong>rq-id</strong> as input argument. See details of this mechanism <a class="reference internal" href="../concepts/status_report.html#dtree-points-report"><span class="std std-ref">here</span></a></p>
+<p><strong>cond-atoms</strong>: Point of kind <code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code> contains one or many <a class="reference internal" href="../glossary.html#term-decision-tree-atomic-condition"><span class="xref std std-term">decision tree atomic conditions</span></a>, or in short form “atoms”. Atoms are active zones in user interface: the user can change atomic condition and it causes modification of decision tree of kind <code class="docutils literal notranslate"><span class="pre">&quot;ATOM&quot;</span></code></p>
+<blockquote>
+<div>Atoms are indexed by pair of integers: index of point and index in list of point atoms, so property <strong>cond-atoms</strong> is organized as dictionary with integer keys(indexes of points of type <code class="docutils literal notranslate"><span class="pre">&quot;If&quot;</span></code>) and values as list of <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a> structures.</div></blockquote>
+<p><strong>labels</strong>: The property contains all <a class="reference internal" href="../glossary.html#term-decision-tree-state-label"><span class="xref std std-term">state labels</span></a> defined on decision tree, it might be used for rendering purposes.</p>
+<p><strong>error</strong>, <strong>line</strong>, <strong>pos</strong>: in case of errors in code of decision tree, these tree properties refer first error in the code, it might be used in rendering or work with code of decision tree</p>
 <p><strong>eval-status</strong>: property is either <code class="docutils literal notranslate"><span class="pre">&quot;ok&quot;</span></code> or evaluation error report</p>
-<dl class="docutils">
-<dt><strong>dtree-list</strong>: names of all decision trees available for dataset, this properties</dt>
-<dd>supports work with decision tree as <a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">solution item</span></a></dd>
-</dl>
+<p><strong>dtree-list</strong>: names of all decision trees available for dataset, this properties supports work with decision tree as <a class="reference internal" href="../concepts/sol_pack.html"><span class="doc">solution item</span></a></p>
 </div></blockquote>
 </div>
 <div class="section" id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
-<p>The request is partial analogue to <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a>. Both methods are principal for
-support main <a class="reference internal" href="../intro.html#work-pages"><span class="std std-ref">work pages</span></a> for two mechanisms of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> in the system.</p>
+<p>The request is partial analogue to <a class="reference internal" href="ds_stat.html"><span class="doc">ds_stat</span></a>. Both methods are principal for support main <a class="reference internal" href="../intro.html#work-pages"><span class="std std-ref">work pages</span></a> for two mechanisms of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> in the system.</p>
 </div>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="dtree_counts.html"><span class="doc">dtree_counts</span></a>     <a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a></p>
+<p><a class="reference internal" href="dtree_counts.html"><span class="doc">dtree_counts</span></a></p>
+<p><a class="reference internal" href="dtree_stat.html"><span class="doc">dtree_stat</span></a></p>
 <p><a class="reference internal" href="../concepts/status_report.html#dtree-points-report"><span class="std std-ref">Decision tree points counters evaluation with delays</span></a></p>
 <p><a class="reference internal" href="../concepts/dtree_syntax.html"><span class="doc">Decision Tree Syntax Reference</span></a></p>
 </div>

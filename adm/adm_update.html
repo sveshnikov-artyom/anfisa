@@ -36,7 +36,7 @@
           <a href="adm_mongo.html" title="app.adm_mongo - MongoDB storage administration"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -47,6 +47,7 @@
 <li><a class="reference internal" href="#comments-on-options">Comments on options</a></li>
 <li><a class="reference internal" href="#status-of-dataset">Status of dataset</a></li>
 <li><a class="reference internal" href="#example-of-list-output">Example of list output</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
 </ul>
 </li>
 </ul>
@@ -86,27 +87,12 @@
             
   <div class="section" id="adm-update-py-update-secondary-datasets">
 <h1>adm_update.py - Update secondary datasets<a class="headerlink" href="#adm-update-py-update-secondary-datasets" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">The utility is used to update <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspaces</span></a>
-automatically. There are two cases of use for this application:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt>either primary dataset(s) has been changed, and the user needs to update</dt>
-<dd>correspondent secondary dataset(s)</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>or the logic of solutions are being changed, and the user needs to</dt>
-<dd>recreate secondary dataset in an informal way, use <strong>–force</strong> option
-in this case</dd>
-</dl>
-</li>
+<p id="index-0">The utility is used to update <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspaces</span></a> automatically. There are two cases of use for this application:</p>
+<ul class="simple">
+<li>either primary dataset(s) has been changed, and the user needs to update correspondent secondary dataset(s)</li>
+<li>or the logic of solutions are being changed, and the user needs to recreate secondary dataset in an informal way, use <strong>–force</strong> option in this case</li>
 </ul>
-</div></blockquote>
-<p>The logic of utility is based on fact that any secondary dataset keeps inside
-“receipt” of its creation from base dataset. This receipt is either <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a>
-or <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree</span></a>. So procedure of re-creation
-can be evaluated automatically. (See also option <strong>–plainreceipt</strong> for details).</p>
+<p>The logic of utility is based on fact that any secondary dataset keeps inside “receipt” of its creation from base dataset. This receipt is either <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree</span></a>. So procedure of re-creation can be evaluated automatically. (See also option <strong>–plainreceipt</strong> for details).</p>
 <p>Here are the options of the utility:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_HOME
 $ python -m app.adm_update --help
@@ -129,54 +115,23 @@ optional arguments:
 </div>
 <div class="section" id="comments-on-options">
 <h2>Comments on options<a class="headerlink" href="#comments-on-options" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
-<li><dl class="first docutils">
-<dt><strong>–config</strong> (<a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a>) or <strong>–dir</strong> (<a class="reference internal" href="a_storage_dir.html"><span class="doc">storage.dir file format</span></a>), use only</dt>
-<dd><p class="first last">one option from these two, the option <strong>–dir</strong> might be slightly more helpful:
-it allows to detect if primary dataset is outdated comparing to its source</p>
-</dd>
-</dl>
+<ul>
+<li><p class="first"><strong>–config</strong> (<a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a>) or <strong>–dir</strong> (<a class="reference internal" href="a_storage_dir.html"><span class="doc">storage.dir file format</span></a>), use only one option from these two, the option <strong>–dir</strong> might be slightly more helpful: it allows to detect if primary dataset is outdated comparing to its source</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–force</strong> option is applicable for mode <strong>update</strong> if secondary dataset</dt>
-<dd><p class="first last">needs to be re-created by some informal reason</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–force</strong> option is applicable for mode <strong>update</strong> if secondary dataset needs to be re-created by some informal reason</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–plainreceipt</strong> is applicable for mode <strong>update</strong> in case when “receipt” of dataset</dt>
-<dd><p class="first last">creation (either <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree</span></a> is
-a <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">named solution item</span></a>, and content of receipt itself
-might be different to content of current state of solution item. By default, the content
-of solution item has priority over content of receipt, use option <strong>–plainreceipt</strong>
-to change priority to content of receipt itself</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–plainreceipt</strong> is applicable for mode <strong>update</strong> in case when “receipt” of dataset creation (either <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree</span></a> is a <a class="reference internal" href="../concepts/sol_work.html"><span class="doc">named solution item</span></a>, and content of receipt itself might be different to content of current state of solution item. By default, the content of solution item has priority over content of receipt, use option <strong>–plainreceipt</strong> to change priority to content of receipt itself</p>
 </li>
 <li><p class="first"><strong>–mode</strong> Two modes are supported:</p>
 <blockquote>
 <div><ul>
-<li><dl class="first docutils">
-<dt><strong>scan</strong> is default, it detects status of all datasets in <a class="reference internal" href="../glossary.html#term-vault"><span class="xref std std-term">vault</span></a> and print</dt>
-<dd><p class="first last">this as list, see status explanations and example below</p>
-</dd>
-</dl>
+<li><p class="first"><strong>scan</strong> is default, it detects status of all datasets in <a class="reference internal" href="../glossary.html#term-vault"><span class="xref std std-term">vault</span></a> and print this as list, see status explanations and example below</p>
 </li>
 <li><p class="first"><strong>update</strong> updates dataset(s)</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>if option <strong>–force</strong> is off, the utility mode updates a dataset if its base</dt>
-<dd>dataset has  been updated, dependency logic is taken in account as in “make”
-utilities</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>if option <strong>–force</strong> is on, there should be explicit list of dataset name(s)</dt>
-<dd>to perform update operation</dd>
-</dl>
-</li>
+<li>if option <strong>–force</strong> is off, the utility mode updates a dataset if its base dataset has  been updated, dependency logic is taken in account as in “make” utilities</li>
+<li>if option <strong>–force</strong> is on, there should be explicit list of dataset name(s) to perform update operation</li>
 </ul>
 </div></blockquote>
 </li>
@@ -184,35 +139,19 @@ utilities</dd>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="status-of-dataset">
 <h2>Status of dataset<a class="headerlink" href="#status-of-dataset" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">OK</span></code> - dataset is OK, no update needs</li>
 <li><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> - dataset needs to be updated because its base dataset was updated or recreated</li>
 <li><code class="docutils literal notranslate"><span class="pre">UPDATE+</span></code> - dataset needs to be updated but only after update of its base dataset</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">NO-SOURCE</span></code> - the source of primary dataset is absent,</dt>
-<dd>might appear only with <strong>–dir</strong> option</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">PRIMARY-OUT-OF-DATE</span></code> - the source of primary dataset newer than dataset,</dt>
-<dd>use <a class="reference internal" href="storage.html"><span class="doc">app.storage - Dataset creation and upload</span></a> to re-create it with fresh data,
-might appear only with <strong>–dir</strong> option</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">BLOCKED</span></code> - there is no possibility to update dataset properly, possibly</dt>
-<dd>intermediate dataset between it and root has been removed</dd>
-</dl>
-</li>
+<li><code class="docutils literal notranslate"><span class="pre">NO-SOURCE</span></code> - the source of primary dataset is absent, might appear only with <strong>–dir</strong> option</li>
+<li><code class="docutils literal notranslate"><span class="pre">PRIMARY-OUT-OF-DATE</span></code> - the source of primary dataset newer than dataset, use <a class="reference internal" href="storage.html"><span class="doc">app.storage - Dataset creation and upload</span></a> to re-create it with fresh data, might appear only with <strong>–dir</strong> option</li>
+<li><code class="docutils literal notranslate"><span class="pre">BLOCKED</span></code> - there is no possibility to update dataset properly, possibly intermediate dataset between it and root has been removed</li>
 <li><code class="docutils literal notranslate"><span class="pre">HEAVY-BLOCK</span></code> - some kind of heavy problems of dependencies between datasets</li>
 <li><code class="docutils literal notranslate"><span class="pre">BAD</span></code> - dataset state is bad (just remove it from the vault, it is out of use)</li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="example-of-list-output">
 <h2>Example of list output<a class="headerlink" href="#example-of-list-output" title="Permalink to this headline">¶</a></h2>
@@ -220,17 +159,8 @@ might appear only with <strong>–dir</strong> option</dd>
 <blockquote>
 <div><ul class="simple">
 <li>status of dataset</li>
-<li><dl class="first docutils">
-<dt>information for receipt: in case of filter it is number of conditions in filter,</dt>
-<dd>in case of decision tree number of instructions in decision tree code;
-name of receipt, if receipt is a named solution</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>dependency path between dataset and its root, contains <code class="docutils literal notranslate"><span class="pre">?</span></code> symbols if</dt>
-<dd>some dataset in this path has been removed</dd>
-</dl>
-</li>
+<li>information for receipt: in case of filter it is number of conditions in filter, in case of decision tree number of instructions in decision tree code; name of receipt, if receipt is a named solution</li>
+<li>dependency path between dataset and its root, contains <code class="docutils literal notranslate"><span class="pre">?</span></code> symbols if some dataset in this path has been removed</li>
 </ul>
 </div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m app.adm_update
@@ -247,6 +177,11 @@ name of receipt, if receipt is a named solution</dd>
                         &gt;receipt kind: dtree name: ⏚BGM Research d-count: 34
 </pre></div>
 </div>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="admin.html"><span class="doc">Administration aspects overview</span></a></p>
+<p><a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a></p>
 </div>
 </div>
 
@@ -269,7 +204,7 @@ name of receipt, if receipt is a named solution</dd>
           <a href="adm_mongo.html" title="app.adm_mongo - MongoDB storage administration"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -88,7 +88,7 @@
   <div class="section" id="dataset-descriptor-structure">
 <h1>Dataset Descriptor structure<a class="headerlink" href="#dataset-descriptor-structure" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="format">
-<h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">{</span></code> <em>dictionary</em>,</div>
 <div class="line-block">
@@ -142,18 +142,11 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The descriptor represents information about <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. It is used in
-context of two requests:</p>
-<blockquote>
-<div><ul class="simple">
+<p>The descriptor represents information about <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. It is used in context of two requests:</p>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference internal" href="dirinfo.html"><span class="doc">dirinfo</span></a></dt>
-<dd>returns collection of  descriptors
-of all active datasets in the <a class="reference internal" href="../glossary.html#term-vault"><span class="xref std std-term">vault</span></a>. In this context
-details of connection between datasets are required: dataset
-can be <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary</span></a>, so one needs to
-know base of it. <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">Root dataset</span></a> is defined always, and
-for a <a class="reference internal" href="../glossary.html#term-primary-dataset"><span class="xref std std-term">primary dataset</span></a> equals to itself.</dd>
+<dd>returns collection of  descriptors of all active datasets in the <a class="reference internal" href="../glossary.html#term-vault"><span class="xref std std-term">vault</span></a>. In this context details of connection between datasets are required: dataset can be <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary</span></a>, so one needs to know base of it. <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">Root dataset</span></a> is defined always, and for a <a class="reference internal" href="../glossary.html#term-primary-dataset"><span class="xref std std-term">primary dataset</span></a> equals to itself.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
@@ -163,15 +156,11 @@ In this case descriptor contains details about metadata.</dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
-<p>Descriptor provides reference <strong>doc</strong> to <a class="reference internal" href="../glossary.html#term-dataset-documentation"><span class="xref std std-term">dataset documentation</span></a>, and if
-base dataset exists, reference to documentation for all <strong>ancestors</strong> if they are
-present in the vault.</p>
+<p>Descriptor provides reference <strong>doc</strong> to <a class="reference internal" href="../glossary.html#term-dataset-documentation"><span class="xref std std-term">dataset documentation</span></a>, and if base dataset exists, reference to documentation for all <strong>ancestors</strong> if they are present in the vault.</p>
 </div>
 <div class="section" id="comment">
 <h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
-<p>Important part of metadata is list of versions of sources used in dataset
-annotation. It is located in <strong>metadata</strong> returning property:</p>
+<p>Important part of metadata is list of versions of sources used in dataset annotation. It is located in <strong>metadata</strong> returning property:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">[&quot;versions&quot;]:</span> <span class="pre">{</span></code> <em>dictionary</em></div>
 <div class="line-block">

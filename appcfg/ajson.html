@@ -1,0 +1,229 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Annotated JSON file format overview &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="List conversion mechanism" href="list_conv.html" />
+    <link rel="prev" title="Tuning filtration schema API" href="flt_tune_py.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="list_conv.html" title="List conversion mechanism"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="flt_tune_py.html" title="Tuning filtration schema API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Annotated JSON file format overview</a><ul>
+<li><a class="reference internal" href="#metadata-fields">Metadata fields</a></li>
+<li><a class="reference internal" href="#variant-data-structure">Variant data structure</a></li>
+<li><a class="reference internal" href="#location-path-notation-in-json-variant-annotation">Location path notation in JSON variant annotation</a></li>
+<li><a class="reference internal" href="#fixed-paths">Fixed paths</a></li>
+<li><a class="reference internal" href="#modifications-in-annotated-json-record">Modifications in annotated JSON record</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="flt_tune_py.html"
+                        title="previous chapter">Tuning filtration schema API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list_conv.html"
+                        title="next chapter">List conversion mechanism</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/appcfg/ajson.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="annotated-json-file-format-overview">
+<h1>Annotated JSON file format overview<a class="headerlink" href="#annotated-json-file-format-overview" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Annotated JSON file is result of <a class="reference internal" href="../glossary.html#term-annotation-pipeline"><span class="xref std std-term">annotation pipeline</span></a> and is the principal
+source of data for a dataset. Usually it is archived by gzip or bzip2 because of its large size.</p>
+<p>The file consists of text lines, each line is JSON record. The first record represents
+dataset metadata, next lines represent <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> of dataset. Usually variant data
+is long: kilobytes and more. Variants are sorted by chromosome/position, and this
+order defines order of variants in dataset <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a>.</p>
+<p>Here is not complete description of annotated JSON format, we discuss here general structure
+of it and features that are essential for Anfisa functionality.</p>
+<div class="section" id="metadata-fields">
+<span id="id1"></span><h2>Metadata fields<a class="headerlink" href="#metadata-fields" title="Permalink to this headline">¶</a></h2>
+<p>Metadata is represented in JSON as dictionary, and the following fields are essential for
+proper setup of dataset in Anfisa:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>“record_type”</strong>, always <code class="docutils literal notranslate"><span class="pre">&quot;metadata&quot;</span></code></li>
+<li><strong>“case”</strong>, name of case</li>
+<li><strong>“data_schema”</strong>, kind of data schema, determines variant of logic for preparation and    configuration of dataset, in the current version only <code class="docutils literal notranslate"><span class="pre">&quot;CASE&quot;</span></code> is supported</li>
+<li><strong>“modes”</strong>, <em>list</em> of modes of data, the the current version of the system only two modes are supported, and determine which base reference is used in dataset: either <code class="docutils literal notranslate"><span class="pre">&quot;hg38&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;hg19&quot;</span></code></li>
+<li><strong>“samples”</strong>, <em>dictionary</em> representing information about samples in family: identifier, name, sex, if affected, and relations between samples</li>
+<li><strong>“proband”</strong>, identifier of proband in <strong>“samples”</strong> structure (proband must be always affected)</li>
+<li><strong>“versions”</strong>, <em>dictionary</em> representing versions of sources used in annotation process</li>
+<li><strong>“cohorts”</strong>, <em>list</em>, usually empty; in case if <a class="reference internal" href="../glossary.html#term-cohort"><span class="xref std std-term">cohorts</span></a> present, defines distribution of samples to cohorts</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="variant-data-structure">
+<h2>Variant data structure<a class="headerlink" href="#variant-data-structure" title="Permalink to this headline">¶</a></h2>
+<p>Data for a variant is represented in JSON as dictionary with the following top blocks:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>“record_type”</strong>, always <code class="docutils literal notranslate"><span class="pre">&quot;metadata&quot;</span></code></p>
+</li>
+<li><p class="first"><strong>“_view”</strong>, <em>dictionary</em> representing data used for “<a class="reference internal" href="../concepts/view_pre.html#accurate-vs-technical"><span class="std std-ref">accurate presentation part</span></a>” of <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a></p>
+<blockquote>
+<div><p>“_view” dictionary is container of dictionaries, one per “accurate” <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>“_filtration”</strong>, <em>dictionary</em> representing (most part of) data used for <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a></p>
+<blockquote>
+<div><p>“_filtration” dictionary is container of data items, each one of these items forms content of <a class="reference internal" href="../glossary.html#term-unit"><span class="xref std std-term">unit</span></a> property fields</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>“__data”</strong>, <em>dictionary</em> representing “<a class="reference internal" href="../concepts/view_pre.html#accurate-vs-technical"><span class="std std-ref">technical presentation part</span></a>” of <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a></p>
+<blockquote>
+<div><p>“__Data” dictionary is container of fields represented in <cite>“_main”</cite> technical <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspect</span></a>, but some fields in the dictionary can form separated technical aspects (usually multi-column ones and “VCF”)</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Thus, the blocks <strong>“_view”</strong> and <strong>“__data”</strong> are prepared for functionality of <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a>, and the functionality of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> is covered preferably by block <strong>“_filtration”</strong>, but can use other blocks of data.</p>
+</div>
+<div class="section" id="location-path-notation-in-json-variant-annotation">
+<span id="json-path-loc"></span><h2>Location path notation in JSON variant annotation<a class="headerlink" href="#location-path-notation-in-json-variant-annotation" title="Permalink to this headline">¶</a></h2>
+<p>To locate data inside JSON structure the following path notation is used:</p>
+<blockquote>
+<div><ul class="simple">
+<li>any full path notation starts with <code class="docutils literal notranslate"><span class="pre">/</span></code>, it means that location points to root of JSON annotation</li>
+<li>next blocks in notation are read from left to right and means move of location inside blocks of data</li>
+<li>block <code class="docutils literal notranslate"><span class="pre">&lt;identifier&gt;/</span></code> means move of location to identified field inside dictionary</li>
+<li>block <code class="docutils literal notranslate"><span class="pre">[]</span></code> means that current point of location is a list, and moves location to elements of this list</li>
+<li>relative path notation is equal to join of base path, symbol ‘/’ and relative path, usually relative path is simple and contains only <code class="docutils literal notranslate"><span class="pre">&lt;identifier&gt;</span></code></li>
+</ul>
+</div></blockquote>
+<p><em>Examples of full paths</em>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">&quot;/_view/bioinformatics/called_by[]&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;/__data/transcript_consequences[]&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;/_filters/dist_from_exon_worst&quot;</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="fixed-paths">
+<h2>Fixed paths<a class="headerlink" href="#fixed-paths" title="Permalink to this headline">¶</a></h2>
+<p>The current version of the system assumes that information for <a class="reference internal" href="../zygosity.html"><span class="doc">zygosity</span></a> and <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> correspondently are located in annotated JSON record by the following paths:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">/__data/zygosity</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/_view/transcripts</span></code></p>
+</div></blockquote>
+<p>All other paths in use are subject of <a class="reference internal" href="code_config.html"><span class="doc">configuration</span></a>.</p>
+</div>
+<div class="section" id="modifications-in-annotated-json-record">
+<h2>Modifications in annotated JSON record<a class="headerlink" href="#modifications-in-annotated-json-record" title="Permalink to this headline">¶</a></h2>
+<p id="ajson-modifications">On creation of dataset the JSON annotated variant record is being modifying by the following logic features of preparation process:</p>
+<ul>
+<li><p class="first">The following fields are created (processed from deeper information inside JSON record) and are put in top level dictionary and are used in the system for navigation purposes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;_label&quot;</span></code> - visualization label of variant, visible in list of variants</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;_color&quot;</span></code> - color indication of variant significance</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;_key&quot;</span></code> - unique identifier of variant (used in <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> mechanism support for identification of records)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;_rand&quot;</span></code> - random integer, used for random variant sampling (<a class="reference internal" href="../concepts/view.html#auxiliary-viewing-regime"><span class="std std-ref">auxiliary viewing regime</span></a>)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="flt_schema_py.html"><span class="doc">Configuration of filtration schema API</span></a> logic allows to configure:</p>
+<blockquote>
+<div><ul class="simple">
+<li>additional <a class="reference internal" href="flt_schema_py.html#flt-pre-tranform"><span class="std std-ref">pre-tranformations</span></a> of record</li>
+<li>creation of constrained <a class="reference internal" href="flt_schema_py.html#flt-unit-view"><span class="std std-ref">panels units</span></a> and <a class="reference internal" href="flt_schema_py.html#post-unit-view"><span class="std std-ref">transcript panels unit</span></a> might require to store result of evaluation inside annotated JSON record</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="code_config.html"><span class="doc">Code configuration layer overview</span></a></p>
+<p><a class="reference internal" href="../adm/admin.html"><span class="doc">Administration aspects overview</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="list_conv.html" title="List conversion mechanism"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="flt_tune_py.html" title="Tuning filtration schema API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

@@ -89,9 +89,9 @@
 <blockquote>
 <div><strong>Tagging variant information retrieval and modifications</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p id="index-0"><strong>Arguments</strong>:</p>
+<div><p><strong>Arguments</strong>:</p>
 <blockquote>
 <div><p><strong>ds</strong>: dataset name</p>
 <p id="index-1"><strong>rec</strong>: variant record ordering number, <em>int</em></p>
@@ -135,56 +135,35 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The request affects only <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and is principal one
-for rendering and modifications of variant tagging.</p>
+<p>The request affects only <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and is principal one for rendering and modifications of variant tagging.</p>
 <p>Tagging mechanism in the system organized by the following principles</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">The user can mark any variant in <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> with tags</p>
 </li>
 <li><p class="first">Any tag is identified by its name and probably has some value</p>
 </li>
-<li><dl class="first docutils">
-<dt>Preset list of tags are interpreted as check-box tags, value for such</dt>
-<dd><p class="first last">tags is <em>boolean</em>, by default <em>false</em></p>
-</dd>
-</dl>
-<p>(The client receives this information in returning property <strong>check-tags</strong>)</p>
+<li><p class="first">Preset list of tags are interpreted as check-box tags, value for such tags is <em>boolean</em>, by default <em>false</em></p>
+<blockquote>
+<div><p>(The client receives this information in returning property <strong>check-tags</strong>)</p>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>Special tag has name <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>. This tag is associated with variant</dt>
-<dd><p class="first last">if and only if value of it is nonempty text</p>
-</dd>
-</dl>
+<li><p class="first">Special tag has name <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>. This tag is associated with variant if and only if value of it is nonempty text</p>
 </li>
-<li><dl class="first docutils">
-<dt>Other tags are interpreted as “text” tags, he user can mark variants</dt>
-<dd><p class="first last">by this tag of this kind with text value, and text value can be empty</p>
-</dd>
-</dl>
+<li><p class="first">Other tags are interpreted as “text” tags, he user can mark variants by this tag of this kind with text value, and text value can be empty</p>
 </li>
-<li><dl class="first docutils">
-<dt>Name of any tag (but <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>) must start with any letter (“alpha”)</dt>
-<dd><p class="first">symbol (any alphabet) and must not contain spaces; in terms of Java Script
-the criterium is as follows:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span>/^\S+$/u.test(name) &amp;&amp; (name[0].toLowerCase() != name[0].toUpperCase())
+<li><p class="first">Name of any tag (but <code class="docutils literal notranslate"><span class="pre">&quot;_note&quot;</span></code>) must start with any letter (“alpha”) symbol (any alphabet) and must not contain spaces; in terms of Java Script the criterium is as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/^\S+$/u.test(name) &amp;&amp; (name[0].toLowerCase() != name[0].toUpperCase())
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>Tags of variant is common between presences of variant in all datasets produced</dt>
-<dd><p class="first">from the same <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>. So the system controls state of tagging values
-for all variants of root dataset, and traces where and when last modification of
-this common state was made. Information about this state can be changed outside
-the client session. The client receives this information in properties:</p>
-<blockquote class="last">
+<li><p class="first">Tags of variant is common between presences of variant in all datasets produced from the same <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>. So the system controls state of tagging values for all variants of root dataset, and traces where and when last modification of this common state was made. Information about this state can be changed outside the client session. The client receives this information in properties:</p>
+<blockquote>
 <div><ul class="simple" id="tags-state">
 <li><dl class="first docutils">
 <dt><strong>tags-state</strong></dt>
-<dd>Is some internal indicator value, <em>int</em> or <em>string</em>; if tag state
-is changing this indicator changes with it</dd>
+<dd>Is some internal indicator value, <em>int</em> or <em>string</em>; if tag state is changing this indicator changes with it</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
@@ -194,29 +173,24 @@ is changing this indicator changes with it</dd>
 </li>
 <li><dl class="first docutils">
 <dt><strong>op-tags</strong></dt>
-<dd>is just list of all “text” tags available; this information can also
-change with tag state</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</dd>
+<dd>is just list of all “text” tags available; this information can also change with tag state</dd>
 </dl>
 </li>
 </ul>
 <p>Tag structure modifications are performed by the following scenario:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>The client receives tags structure for variant in <strong>rec_tags</strong> property</li>
 <li>The client modifies this structure</li>
 <li>The client sends the modified copy as argument <strong>tags</strong> of the request</li>
 </ul>
 </div></blockquote>
-</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="tag_select.html"><span class="doc">tag_select</span></a>, <a class="reference internal" href="macro_tagging.html"><span class="doc">macro_tagging</span></a></p>
+<p><a class="reference internal" href="tag_select.html"><span class="doc">tag_select</span></a></p>
+<p><a class="reference internal" href="macro_tagging.html"><span class="doc">macro_tagging</span></a></p>
 </div>
 </div>
 

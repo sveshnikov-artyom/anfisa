@@ -167,35 +167,22 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The data structure represents complete information sufficient for render
-full presentation of a variant in <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">Viewing regime</span></a>.
-See also <a class="reference internal" href="../concepts/view.html"><span class="doc">Viewing regimes</span></a></p>
-<p>Full information is split onto series of <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a>.
-Aspect usually has form of table. In simple cases table contains two columns,
-for title and contents of properties. One special aspect represents
-raw data in VCF format, so has form of preformatted text.</p>
-<p>It is supposed that technical aspects (kind=”tech”) contain information
-in more raw form and are useful for deep studies.</p>
-<p>Table aspect information is prepared for rendering tables in HTML. Information
-is split onto rows with fixed length. Left column is control one and contains property titles.
-Minimal column count is 1, it means one column for titles and one for values.</p>
+<p>The data structure represents complete information sufficient for render full presentation of a variant in <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">Viewing regime</span></a>. See also <a class="reference internal" href="../concepts/view.html"><span class="doc">Viewing regimes</span></a></p>
+<p>Full information is split onto series of <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a>. Aspect usually has form of table. In simple cases table contains two columns, for title and contents of properties. One special aspect represents raw data in VCF format, so has form of preformatted text.</p>
+<p>It is supposed that technical aspects (kind=”tech”) contain information in more raw form and are useful for deep studies.</p>
+<p>Table aspect information is prepared for rendering tables in HTML. Information is split onto rows with fixed length. Left column is control one and contains property titles. Minimal column count is 1, it means one column for titles and one for values.</p>
 <p>For complex aspect tables column structure can contain groups of columns with common title.</p>
 <p>Row can have tooltip.</p>
 <div class="section" id="markup-details">
 <h3>Markup details<a class="headerlink" href="#markup-details" title="Permalink to this headline">¶</a></h3>
-<p>Most part of aspects represent data by <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> with two columns with title and
-value of property.</p>
+<p>Most part of aspects represent data by <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> with two columns with title and value of property.</p>
 <blockquote>
 <div><p>Exceptions are:</p>
 <ul>
-<li><dl class="first docutils">
-<dt>Some aspects provide multiple value columns:: Quality, VEP Transcripts,</dt>
-<dd><p class="first">Colocated Variants and Cohorts;</p>
-<p class="last">Value columns in aspects VEP Transcripts and Cohorts are grouped, so
-the table for these aspects has header title row with joined cells and
-titles of groups, and also contain counters for rows.</p>
-</dd>
-</dl>
+<li><p class="first">Some aspects provide multiple value columns:: Quality, VEP Transcripts, Colocated Variants and Cohorts;</p>
+<blockquote>
+<div><p>Value columns in aspects VEP Transcripts and Cohorts are grouped, so the table for these aspects has header title row with joined cells and titles of groups, and also contain counters for rows.</p>
+</div></blockquote>
 </li>
 <li><p class="first">Aspect VCF represent data by <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code> in preformatted text form.</p>
 </li>
@@ -212,9 +199,7 @@ titles of groups, and also contain counters for rows.</p>
 </div>
 <div class="section" id="aspect-vep-transcripts">
 <h3>Aspect VEP Transcripts<a class="headerlink" href="#aspect-vep-transcripts" title="Permalink to this headline">¶</a></h3>
-<p>The aspect visualizes <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> data, and transcripts are
-subjects of filtering, so rendering of this aspect actively interacts
-with the user interface in  context of <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">WS-dataset</span></a>.</p>
+<p>The aspect visualizes <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> data, and transcripts are subjects of filtering, so rendering of this aspect actively interacts with the user interface in  context of <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">WS-dataset</span></a>.</p>
 <p>Columns representing filtered (selected) transcripts are highlighted: all cells
 in these columns are marked by CSS class <code class="docutils literal notranslate"><span class="pre">hit</span></code>. (The correspondent header joined
 cell is marked by class <code class="docutils literal notranslate"><span class="pre">hit</span></code> too).</p>
@@ -252,12 +237,9 @@ select all cells that are to hide or to show.</p>
 <h3>Aspect Cohorts<a class="headerlink" href="#aspect-cohorts" title="Permalink to this headline">¶</a></h3>
 <p>The aspect Cohorts is special one and appears only for special datasets with
 cohorts of patients and no exact proband sample.</p>
-<p>Usually dataset with cohorts includes very many samples, and it is important to
-visualize only necessary cohorts and hide others.</p>
-<p>For this purpose all cells representing a cohort with name <code class="docutils literal notranslate"><span class="pre">&lt;cohort</span> <span class="pre">name&gt;</span></code>
-are marked by class with name <code class="docutils literal notranslate"><span class="pre">cohort_&lt;cohort</span> <span class="pre">name&gt;</span></code>.</p>
-<p>So the Front End can provide functionality of hide/show cohorts based on selection
-of cell elements with a determined CSS class.</p>
+<p>Usually dataset with cohorts includes very many samples, and it is important to visualize only necessary cohorts and hide others.</p>
+<p>For this purpose all cells representing a cohort with name <code class="docutils literal notranslate"><span class="pre">&lt;cohort</span> <span class="pre">name&gt;</span></code> are marked by class with name <code class="docutils literal notranslate"><span class="pre">cohort_&lt;cohort</span> <span class="pre">name&gt;</span></code>.</p>
+<p>So the Front End can provide functionality of hide/show cohorts based on selection of cell elements with a determined CSS class.</p>
 </div>
 </div>
 <div class="section" id="used-in-requests">

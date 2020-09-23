@@ -88,8 +88,8 @@
 <blockquote>
 <div><strong>Export operation</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>export</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>export</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -120,22 +120,10 @@
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>The request creates exported Excel file for selected variants. Selection should be of limited size: <strong>not more than 300 variants</strong>.</p>
 <p>Selection is defined by:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion</dt>
-<dd><a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> applies if <strong>zone</strong> is set - actual for <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> only.</dt>
-<dd>(Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>.
-In this case <strong>zone</strong> option works in reverse context: records satisfying
-condition on zones are filtered out.)</dd>
-</dl>
-</li>
+<ul class="simple">
+<li><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion <a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</li>
+<li><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> applies if <strong>zone</strong> is set - actual for <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> only. (Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>. In this case <strong>zone</strong> option works in reverse context: records satisfying condition on zones are filtered out.)</li>
 </ul>
-</div></blockquote>
 <p>Resulting file is created on servers side and is ready for download from moment of creation and later.</p>
 <p>(Cleaning of these files are subject of Anfisa administration)</p>
 </div>

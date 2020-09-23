@@ -1,0 +1,312 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Administration aspects overview &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Administration file formats reference" href="a_adm_formats.html" />
+    <link rel="prev" title="Installation documentation" href="install.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="a_adm_formats.html" title="Administration file formats reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Administration aspects overview</a><ul>
+<li><a class="reference internal" href="#table-of-conventional-names">Table of conventional names</a></li>
+<li><a class="reference internal" href="#running-the-service">Running the service</a></li>
+<li><a class="reference internal" href="#sharing-data-between-multiple-users">Sharing data between multiple users</a></li>
+<li><a class="reference internal" href="#using-server-configuration-anfisa-json">Using server configuration (anfisa.json)</a></li>
+<li><a class="reference internal" href="#rest-api">REST API</a></li>
+<li><a class="reference internal" href="#file-content-transfer-aspect">File content transfer aspect</a></li>
+<li><a class="reference internal" href="#anti-cache-mirroring-mechanism">Anti-cache mirroring mechanism</a></li>
+<li><a class="reference internal" href="#directory-structure-vault-datasets-logs-export-directory">Directory structure: vault, datasets, logs, export directory</a></li>
+<li><a class="reference internal" href="#dataset-internal-structure">Dataset internal structure</a></li>
+<li><a class="reference internal" href="#file-dataset-structure">File dataset structure</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installation documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="a_adm_formats.html"
+                        title="next chapter">Administration file formats reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/adm/admin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="administration-aspects-overview">
+<h1>Administration aspects overview<a class="headerlink" href="#administration-aspects-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="table-of-conventional-names">
+<span id="index-0"></span><h2>Table of conventional names<a class="headerlink" href="#table-of-conventional-names" title="Permalink to this headline">¶</a></h2>
+<p id="adm-notations">The following notations are used in different places of administration documentation</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="40%" />
+<col width="36%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><em>Name</em></td>
+<td><em>Role</em></td>
+<td><em>Example</em></td>
+</tr>
+<tr class="row-even"><td><em>User/Group</em></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>ANFISA_ADMIN</td>
+<td>User that runs service</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>ANFISA_ADMIN_GROUP</td>
+<td>Group of the user</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><em>Directories</em></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>ANFISA_ROOT</td>
+<td>Root directory</td>
+<td><code class="docutils literal notranslate"><span class="pre">/projects/anfisa</span></code></td>
+</tr>
+<tr class="row-even"><td>ANFISA_HOME</td>
+<td>Top source directory</td>
+<td><code class="docutils literal notranslate"><span class="pre">/projects/anfisa/anfisa</span></code></td>
+</tr>
+<tr class="row-odd"><td>ANFISA_WORK</td>
+<td>Directory with service
+<a class="reference internal" href="#setup-subdir"><span class="std std-ref">subdirectories</span></a></td>
+<td><code class="docutils literal notranslate"><span class="pre">/projects/anfisa/a-setup</span></code></td>
+</tr>
+<tr class="row-even"><td></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><em>URLs</em></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>ANFISA_HTML_BASE</td>
+<td>top service URL</td>
+<td><code class="docutils literal notranslate"><span class="pre">http://&lt;server&gt;/anfisa/</span></code></td>
+</tr>
+<tr class="row-odd"><td>ANFISA_HTML_APP_BASE</td>
+<td>URL to LocalUI and REST</td>
+<td><code class="docutils literal notranslate"><span class="pre">http://&lt;server&gt;/anfisa/app/</span></code></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="running-the-service">
+<h2>Running the service<a class="headerlink" href="#running-the-service" title="Permalink to this headline">¶</a></h2>
+<p>The service itself and the utilities (see below) should be run under the same user <code class="docutils literal notranslate"><span class="pre">ANFISA_ADMIN</span></code>.</p>
+<p>In standalone mode​ the service is started with either of the following command sequences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_HOME
+$ python -m app.run [​path to configuration file]
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ env PYTHONPATH=”$ANFISA_HOME”
+$ python -m app.run [path to configuration file]
+</pre></div>
+</div>
+<p>(Make sure if <a class="reference internal" href="install.html#virtualenv"><span class="std std-ref">Python virtual environment</span></a> is properly activated.</p>
+<p>In server mode​, while setting the <a class="reference internal" href="install.html#uwsgi"><span class="std std-ref">uWSGI</span></a> container, also run the process by the user <code class="docutils literal notranslate"><span class="pre">ANFISA_ADMIN</span></code> and use the correct configuration file.</p>
+<p>The following commands start resp. stop the uWSGI service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start anfisa
+$ sudo systemctl stop anfisa
+</pre></div>
+</div>
+</div>
+<div class="section" id="sharing-data-between-multiple-users">
+<h2>Sharing data between multiple users<a class="headerlink" href="#sharing-data-between-multiple-users" title="Permalink to this headline">¶</a></h2>
+<p>The current version of the service makes no distinction between users who share access to datasets and perform different actions in a commonly shared environment. It is supposed that these users form a team of experts, and can make agreements about sharing conflicts in an informal way.</p>
+</div>
+<div class="section" id="using-server-configuration-anfisa-json">
+<h2>Using server configuration (anfisa.json)<a class="headerlink" href="#using-server-configuration-anfisa-json" title="Permalink to this headline">¶</a></h2>
+<p>In both modes the main configuration file is important. There is the file from the repository <code class="docutils literal notranslate"><span class="pre">$ANFISA_HOME/anfisa.json.template​</span></code>. This file is the default configuration of the service. To use it in stand-alone mode just copy it to <code class="docutils literal notranslate"><span class="pre">anfisa.json</span></code> to the same directory.</p>
+<p>It is assumed that it is enough to run the stand-alone mode of the service in the default configuration, just copy template to <code class="docutils literal notranslate"><span class="pre">anfisa.json</span></code> to the same directory.</p>
+<p>In the server mode, as well as in the stand-alone one but with some modifications, one needs to make a copy of this file and put it in another directory.​ <code class="docutils literal notranslate"><span class="pre">$ANFISA_ROOT</span></code> is recommended. The name of this file can be the same, ​anfisa.json​, or can be changed. It is important to provide access to the same configuration for administrator utilities and for the stand-alone mode to use it in the start service command.</p>
+</div>
+<div class="section" id="rest-api">
+<h2>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h2>
+<p>REST API​ is the kernel of the system. It is a variety of HTTP requests built within the concept of REST API (ask Google about it). In short, these requests satisfy certain architectural conditions and their responses have the form of JSON objects. Both Legacy UI and NextGen Frontend provide HTML pages, and use these requests in a way hidden from the users to transfer data and actions upon the service. If the NextGen Frontend was perfect, there would be no need to use the internal UI at all. However, the configuration aspects for REST API and the internal UI are close to each other.</p>
+</div>
+<div class="section" id="file-content-transfer-aspect">
+<span id="file-transfer"></span><h2>File content transfer aspect<a class="headerlink" href="#file-content-transfer-aspect" title="Permalink to this headline">¶</a></h2>
+<p>The aspect of transferring file content is a technical one. However, it produces some complexity in the configuration and needs a detailed explanation. Any WEB-service needs to transfer file content in response to HTTP requests. When we have a “main server” (NGINX/Apache/… ), it is good practice to configure it to perform such requests. So in the server mode two kinds of files (used by internal UI) are transferred on the “main server” level: control files <code class="docutils literal notranslate"><span class="pre">*.js</span></code> and <code class="docutils literal notranslate"><span class="pre">*.css</span></code>, and images. (See also the next note, on anti-cache mechanism).</p>
+<p>In the stand-alone mode there is no such thing as “main server”, so file transfer requests should be supported by the service itself. The option ​**dir-files** in <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a> regulates these operations.</p>
+<p>Therefore we have two different mechanisms in different modules to do the same thing, and may it look too complex in the context of this document.</p>
+<p>There is a third kind of files that should be transferred. Any Export operation produces an Excel file <code class="docutils literal notranslate"><span class="pre">*.xlsx</span></code> that should be downloaded by a client (see below in the section about Export). These transfers happen rarely, and the internal service mechanism (via <strong>​dir-files</strong>) is sufficient for them, so there is no need to configure the “main server” for their support.</p>
+</div>
+<div class="section" id="anti-cache-mirroring-mechanism">
+<span id="anti-cache"></span><h2>Anti-cache mirroring mechanism<a class="headerlink" href="#anti-cache-mirroring-mechanism" title="Permalink to this headline">¶</a></h2>
+<p>It is used for purposes of the internal UI in the server mode. The problem it solves is the following. The internal UI uses some files (with extensions <code class="docutils literal notranslate"><span class="pre">*.js</span></code> and <code class="docutils literal notranslate"><span class="pre">*.css</span></code>), and these files are checked out from the repository. So after a push from the repository these files can change. If these files were used by the UI directly, there would be a possibility that the user’s browser will ignore changes in such a file and use some outdated cached copy of its previous version instead of the fresh version of it. The workaround for this problem is to create a mirror directory, copy into it all the necessary files but slightly modify their names in such a way that different versions of the same file will have different names.</p>
+<p>This mechanism is recommended for the server mode. However, it can be set up in the stand-only mode as well.</p>
+</div>
+<div class="section" id="directory-structure-vault-datasets-logs-export-directory">
+<span id="setup-subdir"></span><h2>Directory structure: vault, datasets, logs, export directory<a class="headerlink" href="#directory-structure-vault-datasets-logs-export-directory" title="Permalink to this headline">¶</a></h2>
+<p>Strictly speaking, there is no real necessity in the existence of two “standard’ directories:​ <code class="docutils literal notranslate"><span class="pre">$ANFISA_ROOT​</span></code> and​ <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK</span></code>. ​But the system strongly requires all the subdirectories placed under <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK</span></code>. One can place them anywhere on the computer and modify configuration (​anfisa.json​) correspondingly.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/vault</span></code>  - vault directory</dt>
+<dd><p class="first">Information of all the datasets supported by the system is placed here: one dataset - one directory. (There might be a serious need to place this directory in another location: it can happen if the size of a dataset grows and one needs to move the directory to another disk. Just move it, and change the “data-vault” line in the config file correspondingly)</p>
+<p class="last"><em>Note</em>: there is no strong need to have this directory excactly inside <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK</span></code>. It might be large, so there might be a reason to move it on another disk, so just redefine option <strong>data-vault</strong> in <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a>.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Subdirectories of the vault directory</p>
+<blockquote>
+<div><p>Directories for subsets should be created by calls of the app.storage utility made by user $ANFISA_ADMIN. Removal of an XL-dataset should be also done using this utility, because connection to Druid is required in this process. The removal of a workspace also can be done this way, but it is just equivalent to removal of the corresponding directory.</p>
+<p>Please note that this directory contains the empty file ​active​. To turn a dataset out of use in terms of the service one needs to remove this file and restart the service. To re-activate the dataset just create the file active​ once again (by the utility touch)</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/​export</span></code> - export directory</p>
+<blockquote>
+<div><p>This is the place where the excel-template file is located. The main need is in the subdirectory</p>
+<p><code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/export/work</span></code></p>
+<p>This is the place where the system stores all the Excel files generated for export. Each file here is used only once, but there is no automatic procedure to clean files from here later. This clearance should be done by the system administrator periodically</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/​logs</span></code> - log directory</p>
+<blockquote>
+<div><p>In the stand-alone mode only the ​anfisa.log​ file is stored here, plus its old portions. In the server mode there are two log files: ​anfisa.log​ and ​uwsgi.log.​ The former collects all errors that occurred “inside service logic”, the latter collects meaningful errors at the start of the service.</p>
+<p>There is no automatic procedure to cleanse this directory either. Administrator should do it periodically.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/​ui​</span></code> - mirroring directory</p>
+<blockquote>
+<div><p>Used in the anti-cache mechanism in the server mode. See details above</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="dataset-internal-structure">
+<h2>Dataset internal structure<a class="headerlink" href="#dataset-internal-structure" title="Permalink to this headline">¶</a></h2>
+<p>Minimal dataset data is just <a class="reference internal" href="../glossary.html#term-annotated-json-file"><span class="xref std std-term">annotated JSON file</span></a>: <code class="docutils literal notranslate"><span class="pre">&lt;dataset&gt;.json.gz</span></code></p>
+<p>In expanded form, dataset data forms directory with the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="a_inventory.html"><span class="doc">Inventory</span></a> of dataset: <code class="docutils literal notranslate"><span class="pre">&lt;dataset&gt;.cfg</span></code></li>
+<li>Annotated JSON: <cite>&lt;dataset&gt;.json.gz</cite> (see <a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a> for details)</li>
+<li>Optional subdirectory doc/ with supplementary documentation materials</li>
+<li>Optional: BAM-files for samples in dataset case</li>
+<li>May be more files</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="file-dataset-structure">
+<h2>File dataset structure<a class="headerlink" href="#file-dataset-structure" title="Permalink to this headline">¶</a></h2>
+<p>Dataset in system is represented in form of sub-directory inside <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/vault</span></code> with name equals to dataset name and the following files:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">dsinfo.json</span></code> - principal information on dataset, in JSON format, contains metadata information and schemas prepared for both viewing regime and filtration purposes</li>
+<li><code class="docutils literal notranslate"><span class="pre">active</span></code> - empty file, just remove it to pull the dataset off the system, and restore it (shell command <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">active</span></code>) to push the dataset up again</li>
+<li><code class="docutils literal notranslate"><span class="pre">doc/</span></code> - directory with documentation on dataset</li>
+<li><code class="docutils literal notranslate"><span class="pre">fdata.json.gz</span></code> - complete data used in <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a>, good for use in process of <a class="reference internal" href="../intro.html"><span class="doc">Druid</span></a> ingestion push</li>
+<li><code class="docutils literal notranslate"><span class="pre">pdata.json.gz</span></code> - “short” information about variants, contains only information for representation of variant in short form</li>
+<li><code class="docutils literal notranslate"><span class="pre">vdata.ixbz2</span></code> - “full” information about variants, contains full annotated JSON records (with <a class="reference internal" href="../appcfg/ajson.html#ajson-modifications"><span class="std std-ref">some modifications</span></a> that can be done on creation stage); the format of file “ixbz2” is special in-house one: it allows direct block access for data with blocks compressed by bzip2 algorithm;</li>
+<li><code class="docutils literal notranslate"><span class="pre">stat.json</span></code> - information on value distributions for both viewing and filtration fields, collected on creation stage</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a></p>
+<p><a class="reference internal" href="../appcfg/ajson.html"><span class="doc">Annotated JSON file format overview</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="a_adm_formats.html" title="Administration file formats reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

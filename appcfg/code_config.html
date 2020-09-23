@@ -1,0 +1,190 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Code configuration layer overview &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration of solution pack API" href="solution_py.html" />
+    <link rel="prev" title="System configuration documentation" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="solution_py.html" title="Configuration of solution pack API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="System configuration documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Code configuration layer overview</a><ul>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">System configuration documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="solution_py.html"
+                        title="next chapter">Configuration of solution pack API</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/appcfg/code_config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="code-configuration-layer-overview">
+<h1>Code configuration layer overview<a class="headerlink" href="#code-configuration-layer-overview" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">The code of the system back end can be logically split onto two parts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>system kernel, supports functionality of the system in universal</dt>
+<dd>informational context (as more universal as possible)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>configuration layer, serves to adopt application data to</dt>
+<dd>universal context</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>During process of developing of the system configuration tools become to be more separated the kernel, and more expandable and powerful. So we need a special layer of documentation on it. Up to the current stage of development of the system, there is no a simple way for the user to re-configure the system features directly, however this documentation layer might help users to formulate their requirements in proper terms.</p>
+<p><em>Note</em>: for purposes to describe parts of API we use source files where this part of API is used in the source of the system. So please consider these files as examples of API application, or as subject of modifications. This way of code reference is not traditional but most acceptable for our purposes in this context.</p>
+<p>The code of configuration layer is located in repository of the system in directory <code class="docutils literal notranslate"><span class="pre">app/config</span></code> and concerns the following aspects of the system functionality:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">Solution items</span></a>: predefinition of various data structures the help the user to exploit data in the system</p>
+<blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">app/config/solution.py</span></code></p>
+</div></blockquote>
+<p>Some parts of solution item configuration are applied in the followind procedure.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Configuration of datasets used on stage of dataset creation</p>
+<blockquote>
+<div><p>There is a complex procedure running on stage of dataset creation. It analyzes input <a class="reference internal" href="../glossary.html#term-annotated-json-file"><span class="xref std std-term">annotated JSON file</span></a>, stores information (with some changes) from it to internal data formats and so prepares data for use in system, for both <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing</span></a> and <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> purposes. (See details of format here: <a class="reference internal" href="ajson.html"><span class="doc">Annotated JSON file format overview</span></a>)</p>
+<p>Once this procedure is applied to creating dataset, the content of dataset stands persistent, and only re-creation of dataset can change this content.</p>
+<p>So there are numerous of aspects to configure:</p>
+<ul>
+<li><p class="first">Configuration static for <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>static part:  <code class="docutils literal notranslate"><span class="pre">app/config/view_schema.py</span></code></dt>
+<dd><a class="reference internal" href="view_schema_py.html"><span class="doc">Configuration of viewing schema API</span></a></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>dynamic part: <code class="docutils literal notranslate"><span class="pre">app/config/view_tune.py</span></code></dt>
+<dd><a class="reference internal" href="view_tune_py.html"><span class="doc">Tuning viewing schema API</span></a></dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Configuration data for <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration regimes</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>static part: <code class="docutils literal notranslate"><span class="pre">app/config/flt_schema.py</span></code></dt>
+<dd><a class="reference internal" href="flt_schema_py.html"><span class="doc">Configuration of filtration schema API</span></a></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>dynamic part: <code class="docutils literal notranslate"><span class="pre">app/config/flt_tune.py</span></code></dt>
+<dd><a class="reference internal" href="flt_tune_py.html"><span class="doc">Tuning filtration schema API</span></a></dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="ajson.html"><span class="doc">Annotated JSON file format overview</span></a></p>
+<p><a class="reference internal" href="../adm/admin.html"><span class="doc">Administration aspects overview</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="solution_py.html" title="Configuration of solution pack API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="System configuration documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

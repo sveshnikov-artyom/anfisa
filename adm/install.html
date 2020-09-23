@@ -1,0 +1,648 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Installation documentation &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Administration aspects overview" href="admin.html" />
+    <link rel="prev" title="Anfisa Administration documentation" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="admin.html" title="Administration aspects overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa Administration documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation documentation</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#setup">Setup</a><ul>
+<li><a class="reference internal" href="#anfisa-installation-and-configuration">Anfisa installation and configuration</a><ul>
+<li><a class="reference internal" href="#stand-alone-installation">1. Stand-alone installation</a><ul>
+<li><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a></li>
+<li><a class="reference internal" href="#installation">1.2. Installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrade-to-server-setup">2. Upgrade to server setup</a><ul>
+<li><a class="reference internal" href="#id1">2.1. Prerequisites</a></li>
+<li><a class="reference internal" href="#configure-the-application">2.2. Configure the application</a></li>
+<li><a class="reference internal" href="#create-the-uwsgi-container-descriptor">2.3. Create the uWSGI container descriptor</a></li>
+<li><a class="reference internal" href="#register-the-uwsgi-container">2.4. Register the uWSGI container</a></li>
+<li><a class="reference internal" href="#setup-web-server-configuration">2.5. Setup web server configuration</a><ul>
+<li><a class="reference internal" href="#nginx">2.5.1 Nginx</a></li>
+<li><a class="reference internal" href="#apache">2.5.2 Apache</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#igv-direct-support">2.6. IGV direct support</a></li>
+<li><a class="reference internal" href="#druid-setup">2.7. Druid setup</a><ul>
+<li><a class="reference internal" href="#connection-configuration">2.7.1. Connection configuration</a></li>
+<li><a class="reference internal" href="#separate-machine-configuration">2.7.2. Separate machine configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Anfisa Administration documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="admin.html"
+                        title="next chapter">Administration aspects overview</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/adm/install.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation-documentation">
+<h1>Installation documentation<a class="headerlink" href="#installation-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="index-0"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Anfisa is a Linux-based Python application (Python 3.5+) and provides access via HTTP/HTTPS protocols. It deals with datasets of mutation variants in the human genome. The datasets can be of two different kinds with Anfisa providing different functionality dependent on the kind:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> (XL, eXtra Large) usually represents a whole exome (WES) or a whole genome and can encompass up to 10 million variants. Users can search subsets of variants, and form (secondary) workspaces from them to perform more detailed studies.</li>
+<li><a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">Workspace</span></a> (WS) is a dataset of a small number of variants (up to 10000). Users can view and tag variants in it. Workspaces are either created as derivative datasets from an XL-dataset or can also be directly ingested into the system as primary datasets. The latter option is used for analyzing gene panels.</li>
+</ul>
+<p>Only administrators of the system can create primary datasets in the vault of the system or remove them from there. A primary dataset is created directly from prepared data and can be of type XL or WS. “Normal” users can create secondary datasets only (automatically). These are filtered out from XL datasets and are always of type WS.</p>
+<p>Anfisa uses the following external systems:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.mongodb.com/">MongoDB</a>, this database is used to store information about user activities; it does NOT contain information about datasets.</li>
+</ul>
+<ul class="simple">
+<li><a class="reference external" href="https://druid.apache.org/">Druid</a> OLAP system, this engine is used for effective support of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a> (Druid is not necessary while working without XL-datasets)</li>
+</ul>
+<p>There are two variants for Anfisa service configuration:</p>
+<ul id="uwsgi">
+<li><p class="first">Server (uWSGI) mode:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Anfisa application being wrapped into a uWSGI container. uWSGI is the common way to handle a Python application under a web service:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://uwsgi-docs.readthedocs.io/en/latest/">https://uwsgi-docs.readthedocs.io/en/latest/</a></p>
+</div></blockquote>
+</li>
+<li><p class="first">and this container is used by the main web server, usually Nginx or Apache</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Stand-alone mode: this mode is used for development purposes and may be installed on a personal computer without a server environment</p>
+</li>
+</ul>
+<p id="index-1">For the current version of system 0.6 only Legacy UI is supported. Legacy UI​ is a collection of web pages which gives the user access to the full functionality of the system; unfortunately this kind of UI does not satisfy all criteria for a “good UI”. In particular, it works properly only under Chrome or Firefox browsers.</p>
+<p id="index-2">NextGen Frontend for the version 0.6, which satisfies the criteria for a “good UI”, is currently a subject of development.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="anfisa-installation-and-configuration">
+<h3>Anfisa installation and configuration<a class="headerlink" href="#anfisa-installation-and-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To setup the Anfisa system in Server (uWSGI) mode it is recommended to install the stand-alone variant first, and then upgrade it to the server variant.</p>
+<div class="section" id="stand-alone-installation">
+<h4>1. Stand-alone installation<a class="headerlink" href="#stand-alone-installation" title="Permalink to this headline">¶</a></h4>
+<p>Following instructions are tested on Ubuntu 18.04 LTS. Still, there shouldn’t be anything too specific.</p>
+<div class="section" id="prerequisites">
+<h5>1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h5>
+<ul>
+<li><p class="first">Standard Python tools: Python 3.5+, pip3, virtualenv (optional)</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.mongodb.com/">MongoDB</a> (version 2.6.10 or higher): If not installed already install it with the default configuration using the official guides:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://docs.mongodb.com/manual/installation/">https://docs.mongodb.com/manual/installation/</a></p>
+</div></blockquote>
+</li>
+</ul>
+<p>look for the appropriate Linux distribution using the links in this document). It should be up and running.</p>
+<ul>
+<li><p class="first">git version control system:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></p>
+</div></blockquote>
+</li>
+<li><p class="first">If you want to use the XL-dataset functionality, <a class="reference external" href="https://druid.apache.org/">Druid</a> v0.17 or later needs to be installed:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://druid.io/">http://druid.io/</a></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h5>1.2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h5>
+<p>To install Anfisa in the stand-alone variant execute the steps below.</p>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple" id="index-3">
+<li>Create a new directory for the project and go there. From now on, this directory will be referred as <code class="docutils literal notranslate"><span class="pre">ANFISA_ROOT</span></code>:</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir -p $ANFISA_ROOT
+$ cd $ANFISA_ROOT
+</pre></div>
+</div>
+<ul class="simple" id="virtualenv">
+<li>At this point we advise one to create virtual environment using any suitable tool. In this example we use virtualenv:</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install virtualenv
+$ python -m virtualenv venv
+$ source venv/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li>Clone the repository of the system:</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/ForomePlatform/anfisa.git
+</pre></div>
+</div>
+<ul class="simple">
+<li>Cloning the repository creates the directory anfisa, containing the application. Change into this directory:</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ cd anfisa
+
+.. index::
+    ANFISA_HOME; system directory path
+</pre></div>
+</div>
+<p><em>Note</em>: below we will refer to this directory as <code class="docutils literal notranslate"><span class="pre">ANFISA_HOME</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ANFISA_HOME ​=​/data/projects/Anfisa/anfisa
+</pre></div>
+</div>
+<ul class="simple">
+<li>Install dependencies by running​:</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -r requirements.txt
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">TODO: package forome-tools</p>
+</div>
+<ul class="simple">
+<li>Now try to initialize the working environment for the system</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash deploy.sh
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">TODO: check if deploy.sh works properly</p>
+</div>
+<ul>
+<li><p class="first">This script asks for an installation directory, i.e. the working directory  where the system will store information (case data, intermediate files, indices, log files, etc.);</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">​../a-setup​</span></code> is recommended but a different name should work too</p>
+<p id="index-4"><em>Note</em>: below we will refer to this directory as <cite>ANFISA_WORK</cite></p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ANFISA_WORK​ =​/data/projects/Anfisa/a-setup
+</pre></div>
+</div>
+<p>Now you are good to go! To run the service in the stand-alone variant use commands printed by deploy script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_HOME
+$ python -m app.run $ANFISA_WORK/anfisa_&lt;hostname&gt;.json
+</pre></div>
+</div>
+<p>In a browser (Chrome or Firefox are supported) one can see the service at the following URL: <a class="reference external" href="http://localhost:8190/dir">http://localhost:8190/dir</a></p>
+<p>Provided the script ​deploy.sh​ has worked properly, one should see the directory of Anfisa filled with one workspace, and be able to work with that workspace.</p>
+<p>(If it is a server installation and there are no open ports on the computer, use ssh tunneling to access this and other pages).</p>
+</div>
+</div>
+<div class="section" id="upgrade-to-server-setup">
+<h4>2. Upgrade to server setup<a class="headerlink" href="#upgrade-to-server-setup" title="Permalink to this headline">¶</a></h4>
+<p>In a server variant Anfisa runs in uWSGI container served by a web application server.</p>
+<div class="section" id="id1">
+<h5>2.1. Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic simple">
+<li>You will need to have root privileges to perform some of the following steps.</li>
+<li>You need to have a web server installed, Apache or NGINX. Others are good too, but we will provide configuration examples only for those aforementioned.</li>
+</ol>
+<p>Before setting up the server variant one needs to answer the following questions:</p>
+<ol class="arabic">
+<li><p class="first"><em>Which user would run Anfisa?</em></p>
+<blockquote>
+<div><p><em>Note</em>: Below we refer to this username as ​ANFISA_ADMIN</p>
+</div></blockquote>
+</li>
+<li id="index-5"><p class="first"><em>What is the URL pointing to the Anfisa application?</em></p>
+<blockquote>
+<div><p>As a web application Anfisa is run using an address like:</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://&lt;server&gt;/&lt;directory&gt;/...</span></code> (http: or https:)</p>
+<p id="index-6">So, one needs to specify this directory. Let’s refer to it as <code class="docutils literal notranslate"><span class="pre">​ANFISA_HTML_BASE​</span></code>. Its name should start and end with symbols ‘/’, and can be as short as ‘/’.</p>
+<p>When the NextGen Frontend appears, it would be accessed via this address.</p>
+<p>So the extended address <code class="docutils literal notranslate"><span class="pre">ANFISA_HTML_APP_BASE</span></code> is used as the base level of the internal REST API and the ​Legacy UI​:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ANFISA_HTML_APP_BASE​ = $ANFISA_HTML_BASE + ‘app/’
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><em>What is the port number for the http socket to be used for uWSGI connection?</em></p>
+<blockquote>
+<div><p>Should be unique among the sockets running on the computer. Below we will use the number <strong>3041</strong>, one is free to choose any other unique number in case of conflict.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>What is the name of the MongoDB database which is going to support Anfisa?</em></p>
+<blockquote>
+<div><p>The name <code class="docutils literal notranslate"><span class="pre">Anfisa</span></code> is recommended.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>Where is the Druid system set up?</em></p>
+<blockquote>
+<div><p>There can be one of three answers:</p>
+<blockquote>
+<div><ul class="simple">
+<li>nowhere - then there will be no XL-datasets support</li>
+<li>on the same computer</li>
+<li>on a different computer, with access via secure connections</li>
+</ul>
+</div></blockquote>
+<p>(see details in the <a class="reference internal" href="#druid-setup"><span class="std std-ref">Druid setup</span></a> section below)</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>What is the prefix for names of datasets represented in Druid?</em></p>
+<blockquote>
+<div><p>The name <code class="docutils literal notranslate"><span class="pre">Anfisa</span></code> is recommended</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>Does the server provide access to BAM-files for IGV direct support?</em></p>
+<blockquote>
+<div><p>See below discussion in the <a class="reference internal" href="#igv-direct-support"><span class="std std-ref">IGV direct support</span></a> section below.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>And: create the directory <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/ui</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export ANFISA_WORK=/data/projects/Anfisa/a-setup
+$ mkdir $ANFISA_WORK/ui
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-application">
+<h5>2.2. Configure the application<a class="headerlink" href="#configure-the-application" title="Permalink to this headline">¶</a></h5>
+<p>Copy the configuration file <code class="docutils literal notranslate"><span class="pre">$ANFISA_HOME/anfisa.json</span></code> to the directory <code class="docutils literal notranslate"><span class="pre">$ANFISA_ROOT</span></code> and make the following changes to it (see <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a> for details):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;file-path-def&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;WORK&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/../a-setup&quot;</span><span class="p">},</span>
+</pre></div>
+</div>
+<p>Change the value of $WORK to the value of $ANFISA_WORK</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;html-base&quot;</span><span class="p">:</span> <span class="s2">&quot;/anfisa/app&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Write the value of <code class="docutils literal notranslate"><span class="pre">$ANFISA_HTML_APP_BASE</span></code> here (it should end with ​``/app”`` if it is a server installation)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;mongo-db&quot;</span><span class="p">:</span> <span class="s2">&quot;Anfisa&quot;</span>
+</pre></div>
+</div>
+<p>Change this if a different database name is chosen for the MongoDB</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;data-vault&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{WORK}</span><span class="s2">/vault&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>You can change this value to put the vault to any other place on the computer. This directory can be large: it will contain the entire data of the datasets.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&quot;http-bam-base&quot;: “http://&lt;server&gt;/anfisa/links/”,
+</pre></div>
+</div>
+<p>HTTP base directory for access to BAM-files, for <a class="reference internal" href="#igv-direct-support"><span class="std std-ref">IGV direct support</span></a>. Uncomment this option and set it up correctly if the server provides access to BAM-files, otherwise keep it commented.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;dir-files&quot;</span><span class="p">:</span> <span class="p">[</span>
+</pre></div>
+</div>
+<blockquote>
+<div><blockquote>
+<div>See explanation about this block <a class="reference internal" href="admin.html#file-transfer"><span class="std std-ref">here</span></a>.</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;/ui&quot;</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/int_ui/files&quot;</span><span class="p">],</span>
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div>Drop this line and uncomment the next one:</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="s2">&quot;/ui&quot;</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="si">{WORK}</span><span class="s2">/ui&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div>This instruction and the next one will be used for <a class="reference internal" href="admin.html#anti-cache"><span class="std std-ref">anti-cache subsystem</span></a>;  ​make sure that you have the directory <code class="docutils literal notranslate"><span class="pre">$ANFISA_WORK/ui</span></code> is created​.</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;mirror-ui&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/int_ui/files&quot;</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="si">{WORK}</span><span class="s2">/ui&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Please uncomment this instruction in server setup context, see details <a class="reference internal" href="admin.html#anti-cache"><span class="std std-ref">here</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;druid&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If you are going to use <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a>, set up the parameters of Druid properly (see the section <a class="reference internal" href="#druid-setup"><span class="std std-ref">Druid Setup</span></a> below).</p>
+</div>
+<div class="section" id="create-the-uwsgi-container-descriptor">
+<h5>2.3. Create the uWSGI container descriptor<a class="headerlink" href="#create-the-uwsgi-container-descriptor" title="Permalink to this headline">¶</a></h5>
+<p>In the directory <code class="docutils literal notranslate"><span class="pre">$ANFISA_ROOT</span></code> create the file ​``uwsgi.anfisa.ini``​ with the following content (replace <a class="reference internal" href="admin.html#adm-notations"><span class="std std-ref">conventional names</span></a> with their proper values):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[uwsgi]
+socket = 127.0.0.1:​3041
+chdir = ​$ANFISA_ROOT
+wsgi-file = ​$ANFISA_HOME​/app/run.py
+pythonpath = ​$ANFISA_HOME
+processes = 1
+threads = 30
+logger = file:logfile=​$ANFISA_WORK​/logs/uwsgi.log,maxsize=500000
+lazy
+</pre></div>
+</div>
+<p>Note that the number <strong>3041</strong> is an HTTP socket. It should be unique among the HTTP sockets running on the computer, and can be changed to any other unique number within.</p>
+</div>
+<div class="section" id="register-the-uwsgi-container">
+<h5>2.4. Register the uWSGI container<a class="headerlink" href="#register-the-uwsgi-container" title="Permalink to this headline">¶</a></h5>
+<p>As root (e. g. using sudo), create the file <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/anfisa.service</span></code> with the following contents (replace <a class="reference internal" href="admin.html#adm-notations"><span class="std std-ref">conventional names</span></a> with their proper values):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=uWSGI Anfisa
+User=​$ANFISA_ADMIN
+
+[Service]
+User=​$ANFISA_ADMIN
+Group=​$ANFISA_ADMIN_GROUP
+ExecStart=​$UWSGI_EXE​ \
+    --ini ​$ANFISA_ROOT​/uwsgi.anfisa.ini \
+    --virtualenv ​$ANFISA_ROOT​/venv
+# Requires systemd version 211 or newer
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p><em>Note</em>: you can obtain uWSGI executable <code class="docutils literal notranslate"><span class="pre">​$UWSGI_EXE</span></code> location with following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_ROOT
+$ source venv/bin/activate
+$ which uwsgi
+</pre></div>
+</div>
+<p>Also take care of permissions for this file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo chmod 0644 /etc/systemd/system/anfisa.service
+</pre></div>
+</div>
+<p>Now we need to notify systemd of the new service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl daemon-reload
+</pre></div>
+</div>
+<p>And start the service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start anfisa
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-web-server-configuration">
+<h5>2.5. Setup web server configuration<a class="headerlink" href="#setup-web-server-configuration" title="Permalink to this headline">¶</a></h5>
+<p>We provide you with configurations templates for two popular web servers.</p>
+<div class="section" id="nginx">
+<h6>2.5.1 Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h6>
+<p>Insert the following configuration directives into configuration file, for example: <code class="docutils literal notranslate"><span class="pre">/etc/nginx/sites-enabled/default</span></code></p>
+<p>It governs the behaviour of the web server with respect to the application (replace <a class="reference internal" href="admin.html#adm-notations"><span class="std std-ref">conventional names</span></a> with their proper values):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#####
+Anfisa
+#####
+location ​&lt;ANFISA_HTML_APP_BASE&gt;​ {
+    include uwsgi_params;
+    uwsgi_read_timeout 300;
+    uwsgi_pass 127.0.0.1:​3041​;
+}
+location ~ ​&lt;ANFISA_HTML_APP_BASE&gt;​/ui {
+    rewrite ^​&lt;ANFISA_HTML_APP_BASE&gt;​/ui/(.*)$ /$1 break;
+    root ​&lt;ANFISA_WORK&gt;​/ui;
+}
+location ~ ​&lt;ANFISA_HTML_APP_BASE&gt;​/ui/images {
+    rewrite ^​&lt;ANFISA_HTML_APP_BASE&gt;​/ui/images/(.*)$ /$1 break;
+    root ​&lt;ANFISA_HOME&gt;​/int_ui/images;
+}
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">TODO: documentation redirect</p>
+</div>
+<p>The meaning of the above instructions is as follows:</p>
+<p>1. The first instruction establishes connection to the uWSGI container with the main Anfisa application when requests (URL) starts with
+<code class="docutils literal notranslate"><span class="pre">&lt;ANFISA_HTML_APP_BASE&gt;</span></code> ​.</p>
+<blockquote>
+<div><p>For example, in the notation of this document, a request to the directory page will have this URL: <code class="docutils literal notranslate"><span class="pre">​http://&lt;site&gt;/​&lt;ANFISA_HTML_APP_BASE&gt;​/dir</span></code></p>
+<p>It is necessary to get access to the kernel REST API of the application and to the Legacy UI. The directory path for these requests should end in <code class="docutils literal notranslate"><span class="pre">/app/</span></code>.</p>
+<p>Note that we use here the socket number 3014, it can be changed to anything else, as long as it is the same as in ​uwsgi.anfisa.ini​ (see above)</p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">The last two instructions forward content of the files used in the internal UI:</p>
+<blockquote>
+<div><ul class="simple">
+<li>one forwards files (with extensions <code class="docutils literal notranslate"><span class="pre">.js</span></code> and <code class="docutils literal notranslate"><span class="pre">.css</span></code>) from the mirror <a class="reference internal" href="admin.html#anti-cache"><span class="std std-ref">anti-cache</span></a> directory ​``&lt;ANFISA_WORK&gt;​/ui/``</li>
+<li>the other forwards the images from the directory <code class="docutils literal notranslate"><span class="pre">&lt;ANFISA_HOME&gt;​/int_ui/images</span></code></li>
+<li>see more details <a class="reference internal" href="admin.html#file-transfer"><span class="std std-ref">here</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">There can be one more instruction here if the server provides access to BAM-files for <a class="reference internal" href="#igv-direct-support"><span class="std std-ref">IGV direct support</span></a>.</p>
+</li>
+</ol>
+<p>Finally, you need to test new configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo nginx -t
+</pre></div>
+</div>
+<p>If everything is ok, reload:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl reload nginx
+</pre></div>
+</div>
+<p>To ensure that system is up, visit <code class="docutils literal notranslate"><span class="pre">​http://localhost/&lt;ANFISA_HTML_BASE&gt;</span></code> and you should see the main application page. Look for workspaces in the menu to ensure that connection to the main Anfisa application is configured correctly.</p>
+</div>
+<div class="section" id="apache">
+<h6>2.5.2 Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h6>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">TODO: WRITE IT!</p>
+</div>
+</div>
+</div>
+<div class="section" id="igv-direct-support">
+<span id="id2"></span><h5>2.6. IGV direct support<a class="headerlink" href="#igv-direct-support" title="Permalink to this headline">¶</a></h5>
+<p>Anfisa provides functionality to run IGV local application:</p>
+<blockquote>
+<div><a class="reference external" href="https://software.broadinstitute.org/software/igv/download">https://software.broadinstitute.org/software/igv/download</a></div></blockquote>
+<p>over any variant in scope. To perform this call the server should provide HTTP/HTTPS access for BAM-files included in case. The setting “http-bam-base” in <a class="reference internal" href="configuration.html"><span class="doc">Configuration service: anfisa.json</span></a> file serves for this purpose. However, one needs to set up this access. It is not necessary to use the same WEB-server for these files, BAM-files can be located somewhere else.</p>
+<p>In a simple example configuration, NGINX simply serves BAM-files from the location on the drive. Files are organized on disk as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">BAM_FILES_LOCATION</span><span class="o">&gt;/</span><span class="p">{</span><span class="n">case</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">sample</span><span class="p">}</span><span class="o">.</span><span class="n">hg19</span><span class="o">.</span><span class="n">bam</span>
+<span class="o">&lt;</span><span class="n">BAM_FILES_LOCATION</span><span class="o">&gt;/</span><span class="p">{</span><span class="n">case</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">sample</span><span class="p">}</span><span class="o">.</span><span class="n">hg19</span><span class="o">.</span><span class="n">bam</span><span class="o">.</span><span class="n">bai</span>
+</pre></div>
+</div>
+<p>NGINX configuration in turn contains the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">/</span><span class="n">bams</span> <span class="p">{</span>
+    <span class="n">root</span> <span class="o">&lt;</span><span class="n">BAM_FILES_LOCATION</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, Anfisa configuration (anfisa.json) contains the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;http-bam-base&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;site&gt;/bams&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="druid-setup">
+<span id="id3"></span><h5>2.7. Druid setup<a class="headerlink" href="#druid-setup" title="Permalink to this headline">¶</a></h5>
+<p>At the moment of this document being written, Apache Druid v.0.17.0 is the most recent one, and this exact version is assumed. Best source of information on Druid installation and configuration is it’s documentation:</p>
+<p><a class="reference external" href="https://druid.apache.org/docs/0.17.0/design/index.html">https://druid.apache.org/docs/0.17.0/design/index.html</a></p>
+<p>In the following section we assume that Druid is installed and properly configured according to its documentation.</p>
+<div class="section" id="connection-configuration">
+<h6>2.7.1. Connection configuration<a class="headerlink" href="#connection-configuration" title="Permalink to this headline">¶</a></h6>
+<p>When Druid is installed on the same machine as Anfisa, one needs to uncomment ​“druid” section of the ​anfisa.json​ configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;druid&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;vault-prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;Anfisa&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Prefix is added to Druid names of datasets. It allows to use single Druid instance for multiple instances of Anfisa.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;http://&lt;DRUID_IP&gt;:8081/druid/indexer/v1/task&quot;</span><span class="p">,</span>
+<span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;http://&lt;DRUID_IP&gt;:8888/druid/v2&quot;</span><span class="p">,</span>
+<span class="s2">&quot;sql&quot;</span><span class="p">:</span>   <span class="s2">&quot;http://&lt;DRUID_IP&gt;:8888/druid/v2/sql&quot;</span><span class="p">,</span>
+<span class="s2">&quot;coord&quot;</span><span class="p">:</span> <span class="s2">&quot;http://&lt;DRUID_IP&gt;:8081/druid/coordinator/v1&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div>Settings define addresses of four different kinds of requests to Druid. Settings are configured for Druid version v.0.17.0.</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;-scp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="separate-machine-configuration">
+<h6>2.7.2. Separate machine configuration<a class="headerlink" href="#separate-machine-configuration" title="Permalink to this headline">¶</a></h6>
+<p>In case of a separate machine configuration, there are two recommended ways to provide connection between Anfisa and Druid machines.</p>
+<p>The first way is to make mount point for vault directory to Druid machine, make sure path to vault is the same on both machines</p>
+<p>The second variant is more complex. The problem is: Anfisa needs to copy data to the machine with Druid in order to perform data ingestion. This can be done via ​scp​.</p>
+<p>In this section we will use:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Instance with Anfisa installation — <code class="docutils literal notranslate"><span class="pre">&lt;ANFISA_PC&gt;</span></code></li>
+<li>Instance with Druid installation — <code class="docutils literal notranslate"><span class="pre">&lt;DRUID_PC&gt;</span></code></li>
+</ul>
+<p>Configuration steps:</p>
+<ol class="arabic">
+<li><p class="first">One needs to create data directory, which would receive data.</p>
+</li>
+<li><p class="first">SSH keypair needs to be created on a &lt;ANFISA_PC&gt;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><strong>Important</strong>: passphrase should be empty.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Public key of the new keypair needs to be added to the end of the <code class="docutils literal notranslate"><span class="pre">/home/&lt;user&gt;/.ssh/authorized_keys</span></code> file on the <code class="docutils literal notranslate"><span class="pre">&lt;DRUID_PC&gt;</span></code></p>
+</li>
+<li><p class="first"><strong>Important</strong>: ​you have to manually perform first login from <code class="docutils literal notranslate"><span class="pre">&lt;ANFISA_PC&gt;</span></code> to the <code class="docutils literal notranslate"><span class="pre">&lt;DRUID_PC&gt;​</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh -i &lt;PATH_TO_PRIVATE_KEY&gt; &lt;user&gt;@&lt;DRUID_PC&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Uncomment ​“scp”​ subsection of the ​“druid”​ section in the ​anfisa.json:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;scp&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dir&quot;</span><span class="p">:</span> <span class="s2">&quot;​&lt;DATA_DIR&gt;​&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;​&lt;PATH_TO_PRIVATE_KEY&gt;​&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;​&lt;USER&gt;​@​&lt;DRUID_PC&gt;​&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exe&quot;</span><span class="p">:</span> <span class="s2">&quot;/usr/bin/scp&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&lt;DATA_DIR&gt;</span></code> is a path of an existing directory on <code class="docutils literal notranslate"><span class="pre">&lt;DRUID_PC&gt;</span></code>. This is the target directory, which would receive data.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;PATH_TO_PRIVATE_KEY&gt;​</span></code> is a path to the private key on <code class="docutils literal notranslate"><span class="pre">&lt;ANFISA_PC&gt;</span></code>.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="admin.html" title="Administration aspects overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Anfisa Administration documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

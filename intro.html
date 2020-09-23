@@ -88,100 +88,52 @@
             
   <div class="section" id="anfisa-introduction">
 <h1>Anfisa introduction<a class="headerlink" href="#anfisa-introduction" title="Permalink to this headline">¶</a></h1>
-<p>Anfisa is a Linux-based Python application (Python 3.5+) and provides access via HTTP/HTTPS
-protocols. It deals with datasets of mutation variants in the human genome.</p>
-<p>The main purpose of the system is to study and select mutation variants for a given case
-of genomics data - dataset. The system provides variety of information associated with
-variants. Part of this information is a result of evaluations of algorithms applying to
-the dataset itself. Another part consists of data selected from resources that accumulate
-known information concerning the whole humanity (and widely the set of all alive
-biological forms).</p>
+<p>Anfisa is a Linux-based Python application (Python 3.5+) and provides access via HTTP/HTTPS protocols. It deals with datasets of mutation variants in the human genome.</p>
+<p>The main purpose of the system is to study and select mutation variants for a given case of genomics data - dataset. The system provides variety of information associated with variants. Part of this information is a result of evaluations of algorithms applying to the dataset itself. Another part consists of data selected from resources that accumulate known information concerning the whole humanity (and widely the set of all alive biological forms).</p>
 <div class="section" id="datasets">
 <h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
-<p>The system works with <a class="reference internal" href="glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a> that are available in <a class="reference internal" href="glossary.html#term-vault"><span class="xref std std-term">vault</span></a> of
-the system. A dataset usually represents genomics information for a medical <a class="reference internal" href="glossary.html#term-case"><span class="xref std std-term">case</span></a>
-and concerns a proband patient with relatives. But system supports also datasets
-with data for <a class="reference internal" href="glossary.html#term-cohort"><span class="xref std std-term">cohorts</span></a> of persons, to perform scientific studies.</p>
-<p>:term:Primary datasets are loaded externally by
-administrators of the system, <a class="reference internal" href="glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspaces</span></a>
-can be created by the user from existing datasets.</p>
+<p>The system works with <a class="reference internal" href="glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a> that are available in <a class="reference internal" href="glossary.html#term-vault"><span class="xref std std-term">vault</span></a> of the system. A dataset usually represents genomics information for a medical <a class="reference internal" href="glossary.html#term-case"><span class="xref std std-term">case</span></a> and concerns a proband patient with relatives. But system supports also datasets with data for <a class="reference internal" href="glossary.html#term-cohort"><span class="xref std std-term">cohorts</span></a> of persons, to perform scientific studies.</p>
+<p>:term:Primary datasets are loaded externally by administrators of the system, <a class="reference internal" href="glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspaces</span></a> can be created by the user from existing datasets.</p>
 </div>
 <div class="section" id="variants-and-transcripts-kinds-of-datasets">
 <h2>Variants and transcripts, kinds of datasets<a class="headerlink" href="#variants-and-transcripts-kinds-of-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Main informational unit of the system is <a class="reference internal" href="glossary.html#term-variant"><span class="xref std std-term">variant</span></a> that presents in genome in
-a determined location (chromosome/position) and changes referenced sequence of
-genomics letters (“ref”) to an alternative subsequence (“alt”). In regime of
-<cite>XL-datasets&lt;xl-dataset&gt;</cite> (eXtra Large) Anfisa system provides work with millions and
-more variants.</p>
-<p>For small datasets, <a class="reference internal" href="glossary.html#term-ws-dataset"><span class="xref std std-term">workspaces, WS-datasets</span></a> Anfisa
-provides more intensive and ways for work. In particular, in this regime
-it uses <a class="reference internal" href="glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> as atomic informational units, which are application
-of known transcription scenario to a variant. Also, Anfisa supports
-<a class="reference internal" href="glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> manual functionality and additional <a class="reference internal" href="glossary.html#term-zone"><span class="xref std std-term">zone</span></a> filtration tool
-to provide access of the user to the short and exact required information portion.</p>
-<p>Since it is a huge amount of information, the system supports various mechanism for the user
-to effectively restrict his attention onto the most required information. The most powerful
-mechanism here is <a class="reference internal" href="concepts/filtration.html"><span class="doc">Filtration procedures</span></a>. They are <a class="reference internal" href="glossary.html#term-filtering-regime"><span class="xref std std-term">filtering regime</span></a> and
-<a class="reference internal" href="glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a>. These tools can be used to search for the most
-important variants inside datasets, as well as produce
-<a class="reference internal" href="glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary datasets</span></a> for more accurate work with reduced
-amount of variants.</p>
+<p>Main informational unit of the system is <a class="reference internal" href="glossary.html#term-variant"><span class="xref std std-term">variant</span></a> that presents in genome in a determined location (chromosome/position) and changes referenced sequence of genomics letters (“ref”) to an alternative subsequence (“alt”). In regime of <cite>XL-datasets&lt;xl-dataset&gt;</cite> (eXtra Large) Anfisa system provides work with millions and more variants.</p>
+<p>For small datasets, <a class="reference internal" href="glossary.html#term-ws-dataset"><span class="xref std std-term">workspaces, WS-datasets</span></a> Anfisa provides more intensive and ways for work. In particular, in this regime it uses <a class="reference internal" href="glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> as atomic informational units, which are application of known transcription scenario to a variant. Also, Anfisa supports <a class="reference internal" href="glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> manual functionality and additional <a class="reference internal" href="glossary.html#term-zone"><span class="xref std std-term">zone</span></a> filtration tool to provide access of the user to the short and exact required information portion.</p>
+<p>Since it is a huge amount of information, the system supports various mechanism for the user to effectively restrict his attention onto the most required information. The most powerful mechanism here is <a class="reference internal" href="concepts/filtration.html"><span class="doc">Filtration procedures</span></a>. They are <a class="reference internal" href="glossary.html#term-filtering-regime"><span class="xref std std-term">filtering regime</span></a> and <a class="reference internal" href="glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a>. These tools can be used to search for the most important variants inside datasets, as well as produce <a class="reference internal" href="glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary datasets</span></a> for more accurate work with reduced amount of variants.</p>
 </div>
 <div class="section" id="variants-and-transcripts-properties">
 <h2>Variants and transcripts properties<a class="headerlink" href="#variants-and-transcripts-properties" title="Permalink to this headline">¶</a></h2>
-<p>Properties of <a class="reference internal" href="glossary.html#term-variant"><span class="xref std std-term">variants</span></a> and <a class="reference internal" href="glossary.html#term-transcript"><span class="xref std std-term">trancripts</span></a> are used
-in the system for two main purposes:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="glossary.html#term-viewing-property"><span class="xref std std-term">viewing properties</span></a> represent information on</dt>
-<dd>variants/transcripts in form understandable by the user, they are the main
-atomic items for <a class="reference internal" href="glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regimes</span></a></dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a> of variants/trancripts</dt>
-<dd>form the low data level for <a class="reference internal" href="glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> processes, as objects
-for definition of <a class="reference internal" href="glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a></dd>
-</dl>
-</li>
+<p>Properties of <a class="reference internal" href="glossary.html#term-variant"><span class="xref std std-term">variants</span></a> and <a class="reference internal" href="glossary.html#term-transcript"><span class="xref std std-term">trancripts</span></a> are used in the system for two main purposes:</p>
+<ul class="simple">
+<li><a class="reference internal" href="glossary.html#term-viewing-property"><span class="xref std std-term">viewing properties</span></a> represent information on variants/transcripts in form understandable by the user, they are the main atomic items for <a class="reference internal" href="glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regimes</span></a></li>
+<li><a class="reference internal" href="glossary.html#term-filtering-property"><span class="xref std std-term">filtering properties</span></a> of variants/trancripts form the low data level for <a class="reference internal" href="glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> processes, as objects for definition of <a class="reference internal" href="glossary.html#term-conditions"><span class="xref std std-term">conditions</span></a></li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="work-pages-of-the-system">
 <span id="work-pages"></span><h2>Work pages of the system<a class="headerlink" href="#work-pages-of-the-system" title="Permalink to this headline">¶</a></h2>
 <p>There are 4 kinds of Front End pages support by the system:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><a class="reference internal" href="concepts/ws_pg.html"><span class="doc">Workspace page</span></a></li>
 <li><a class="reference internal" href="concepts/xl_pg.html"><span class="doc">XL-dataset work page</span></a></li>
 <li><a class="reference internal" href="concepts/dtree_pg.html"><span class="doc">Decision tree work page</span></a></li>
 <li><a class="reference internal" href="concepts/doc_pg.html"><span class="doc">Documentation work page</span></a></li>
 </ul>
-</div></blockquote>
-<p>There is also directory pages for the whole <a class="reference internal" href="glossary.html#term-vault"><span class="xref std std-term">vault</span></a> and its portions with fixed
-<a class="reference internal" href="glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>, they are provided on Back End level by request <a class="reference internal" href="rest/dirinfo.html"><span class="doc">dirinfo</span></a></p>
+<p>There is also directory pages for the whole <a class="reference internal" href="glossary.html#term-vault"><span class="xref std std-term">vault</span></a> and its portions with fixed <a class="reference internal" href="glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>, they are provided on Back End level by request <a class="reference internal" href="rest/dirinfo.html"><span class="doc">dirinfo</span></a></p>
 </div>
 <div class="section" id="architecture-back-end-rest-api-front-end">
 <h2>Architecture: Back End, REST API, Front End<a class="headerlink" href="#architecture-back-end-rest-api-front-end" title="Permalink to this headline">¶</a></h2>
-<p><strong>Back End</strong> is the kernel of the system. It is written on Python language
-and it supports the kernel functionality of the system.</p>
-<p><strong>Front End</strong> is an application that provides the user a comfort access to the system
-from an Internet browser.</p>
-<p>To access the Back End the Front End uses the set of HTTP requests that is
-<strong>REST API</strong> of Anfisa. “REST” term means that the API satisfies certain
-architectural conditions and their responses are in JSON format.</p>
+<p><strong>Back End</strong> is the kernel of the system. It is written on Python language and it supports the kernel functionality of the system.</p>
+<p><strong>Front End</strong> is an application that provides the user a comfort access to the system from an Internet browser.</p>
+<p>To access the Back End the Front End uses the set of HTTP requests that is <strong>REST API</strong> of Anfisa. “REST” term means that the API satisfies certain architectural conditions and their responses are in JSON format.</p>
 <p>This documentation set describes Anfisa REST API in details.</p>
 </div>
 <div class="section" id="external-systems">
 <h2>External systems<a class="headerlink" href="#external-systems" title="Permalink to this headline">¶</a></h2>
 <p>Anfisa uses the following external systems:</p>
 <p><a class="reference external" href="https://www.mongodb.com/">MongoDB</a>
-this database is used to store information about user activities; it does NOT
-contain information about datasets.</p>
+this database is used to store information about user activities; it does NOT contain information about datasets.</p>
 <p><a class="reference external" href="https://druid.apache.org/">Druid</a> OLAP system
-this engine is used for effective support of <a class="reference internal" href="glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a>
-(Druid is not necessary while working without XL-datasets)</p>
+this engine is used for effective support of <a class="reference internal" href="glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a> (Druid is not necessary while working without XL-datasets)</p>
 </div>
 </div>
 

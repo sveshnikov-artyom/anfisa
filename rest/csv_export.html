@@ -88,17 +88,16 @@
 <blockquote>
 <div><strong>Export to CSV format operation</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>export</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>export</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
 <div><p><strong>ds</strong>: dataset name</p>
 <p><strong>filter</strong>: <em>optional</em> name of applying filter</p>
 <dl class="docutils">
-<dt><strong>conditions</strong>: <em>optional</em> list of applying</dt>
-<dd><a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a>
-<em>in JSON string representation</em></dd>
+<dt><strong>conditions</strong>: <em>optional</em> list of applying <a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a></dt>
+<dd><em>in JSON string representation</em></dd>
 <dt><strong>zone</strong>: <em>optional</em> <a class="reference internal" href="s_zone.html"><span class="doc">zone descriptor</span></a></dt>
 <dd><em>in JSON string representation</em></dd>
 </dl>
@@ -115,21 +114,11 @@
 <p>Selection is defined by:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion</dt>
-<dd><a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> applies if <strong>zone</strong> is set - actual for <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> only.</dt>
-<dd>(Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>.
-In this case <strong>zone</strong> option works in reverse context: records satisfying
-condition on zones are filtered out.)</dd>
-</dl>
-</li>
+<li><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> applies if either <strong>filter</strong> or <strong>conditions</strong> is set (see discussion <a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>)</li>
+<li><a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> applies if <strong>zone</strong> is set - actual for <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> only. (Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>. In this case <strong>zone</strong> option works in reverse context: records satisfying condition on zones are filtered out.)</li>
 </ul>
 </div></blockquote>
-<p>In current version of the system schemes are defined in source code of the server, so the list of it is fixed.</p>
+<p>In current version of the system schemes are defined in source code of the server as <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a>, so the list of it is fixed. The schema <cite>csv</cite> is supportd for simple variant of export.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">TODO: add list and descriptions of available schemes</p>

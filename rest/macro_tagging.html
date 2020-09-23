@@ -89,8 +89,8 @@
 <blockquote>
 <div><strong>Macro Tagging operation</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>tagging_selection</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>tagging_selection</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -99,9 +99,8 @@
 <p><strong>off</strong>: <em>optional</em> <code class="docutils literal notranslate"><span class="pre">true</span></code> or anything else</p>
 <p><strong>filter</strong>: <em>optional</em> name of applying filter</p>
 <dl class="docutils">
-<dt><strong>conditions</strong>: <em>optional</em> list of applying</dt>
-<dd><a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a>
-<em>in JSON string representation</em></dd>
+<dt><strong>conditions</strong>: <em>optional</em> list of applying <a class="reference internal" href="s_condition.html"><span class="doc">condition descriptors</span></a></dt>
+<dd><em>in JSON string representation</em></dd>
 </dl>
 <p><strong>zone</strong>: <em>optional</em> :</p>
 <div class="line-block">
@@ -131,13 +130,9 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The request operates over all <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tag</span></a> with given name for variants
-present in <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>.</p>
-<p>If option <strong>off</strong> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the operation clears <strong>tag</strong> from all
-records of root dataset (see <a class="reference internal" href="ws_tags.html"><span class="doc">ws_tags</span></a> for details).</p>
-<p>If option <strong>of</strong> is not set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the operation marks all filtered records in
-current dataset with <strong>tag</strong> and text value of tag as “True”, and also clears
-<strong>tag</strong> from all other records of root dataset.</p>
+<p>The request operates over all <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tag</span></a> with given name for variants present in <a class="reference internal" href="../glossary.html#term-root-dataset"><span class="xref std std-term">root dataset</span></a>.</p>
+<p>If option <strong>off</strong> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the operation clears <strong>tag</strong> from all records of root dataset (see <a class="reference internal" href="ws_tags.html"><span class="doc">ws_tags</span></a> for details).</p>
+<p>If option <strong>of</strong> is not set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the operation marks all filtered records in current dataset with <strong>tag</strong> and text value of tag as “True”, and also clears <strong>tag</strong> from all other records of root dataset.</p>
 <p>For details of arguments <strong>fiter</strong>, <strong>conditions</strong>, <strong>zone</strong> see <a class="reference internal" href="ws_list.html"><span class="doc">ws_list</span></a></p>
 </div>
 <div class="section" id="see-also">

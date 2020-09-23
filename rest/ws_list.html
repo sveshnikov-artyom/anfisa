@@ -90,8 +90,8 @@
 <blockquote>
 <div><strong>Current list of variants</strong></div></blockquote>
 <div class="section" id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p id="index-0"><strong>ws_list</strong></p>
+<span id="index-0"></span><h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>ws_list</strong></p>
 <blockquote>
 <div><p><strong>Arguments</strong>:</p>
 <blockquote>
@@ -141,25 +141,15 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The request is the principal one for organizing <a class="reference internal" href="../concepts/view.html#full-viewing-regime"><span class="std std-ref">full</span></a>
-variant of <a class="reference internal" href="../concepts/view.html"><span class="doc">Viewing regimes</span></a>.</p>
-<p>The request affects only <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and return list of
-:term:variant` record descriptors.</p>
-<p>If arguments <strong>filter</strong>, <strong>conditions</strong>, <strong>zone</strong> are not set,
-result of request is the complete list of records in dataset returns.
-Otherwise result is restricted by <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> and/or condition on
-<a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a>.</p>
-<p>Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>.
-In this case <strong>zone</strong> option works in reverse context: records satisfying
-condition on zones are filtered out. (It might be helpful for work with <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a>.)</p>
-<p>To define <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> use either <strong>filter</strong> or <strong>conditions</strong>. See details
-<a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>.</p>
+<p>The request is the principal one for organizing <a class="reference internal" href="../concepts/view.html#full-viewing-regime"><span class="std std-ref">full</span></a> variant of <a class="reference internal" href="../concepts/view.html"><span class="doc">Viewing regimes</span></a>.</p>
+<p>The request affects only <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspaces</span></a> and return list of :term:variant` record descriptors.</p>
+<p>If arguments <strong>filter</strong>, <strong>conditions</strong>, <strong>zone</strong> are not set, result of request is the complete list of records in dataset returns. Otherwise result is restricted by <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> and/or condition on <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a>.</p>
+<p>Nonempty <strong>zone</strong> list can contain special pair of strings <code class="docutils literal notranslate"><span class="pre">[&quot;NOT&quot;,</span> <span class="pre">true]</span></code>. In this case <strong>zone</strong> option works in reverse context: records satisfying condition on zones are filtered out. (It might be helpful for work with <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a>.)</p>
+<p>To define <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filter</span></a> use either <strong>filter</strong> or <strong>conditions</strong>. See details <a class="reference internal" href="../concepts/sol_work.html#fiter-conditions"><span class="std std-ref">here</span></a>.</p>
 </div>
 <div class="section" id="comment">
 <h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
-<p>The request format supports applying of multiple zones, butthe current user
-interface allows to set only one zone at time. Extension of the user interface
-is expected in future development.</p>
+<p>The request format supports applying of multiple zones, butthe current user interface allows to set only one zone at time. Extension of the user interface is expected in future development.</p>
 </div>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

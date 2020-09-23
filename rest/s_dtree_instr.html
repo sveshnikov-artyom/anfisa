@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Anfisa Utilities" href="../utils/index.html" />
+    <link rel="next" title="Anfisa Administration documentation" href="../adm/index.html" />
     <link rel="prev" title="Filtering functions" href="func_ref.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../utils/index.html" title="Anfisa Utilities"
+          <a href="../adm/index.html" title="Anfisa Administration documentation"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="func_ref.html" title="Filtering functions"
@@ -73,8 +73,8 @@
   <p class="topless"><a href="func_ref.html"
                         title="previous chapter">Filtering functions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../utils/index.html"
-                        title="next chapter">Anfisa Utilities</a></p>
+  <p class="topless"><a href="../adm/index.html"
+                        title="next chapter">Anfisa Administration documentation</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -137,8 +137,7 @@
 <h2>INSTR modifying actions<a class="headerlink" href="#instr-modifying-actions" title="Permalink to this headline">¶</a></h2>
 <p>Actions of this type manipulates with logical blocks of decision tree code.
 Blocks are identified by index of first point.</p>
-<p id="dtree-instr-actions">For each <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a> list of available actions
-is prepared in  <strong>actions</strong> property of <a class="reference internal" href="s_dtree_point.html"><span class="doc">Decision Tree Point descriptor</span></a>.</p>
+<p id="dtree-instr-actions">For each <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a> list of available actions is prepared in  <strong>actions</strong> property of <a class="reference internal" href="s_dtree_point.html"><span class="doc">Decision Tree Point descriptor</span></a>.</p>
 <div class="section" id="id1">
 <h3>Format<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -174,8 +173,7 @@ is prepared in  <strong>actions</strong> property of <a class="reference interna
 </div>
 <div class="section" id="point-modifying-actions">
 <h2>POINT modifying actions<a class="headerlink" href="#point-modifying-actions" title="Permalink to this headline">¶</a></h2>
-<p>Actions of this type are caused by insertion of new condition over filtering property
-into some <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point of decision tree</span></a>.</p>
+<p>Actions of this type are caused by insertion of new condition over filtering property into some <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point of decision tree</span></a>.</p>
 <div class="section" id="id3">
 <h3>Format<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -194,17 +192,13 @@ into some <a class="reference internal" href="../glossary.html#term-decision-tre
 <blockquote>
 <div><p><strong>INSERT</strong>: insert condition as a new point into decision tree</p>
 <p><strong>REPLACE</strong>: replace the whole condition of If-block by new condition</p>
-<dl class="docutils">
-<dt><strong>JOIN-AND</strong>, <strong>JOIN-OR</strong>: join new condition with current condition of</dt>
-<dd>If-block by AND or OR operation</dd>
-</dl>
+<p><strong>JOIN-AND</strong>, <strong>JOIN-OR</strong>: join new condition with current condition of If-block by AND or OR operation</p>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="atom-modifying-actions">
 <span id="dtree-atom-actions"></span><h2>ATOM modifying actions<a class="headerlink" href="#atom-modifying-actions" title="Permalink to this headline">¶</a></h2>
-<p>Actions of this type are caused by user requests for modification of existing
-atom conditions in decision tree.</p>
+<p>Actions of this type are caused by user requests for modification of existing atom conditions in decision tree.</p>
 <div class="section" id="id5">
 <h3>Format<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -229,15 +223,10 @@ atom conditions in decision tree.</p>
 <div class="section" id="id6">
 <h3>Actions:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="docutils">
-<dt><strong>EDIT</strong>: modify atomic condition, additional argument in place <strong>[3]</strong> is new</dt>
-<dd><a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a></dd>
-<dt><strong>DELETE</strong>: delete atom from the whole condition and simplify it, no additional</dt>
-<dd><p class="first">argument requires</p>
-<p class="last"><em>Note</em>: in case of one atom in point, please use action <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;/&quot;DELETE&quot;</span></code>
-instead of this one.</p>
-</dd>
-</dl>
+<div><p><strong>EDIT</strong>: modify atomic condition, additional argument in place <strong>[3]</strong> is new <a class="reference internal" href="s_condition.html"><span class="doc">Condition descriptor</span></a></p>
+<p><strong>DELETE</strong>: delete atom from the whole condition and simplify it, no additional argument requires</p>
+<blockquote>
+<div><em>Note</em>: in case of one atom in point, please use action <code class="docutils literal notranslate"><span class="pre">&quot;INSTR&quot;/&quot;DELETE&quot;</span></code> instead of this one.</div></blockquote>
 </div></blockquote>
 </div>
 </div>
@@ -260,7 +249,7 @@ instead of this one.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../utils/index.html" title="Anfisa Utilities"
+          <a href="../adm/index.html" title="Anfisa Administration documentation"
              >next</a> |</li>
         <li class="right" >
           <a href="func_ref.html" title="Filtering functions"

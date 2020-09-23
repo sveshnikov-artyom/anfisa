@@ -84,47 +84,29 @@
             
   <div class="section" id="documentation-work-page">
 <h1>Documentation work page<a class="headerlink" href="#documentation-work-page" title="Permalink to this headline">¶</a></h1>
-<p>Documentation page for <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> provides access to documents associated
-with the dataset. If dataset was created as <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a>
-the page also provides access to documentation of all ancestors of the dataset.</p>
+<p>Documentation page for <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> provides access to documents associated with the dataset. If dataset was created as <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a> the page also provides access to documentation of all ancestors of the dataset.</p>
 <p>Documents associated with dataset might be formed by two ways:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>Either they are preformatted documents (in various formats) provided</dt>
-<dd>in original dataset complication,</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Or it is a report formed inside the system on stage of loading or creation</dt>
-<dd>of dataset with name “Info. In case of creation dataset as
-<a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a> report includes representation
-of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> process used for filtering items in dataset</dd>
-</dl>
-</li>
+<li>Either they are preformatted documents (in various formats) provided in original dataset complication,</li>
+<li>Or it is a report formed inside the system on stage of loading or creation of dataset with name “Info. In case of creation dataset as <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary one</span></a> report includes representation of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> process used for filtering items in dataset</li>
 </ul>
 </div></blockquote>
 <p>All documents are available in system with URL of the form:</p>
 <blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">&lt;URL</span> <span class="pre">to</span> <span class="pre">application</span> <span class="pre">back</span> <span class="pre">end&gt;/dsdoc/&lt;ds</span> <span class="pre">name&gt;/&lt;path</span> <span class="pre">to</span> <span class="pre">document&gt;</span></code></div></blockquote>
-<p>The system provides access to two CSS files from HTML pages of documentation:
-<code class="docutils literal notranslate"><span class="pre">report.css</span></code> and <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code>. This internal feature allows
-to control styling for HTML documentation.</p>
-<p>See <a class="reference internal" href="../adm/configuration.html#docs-cfg"><span class="std std-ref">configuration settings</span></a> to configure access to these files
-properly.</p>
-<p>(The second styling file <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code> is necessary to render
-:term:<code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">tree</span> <span class="pre">code</span></code> that might be used in secondary workspace creation).</p>
+<p>The system provides access to two CSS files from HTML pages of documentation: <code class="docutils literal notranslate"><span class="pre">report.css</span></code> and <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code>. This internal feature allows to control styling for HTML documentation.</p>
+<p>See <a class="reference internal" href="../adm/configuration.html#docs-cfg"><span class="std std-ref">configuration settings</span></a> to configure access to these files properly.</p>
+<p>(The second styling file <code class="docutils literal notranslate"><span class="pre">py_pygments.css</span></code> is necessary to render :term:<code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">tree</span> <span class="pre">code</span></code> that might be used in secondary workspace creation).</p>
 <div class="section" id="rest-api-request">
 <h2>REST API request<a class="headerlink" href="#rest-api-request" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference internal" href="../rest/dsinfo.html"><span class="doc">dsinfo</span></a></dt>
 <dd>Dataset information</dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 

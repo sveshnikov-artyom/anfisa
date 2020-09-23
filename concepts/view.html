@@ -41,6 +41,14 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Viewing regimes</a><ul>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Anfisa Interface concepts</a></p>
@@ -76,22 +84,14 @@
             
   <div class="section" id="viewing-regimes">
 <h1>Viewing regimes<a class="headerlink" href="#viewing-regimes" title="Permalink to this headline">¶</a></h1>
-<p>Since <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> have variety of properties the system provides
-full functionality for view and study these properties. In this regime the main control
-structure is list of variants. Usually they are <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtered</span></a>: variants in
-the list are selected from the whole <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> by <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a>,
-<a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a>.</p>
-<p>The user can select any of variant form the list, and view and study the whole information about
-this variant. See also details <a class="reference internal" href="view_pre.html"><span class="doc">Variant data presentations and aspects</span></a>.</p>
+<p>Since <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> have variety of properties the system provides full functionality for view and study these properties. In this regime the main control structure is list of variants. Usually they are <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtered</span></a>: variants in the list are selected from the whole <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> by <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a>, <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zones</span></a>.</p>
+<p>The user can select any of variant form the list, and view and study the whole information about this variant. See also details <a class="reference internal" href="view_pre.html"><span class="doc">Variant data presentations and aspects</span></a>.</p>
 <p>On different pages the system provides two variants of viewing regime</p>
-<blockquote>
-<div><ul id="full-viewing-regime">
+<ul id="full-viewing-regime">
 <li><p class="first">Full viewing regime</p>
 <blockquote>
 <div><p>REST API request: <a class="reference internal" href="../rest/ws_list.html"><span class="doc">ws_list</span></a></p>
-<p>In context of comparatively small <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> user can see all selected variants.
-Features of workspace functionality, <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> mechanisms are
-integrated with this regime.</p>
+<p>In context of comparatively small <a class="reference internal" href="../glossary.html#term-workspace"><span class="xref std std-term">workspace</span></a> user can see all selected variants. Features of workspace functionality, <a class="reference internal" href="../glossary.html#term-tagging"><span class="xref std std-term">tagging</span></a> and <a class="reference internal" href="../glossary.html#term-zone"><span class="xref std std-term">zone</span></a> mechanisms are integrated with this regime.</p>
 </div></blockquote>
 </li>
 </ul>
@@ -99,26 +99,18 @@ integrated with this regime.</p>
 <li><p class="first">Auxiliary viewing regime</p>
 <blockquote>
 <div><p>REST API request: <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a></p>
-<p>In contexts of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> viewing regime looks simpler -
-no integration with tagging and zones. But in these contexts there is no guarantee
-that selection is small enough, so the system makes special preparations to restrict list
-of visible variants:</p>
+<p>In contexts of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-dataset</span></a> or <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> viewing regime looks simpler - no integration with tagging and zones. But in these contexts there is no guarantee that selection is small enough, so the system makes special preparations to restrict list of visible variants:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>If list is comparatively small (less than 300 variants), visible list if full one</dt>
-<dd>(property <strong>records</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>If list is comparatively large (more than 50 variants), only 25 randomly selected</dt>
-<dd>samples are visible (property <strong>samples</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</dd>
-</dl>
-</li>
+<li>If list is comparatively small (less than 300 variants), visible list if full one (property <strong>records</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</li>
+<li>If list is comparatively large (more than 50 variants), only 25 randomly selected samples are visible (property <strong>samples</strong> is used in request <a class="reference internal" href="../rest/ds_list.html"><span class="doc">ds_list</span></a>)</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="view_pre.html"><span class="doc">Variant data presentations and aspects</span></a></p>
+</div>
 </div>
 
 

@@ -84,33 +84,28 @@
             
   <div class="section" id="solution-items-in-work">
 <h1>Solution items in work<a class="headerlink" href="#solution-items-in-work" title="Permalink to this headline">¶</a></h1>
-<p>Here we discuss usage of two kinds of items: <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a> and
-<a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a></p>
-<p>Item of such kinds is some complex object, and in practice it has one of
-three status states (note that the user can use item always):</p>
+<p>Here we discuss usage of two kinds of items: <a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">filters</span></a> and <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision trees</span></a></p>
+<p>Item of such kinds is some complex object, and in practice it has one of three status states (note that the user can use item always):</p>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="first docutils">
 <dt>preset solution, see <a class="reference internal" href="sol_pack.html"><span class="doc">Solution items</span></a></dt>
-<dd>The user can not modify it</dd>
+<dd>The user can not modify it, names of such solutions have preffix symbol <cite>⏚</cite></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>dynamical solution</dt>
-<dd>The user can create, modify, rename and delete it. This item is persistent
-object, so the user can use it in next sessions.</dd>
+<dd>The user can create, modify, rename and delete it. This item is persistent object, so the user can use it in next sessions.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>working solution</dt>
-<dd>Item in this state is editable but temporary. It can be stored as solution one
-(by setting its name).</dd>
+<dd>Item in this state is editable but temporary. It can be stored as solution one (by setting its name).</dd>
 </dl>
 </li>
 </ul>
 </div></blockquote>
-<p>For both kinds of solution items there is REST API request provides operations over solution
-items: create/update and delete:</p>
+<p>For both kinds of solution items there is REST API request provides operations over solution items: create/update and delete:</p>
 <blockquote>
 <div><ul class="simple">
 <li>for filters: <a class="reference internal" href="../rest/ds_stat.html"><span class="doc">ds_stat</span></a></li>
@@ -121,14 +116,9 @@ items: create/update and delete:</p>
 <blockquote id="fiter-conditions">
 <div><ul class="simple">
 <li><strong>filter</strong> <em>either</em> as name of filter solution item</li>
-<li><dl class="first docutils">
-<dt><strong>conditions</strong> <em>or</em> list of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">condition</span></a> descriptors,</dt>
-<dd>as working copy of item</dd>
-</dl>
-</li>
+<li><strong>conditions</strong> <em>or</em> list of <a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">condition</span></a> descriptors, as working copy of item</li>
 </ul>
 </div></blockquote>
-<p>REST API request a</p>
 <p>If request in REST API uses <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> item, it can be determined in argument:</p>
 <blockquote id="dtree-code">
 <div><ul class="simple">
@@ -136,8 +126,7 @@ items: create/update and delete:</p>
 <li><strong>code</strong> <em>or</em> as <a class="reference internal" href="../glossary.html#term-decision-tree-code"><span class="xref std std-term">decision tree code</span></a>, as working copy of item</li>
 </ul>
 </div></blockquote>
-<p>Names of filters and decision trees must start with any letter (“alpha”)
-symbol (any alphabet) and must not contain spaces; in terms of js the criterium is as follows:</p>
+<p>Names of filters and decision trees must start with any letter (“alpha”) symbol (any alphabet) and must not contain spaces; in terms of js the criterium is as follows:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/^\S+$/u.test(name) &amp;&amp; (name[0].toLowerCase() != name[0].toUpperCase())
 </pre></div>

@@ -84,54 +84,25 @@
             
   <div class="section" id="decision-tree-work-page">
 <h1>Decision tree work page<a class="headerlink" href="#decision-tree-work-page" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> page looks very complex. However, essential part of its
-functionality has strong back-end support, so the the Front End complexity is not so
-hard as one can expect. Essential portion of real difficulties in Front End application
-support focuses on the same issue as in other work pages: :doc:&lt;status_report&gt;.</p>
-<p>The page provides the following functionality issues for work with with all
-<a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a>, <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-</span></a> and
-<cite>ws-&lt;ws-dataset&gt;</cite> ones</p>
+<p><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> page looks very complex. However, essential part of its functionality has strong back-end support, so the the Front End complexity is not so hard as one can expect. Essential portion of real difficulties in Front End application support focuses on the same issue as in other work pages: :doc:&lt;status_report&gt;.</p>
+<p>The page provides the following functionality issues for work with with all <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a>, <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-</span></a> and <cite>ws-&lt;ws-dataset&gt;</cite> ones</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> complex representation with possibility to select any applicable <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="status_report.html#dtree-points-report"><span class="std std-ref">Delayed report of point counts</span></a>, actual for <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-datasets</span></a> where count evaluations might be heavy</p>
+</li>
+<li><p class="first">Complex of visualization of properties state, in context of current decision point selection, see <a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="view.html#auxiliary-viewing-regime"><span class="std std-ref">Auxiliary viewing regime</span></a>, in context of current decision point</p>
+</li>
+<li><p class="first">Interactive modification of decision tree, see full reference in <a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a>. Operations of this layer are split onto three categories of operations:</p>
 <blockquote>
-<div><ul>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> complex representation with possibility to select any</dt>
-<dd><p class="first last">applicable <a class="reference internal" href="../glossary.html#term-decision-tree-point"><span class="xref std std-term">point</span></a></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="status_report.html#dtree-points-report"><span class="std std-ref">Delayed report of point counts</span></a>, actual for</dt>
-<dd><p class="first last"><a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-datasets</span></a> where count evaluations might be heavy</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Complex of visualization of properties state, in context of</dt>
-<dd><p class="first last">current decision point selection, see <a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="view.html#auxiliary-viewing-regime"><span class="std std-ref">Auxiliary viewing regime</span></a>, in</dt>
-<dd><p class="first last">context of current decision point</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Interactive modification of decision tree, see full reference in</dt>
-<dd><p class="first"><a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a>. Operations of this layer are split onto
-three categories of operations:</p>
-<ul class="last simple">
-<li>INSTR: manipulations with logical structure of the code</li>
-<li><dl class="first docutils">
-<dt>POINT: creation of new atomic conditions in context of available</dt>
-<dd>properties state, and placement of them into the code of decision tree</dd>
-</dl>
-</li>
-<li>ATOM: tuning atomic conditions in decision tree code</li>
+<div><ul class="simple">
+<li><strong>INSTR</strong>: manipulations with logical structure of the code</li>
+<li><strong>POINT</strong>: creation of new atomic conditions in context of available properties state, and placement of them into the code of decision tree</li>
+<li><strong>ATOM</strong>: tuning atomic conditions in decision tree code</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p class="first">Operation support:</p>
 <blockquote>
@@ -143,38 +114,17 @@ three categories of operations:</p>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
-<p>In case of <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">ws-dataset</span></a> the page uses <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a>
-as <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> items, otherwise in case of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-dataset</span></a>
-<a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> are used.</p>
-<p>Decision trees are powerful tool of <a class="reference internal" href="filtration.html"><span class="doc">Filtration procedures</span></a>, they are integrated
-with other parts of the system by two ways:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt>there is always a possibility to create <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a></dt>
-<dd>to save result of filtration workspace</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>for <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">ws-datasets</span></a> only: filtration results of all</dt>
-<dd>decision trees that are registered as <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a>
-are available in <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a> as values of special property
-<a class="reference internal" href="../glossary.html#term-rules"><span class="xref std std-term">Rules</span></a>.</dd>
-</dl>
-</li>
+<p>In case of <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">ws-dataset</span></a> the page uses <a class="reference internal" href="../glossary.html#term-transcript"><span class="xref std std-term">transcripts</span></a> as <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> items, otherwise in case of <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">xl-dataset</span></a> <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a> are used.</p>
+<p>Decision trees are powerful tool of <a class="reference internal" href="filtration.html"><span class="doc">Filtration procedures</span></a>, they are integrated with other parts of the system by two ways:</p>
+<ul class="simple">
+<li>there is always a possibility to create <a class="reference internal" href="../glossary.html#term-secondary-workspace"><span class="xref std std-term">secondary workspace</span></a> to save result of filtration workspace</li>
+<li>for <a class="reference internal" href="../glossary.html#term-ws-dataset"><span class="xref std std-term">ws-datasets</span></a> only: filtration results of all decision trees that are registered as <a class="reference internal" href="../glossary.html#term-solution-item"><span class="xref std std-term">solution items</span></a> are available in <a class="reference internal" href="filters_reg.html"><span class="doc">Filtering regime</span></a> as values of special property <a class="reference internal" href="../glossary.html#term-rules"><span class="xref std std-term">Rules</span></a>.</li>
 </ul>
-</div></blockquote>
-<p>Interactive modification level (see <a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for reference)
-forms complete functionality to make any meaningful change in decision tree.
-So there is no need for the user to direct change of
-<a class="reference internal" href="dtree_syntax.html"><span class="doc">Python code of decision tree</span></a>.
-It might be useful only for control complex cases of boolean operations.</p>
+<p>Interactive modification level (see <a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for reference) forms complete functionality to make any meaningful change in decision tree. So there is no need for the user to direct change of <a class="reference internal" href="dtree_syntax.html"><span class="doc">Python code of decision tree</span></a>. It might be useful only for control complex cases of boolean operations.</p>
 <div class="section" id="rest-api-requests">
 <h2>REST API requests<a class="headerlink" href="#rest-api-requests" title="Permalink to this headline">¶</a></h2>
 <p>For support Decision Tree work page:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference internal" href="../rest/dsinfo.html"><span class="doc">dsinfo</span></a></dt>
 <dd>Dataset information</dd>
@@ -212,7 +162,6 @@ It might be useful only for control complex cases of boolean operations.</p>
 </li>
 <li>see also <a class="reference internal" href="status_report.html"><span class="doc">Status report mechanism with delays</span></a></li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 

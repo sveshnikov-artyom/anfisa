@@ -95,35 +95,23 @@
             
   <div class="section" id="decision-tree-syntax-reference">
 <h1>Decision Tree Syntax Reference<a class="headerlink" href="#decision-tree-syntax-reference" title="Permalink to this headline">¶</a></h1>
-<p>In the text below we define and discuss a dialect of Python that
-is used to construct a decision tree.</p>
-<p><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> is an algorithm of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> that allows
-to build complex procedure of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a>  selection.</p>
+<p>In the text below we define and discuss a dialect of Python that is used to construct a decision tree.</p>
+<p><a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">Decision tree</span></a> is an algorithm of <a class="reference internal" href="../glossary.html#term-filtration"><span class="xref std std-term">filtration</span></a> that allows to build complex procedure of <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a>  selection.</p>
 <div class="section" id="decision-tree-logic">
 <h2>Decision tree logic<a class="headerlink" href="#decision-tree-logic" title="Permalink to this headline">¶</a></h2>
-<p>A Decision Tree consists of a sequence of branching points. A result of
-application of any Decision Tree is a set that we will call “final selection”.
-The process starts with a set consisting of all of the variants (in a whole genome of patient
-family members or a cohort of patients). This set “travels” through a tree trunk.
-At each branching point a subset of variants is removed from the set and is either
-excluded from further consideration (thrown away) or unconditionally included in
-the final selection. Variants that have been neither excluded or included continue
-their “travel”.</p>
-<blockquote>
-<div><ul class="simple">
+<p>A Decision Tree consists of a sequence of branching points. A result of application of any Decision Tree is a set that we will call “final selection”. The process starts with a set consisting of all of the variants (in a whole genome of patient family members or a cohort of patients). This set “travels” through a tree trunk. At each branching point a subset of variants is removed from the set and is either excluded from further consideration (thrown away) or unconditionally included in the final selection. Variants that have been neither excluded or included continue their “travel”.</p>
+<ul class="simple">
 <li>Initially we have the whole set of items (variants) as working selection.</li>
 <li><dl class="first docutils">
 <dt>At each branching point:</dt>
 <dd><ul class="first last">
 <li>If-instruction selects some subset of working selection;</li>
-<li>Return-instruction determines whether the selected subset should be included in
-the “final selection” (return <code class="docutils literal notranslate"><span class="pre">True</span></code>) or excluded (return <code class="docutils literal notranslate"><span class="pre">False</span></code>):</li>
+<li>Return-instruction determines whether the selected subset should be included in the “final selection” (return <code class="docutils literal notranslate"><span class="pre">True</span></code>) or excluded (return <code class="docutils literal notranslate"><span class="pre">False</span></code>):</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
 <div class="line-block">
 <div class="line"><strong>if</strong> <em>condition</em> :</div>
 <div class="line-block">
@@ -132,11 +120,8 @@ the “final selection” (return <code class="docutils literal notranslate"><sp
 </div>
 <blockquote>
 <div><ul class="simple">
-<li>after If-instruction the selection set is (probably) reduced, and next instruction
-is applied to this reduced set; next instruction is one more If-instruction, or…</li>
-<li>final instruction in code is always Return-instruction that determines what
-should be done to the rest of working selection: to include it in the “final selection”
-(<code class="docutils literal notranslate"><span class="pre">True</span></code>) or to exclude it (<code class="docutils literal notranslate"><span class="pre">False</span></code>):</li>
+<li>after If-instruction the selection set is (probably) reduced, and next instruction is applied to this reduced set; next instruction is one more If-instruction, or…</li>
+<li>final instruction in code is always Return-instruction that determines what should be done to the rest of working selection: to include it in the “final selection” (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or to exclude it (<code class="docutils literal notranslate"><span class="pre">False</span></code>):</li>
 </ul>
 </div></blockquote>
 <div class="line-block">
@@ -146,56 +131,25 @@ should be done to the rest of working selection: to include it in the “final s
 <div class="line-block">
 <div class="line"><strong>label</strong> (<em>string</em>)</div>
 </div>
-<p>This instruction can be inserted to decision tree code before any If-instruction. So
-the user has a possibility to mark state of working selection by label mark. This mark
-can be used in complex procedures (see <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a> reference: <a class="reference internal" href="../rest/func_ref.html"><span class="doc">Filtering functions</span></a>,
-functions <a class="reference internal" href="../rest/func_ref.html#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> and
-<a class="reference internal" href="../rest/func_ref.html#compound-request"><span class="std std-ref">Compound_Request()</span></a>).</p>
+<p>This instruction can be inserted to decision tree code before any If-instruction. So the user has a possibility to mark state of working selection by label mark. This mark can be used in complex procedures (see <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a> reference: <a class="reference internal" href="../rest/func_ref.html"><span class="doc">Filtering functions</span></a>, functions <a class="reference internal" href="../rest/func_ref.html#compound-heterozygous"><span class="std std-ref">Compound_Heterozygous()</span></a> and <a class="reference internal" href="../rest/func_ref.html#compound-request"><span class="std std-ref">Compound_Request()</span></a>).</p>
 </div>
 <div class="section" id="syntax-principles">
 <h2>Syntax principles<a class="headerlink" href="#syntax-principles" title="Permalink to this headline">¶</a></h2>
 <p>There are three levels of details in description of Decision Tree Python dialect:</p>
+<ul>
+<li><p class="first"><strong>neccessary level</strong>: the dialect deals with very restricted subset of Python, so only small amount of Python constructions are allowed in it; below is complete description of this subset</p>
+</li>
+<li><p class="first"><strong>good practice level</strong>: some constructs discussed below are recommended as “good practice”; similar constructs that are not considered good practices could be refactored to their “good practice” analogues in the process of interactive changes of a decision tree</p>
+</li>
+<li><p class="first"><strong>simplification level</strong>: since the dialect of Python is very “thin”, for purposes of easy typing and reading it supports the following “simplifications”:</p>
 <blockquote>
-<div><ul>
-<li><dl class="first docutils">
-<dt><strong>neccessary level</strong>: the dialect deals with very restricted subset of Python,</dt>
-<dd><p class="first last">so only small amount of Python constructions are allowed in it; below is
-complete description of this subset</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>good practice level</strong>: some constructs discussed below are recommended as</dt>
-<dd><p class="first last">“good practice”; similar constructs that are not considered good practices
-could be refactored to their “good practice” analogues in the process of interactive
-changes of a decision tree</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>simplification level</strong>: since the dialect of Python is very “thin”, for purposes</dt>
-<dd><p class="first">of easy typing and reading it supports the following “simplifications”:</p>
-<blockquote class="last">
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt><strong>string constants</strong> can be typed without quote symbols <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">''</span></code> if they</dt>
-<dd>are correct Python identifiers or constants <code class="docutils literal notranslate"><span class="pre">True,</span> <span class="pre">False,</span> <span class="pre">None</span></code></dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>lists vs. sets</strong>: in case when code refers list objects with <code class="docutils literal notranslate"><span class="pre">[]</span></code> parentheses,</dt>
-<dd>it is good practice to use set notation with <code class="docutils literal notranslate"><span class="pre">{}</span></code>; indeed in most
-cases, order of elements in a “list” is irrelevant, while <code class="docutils literal notranslate"><span class="pre">{}</span></code>
-are more readable</dd>
-</dl>
-</li>
+<li><strong>string constants</strong> can be typed without quote symbols <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">''</span></code> if they are correct Python identifiers or constants <code class="docutils literal notranslate"><span class="pre">True,</span> <span class="pre">False,</span> <span class="pre">None</span></code></li>
+<li><strong>lists vs. sets</strong>: in case when code refers list objects with <code class="docutils literal notranslate"><span class="pre">[]</span></code> parentheses, it is good practice to use set notation with <code class="docutils literal notranslate"><span class="pre">{}</span></code>; indeed in most cases, order of elements in a “list” is irrelevant, while <code class="docutils literal notranslate"><span class="pre">{}</span></code> are more readable</li>
 </ul>
 </div></blockquote>
-</dd>
-</dl>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="top-level-constructions">
 <h2>Top level constructions<a class="headerlink" href="#top-level-constructions" title="Permalink to this headline">¶</a></h2>
@@ -213,18 +167,13 @@ are more readable</dd>
 <p>The following rules must be hold:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>All instructions (excluding Return-sub-instruction of If-instruction) must</dt>
-<dd>start at the first character of a line, no indentation</dd>
-</dl>
-</li>
+<li>All instructions (excluding Return-sub-instruction of If-instruction) must start at the first character of a line, no indentation</li>
 <li>A top-level Return-instruction must be the last nonempty line of code</li>
 <li>Label-instruction can be used before any If-instruction</li>
 <li>Empty lines between top-level constructions are allowed</li>
 <li><dl class="first docutils">
 <dt>Comments are acceptable only as a full line, not as a part of a line with code;</dt>
-<dd>comments should start with <code class="docutils literal notranslate"><span class="pre">#</span></code> character, possibly after spaces (note also that
-comments are not acceptable after the last instruction)</dd>
+<dd>comments should start with <code class="docutils literal notranslate"><span class="pre">#</span></code> character, possibly after spaces (note also that comments are not acceptable after the last instruction)</dd>
 </dl>
 </li>
 <li>It is a good practice to place comment lines only before top-level instructions</li>
@@ -240,23 +189,18 @@ comments are not acceptable after the last instruction)</dd>
 <h2>Condition constructions<a class="headerlink" href="#condition-constructions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="combined-conditions">
 <h3>Combined conditions<a class="headerlink" href="#combined-conditions" title="Permalink to this headline">¶</a></h3>
-<p>Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code> and parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are fully supported
-for building complex conditions from atomic ones.</p>
-<p>Atomic condition uses identifier of corresponding <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering property</span></a> once
-per atomic condition. (See also <a class="reference internal" href="../rest/s_condition.html"><span class="doc">Condition descriptor</span></a> for understanding atomic
-operations.)</p>
+<p>Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code> and parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are fully supported for building complex conditions from atomic ones.</p>
+<p>Atomic condition uses identifier of corresponding <a class="reference internal" href="../glossary.html#term-filtering-property"><span class="xref std std-term">filtering property</span></a> once per atomic condition. (See also <a class="reference internal" href="../rest/s_condition.html"><span class="doc">Condition descriptor</span></a> for understanding atomic operations.)</p>
 </div>
 <div class="section" id="atomic-numeric-condition">
 <h3>Atomic numeric condition<a class="headerlink" href="#atomic-numeric-condition" title="Permalink to this headline">¶</a></h3>
-<p>Has form of usual Python comparison operation with operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. Double form is acceptable, for example:</p>
+<p>Has form of usual Python comparison operation with operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. Double form is acceptable, for example:</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><em>min value</em> &lt; <em>property_id</em> &lt;= <em>max_value</em></div>
 </div>
 </div></blockquote>
-<p>Best practice: use only operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>; in case of operator <code class="docutils literal notranslate"><span class="pre">==</span></code>
-place property identifier on the left.</p>
+<p>Best practice: use only operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>; in case of operator <code class="docutils literal notranslate"><span class="pre">==</span></code> place property identifier on the left.</p>
 </div>
 <div class="section" id="atomic-enumerated-condition">
 <h3>Atomic enumerated condition<a class="headerlink" href="#atomic-enumerated-condition" title="Permalink to this headline">¶</a></h3>
@@ -283,37 +227,17 @@ place property identifier on the left.</p>
 <p>Notes:</p>
 <blockquote>
 <div><ul>
-<li><dl class="first docutils">
-<dt>notation above uses <code class="docutils literal notranslate"><span class="pre">{}</span></code> set parentheses; though it is recommended as a good practice,</dt>
-<dd><p class="first last">list parentheses <code class="docutils literal notranslate"><span class="pre">[]</span></code> are also supported</p>
-</dd>
-</dl>
+<li><p class="first">notation above uses <code class="docutils literal notranslate"><span class="pre">{}</span></code> set parentheses; though it is recommended as a good practice, list parentheses <code class="docutils literal notranslate"><span class="pre">[]</span></code> are also supported</p>
 </li>
-<li><dl class="first docutils">
-<dt>operator <strong>in</strong> is supported for all enumerated properties, including</dt>
-<dd><p class="first"><a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> (single-value properties) and
-<a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset</span></a> (multi -value properties).</p>
-<p>For <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> its semantic is simple and intuitive.</p>
-<p class="last">In case of <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset</span></a> this notation is more sophisticated:
-the condition is positive when intersection
-of two sets is nonempty, i.e. at least one value of the property matches
-at least one value in the given set; it can be “explained” by a way that object
-representing filtering property redefines operator <strong>in</strong> from the left</p>
-</dd>
-</dl>
+<li><p class="first">operator <strong>in</strong> is supported for all enumerated properties, including <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> (single-value properties) and <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset</span></a> (multi -value properties).</p>
+<blockquote>
+<div><p>For <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> its semantic is simple and intuitive.</p>
+<p>In case of <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset</span></a> this notation is more sophisticated: the condition is positive when intersection of two sets is nonempty, i.e. at least one value of the property matches at least one value in the given set; it can be “explained” by a way that object representing filtering property redefines operator <strong>in</strong> from the left</p>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>in case of <strong>AND</strong> join mode interpretation of <strong>all()</strong> pseudo-function is</dt>
-<dd><p class="first last">even more sophisticated: it can be “explained” if result of <strong>all()</strong>
-redefines” <strong>in</strong> operation in a very specific way from the right.</p>
-</dd>
-</dl>
+<li><p class="first">in case of <strong>AND</strong> join mode interpretation of <strong>all()</strong> pseudo-function is even more sophisticated: it can be “explained” if result of <strong>all()</strong> redefines” <strong>in</strong> operation in a very specific way from the right.</p>
 </li>
-<li><dl class="first docutils">
-<dt>in terms of Decision Tree there is no strong need for <strong>NOT</strong> join mode,</dt>
-<dd><p class="first last">because operator <code class="docutils literal notranslate"><span class="pre">not</span></code> is supported outside atomic conditions</p>
-</dd>
-</dl>
+<li><p class="first">in terms of Decision Tree there is no strong need for <strong>NOT</strong> join mode, because operator <code class="docutils literal notranslate"><span class="pre">not</span></code> is supported outside atomic conditions</p>
 </li>
 </ul>
 </div></blockquote>
@@ -323,57 +247,24 @@ redefines” <strong>in</strong> operation in a very specific way from the right
 <p>Function conditions have similar form to enumerated conditions with a  change of <em>property id</em> to</p>
 <blockquote>
 <div><em>function_name</em> (<em>parameters</em>)</div></blockquote>
-<p>Syntax for parameters is Python standard. Since all values of the
-parameters must be JSON objects (however, with a change of JS constants <code class="docutils literal notranslate"><span class="pre">true/false/null</span></code>
-to Python counterparts <code class="docutils literal notranslate"><span class="pre">True/False/None</span></code>), there should be no problems in setting
-parameters up. (“Simplifications” are also acceptable for parameters).</p>
+<p>Syntax for parameters is Python standard. Since all values of the parameters must be JSON objects (however, with a change of JS constants <code class="docutils literal notranslate"><span class="pre">true/false/null</span></code> to Python counterparts <code class="docutils literal notranslate"><span class="pre">True/False/None</span></code>), there should be no problems in setting parameters up. (“Simplifications” are also acceptable for parameters).</p>
 <p>See <a class="reference internal" href="../rest/func_ref.html"><span class="doc">Filtering functions</span></a> for reference of available functions and their parameters.</p>
 </div>
 </div>
 <div class="section" id="decision-tree-system-support">
 <h2>Decision Tree system support<a class="headerlink" href="#decision-tree-system-support" title="Permalink to this headline">¶</a></h2>
 <p>The following objects are explicated from the code of decision tree:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="first docutils">
-<dt><strong>Points</strong> correspond to instruction in code; each If- or Return- instruction</dt>
-<dd>corresponds to a point with state of selection set: either working one or pre-final.
-The user needs to know how many items (variants) are in these sets,
-and moreover has possibility to study distribution of values for filtering
-properties of items in these sets. (See <a class="reference internal" href="dtree_pg.html"><span class="doc">Decision tree work page</span></a> for details)</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>Atomic conditions</strong> are “atomic” fragments of condition in If instructions.</dt>
-<dd>There can be many atomic conditions in one If instruction.
-It is important functionalify of the system to locate them and provide
-their modifications.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>State labels</strong> can be defined in code by Label instructions. They</dt>
-<dd>are used with complex <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a>. This functionalify requires
-high level of qualification and attendacy of the user, however it
-might be very important in practice.</dd>
-</dl>
-</li>
+<ul class="simple">
+<li><strong>Points</strong> correspond to instruction in code; each If- or Return- instruction corresponds to a point with state of selection set: either working one or pre-final. The user needs to know how many items (variants) are in these sets, and moreover has possibility to study distribution of values for filtering properties of items in these sets. (See <a class="reference internal" href="dtree_pg.html"><span class="doc">Decision tree work page</span></a> for details)</li>
+<li><strong>Atomic conditions</strong> are “atomic” fragments of condition in If instructions. There can be many atomic conditions in one If instruction. It is important functionalify of the system to locate them and provide their modifications.</li>
+<li><strong>State labels</strong> can be defined in code by Label instructions. They are used with complex <a class="reference internal" href="../glossary.html#term-functions"><span class="xref std std-term">functions</span></a>. This functionalify requires high level of qualification and attendacy of the user, however it might be very important in practice.</li>
 </ul>
-</div></blockquote>
 <p>A decision tree can be modified in either of two ways:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>manual typing and modifications of decision tree code</li>
-<li><dl class="first docutils">
-<dt>interactive actions modifying various details of decision tree, see</dt>
-<dd><a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for reference.</dd>
-</dl>
-</li>
+<li>interactive actions modifying various details of decision tree, see <a class="reference internal" href="../rest/s_dtree_instr.html"><span class="doc">Decision Tree modifying actions</span></a> for reference.</li>
 </ul>
-</div></blockquote>
-<p>Interactive regime allows to make any meaningful transformation of decision tree,
-so there is no strong need to use manual regime at all. Manual regime requires
-is helpful for complex manipulations with boolean logic of conditions and,
-of course for copy/paste operations.</p>
+<p>Interactive regime allows to make any meaningful transformation of decision tree, so there is no strong need to use manual regime at all. Manual regime requires is helpful for complex manipulations with boolean logic of conditions and, of course for copy/paste operations.</p>
 </div>
 <div class="section" id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

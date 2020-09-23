@@ -1,0 +1,219 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>List conversion mechanism &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Notes on Zygosity" href="../zygosity.html" />
+    <link rel="prev" title="Annotated JSON file format overview" href="ajson.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../zygosity.html" title="Notes on Zygosity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ajson.html" title="Annotated JSON file format overview"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">List conversion mechanism</a><ul>
+<li><a class="reference internal" href="#tranformations-without-parameters">Tranformations without parameters</a></li>
+<li><a class="reference internal" href="#transformations-with-parameters">Transformations with parameters</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ajson.html"
+                        title="previous chapter">Annotated JSON file format overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../zygosity.html"
+                        title="next chapter">Notes on Zygosity</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/appcfg/list_conv.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-conversion-mechanism">
+<h1>List conversion mechanism<a class="headerlink" href="#list-conversion-mechanism" title="Permalink to this headline">¶</a></h1>
+<p>The mechanism discussed here supports conversions of data objects in JSON presentation. The description of conversion itself has JSON representation in form of array. Items of this array is either strings or list of strings. So in this form one can describe an extended variety of transformations.</p>
+<p>Conversion is realized as chain of transformations, any transformation gets an object as input and returns transformed data, and so on.</p>
+<p>Input object for any transformation functions listed below is a list. It is natural, since the mechanism is used with integration with <a class="reference internal" href="ajson.html#json-path-loc"><span class="std std-ref">path selection</span></a> Ordinary transformation function returns list also, but some final transformations can return other type of objects, fro example <strong>min</strong>, <strong>max</strong> and <strong>len</strong> return numeric values.</p>
+<p>Conversion mechanism can use registry of named functions, instance of class <code class="docutils literal notranslate"><span class="pre">FilterPrepareSetH</span></code> used in <a class="reference internal" href="flt_schema_py.html"><span class="doc">Configuration of filtration schema API</span></a> is such a registry.</p>
+<p><em>Comment</em>. This proprietary mechanism was developed for the following useful universal feature. Using it, one can define logic of conversions, store them in JSON format, and reactivate this logic later in other environment (up to the same functions in function registry). In context of the system, this feature is used on <a class="reference internal" href="../rest/ds2ws.html"><span class="doc">derivation of dataset</span></a> operation.</p>
+<div class="section" id="tranformations-without-parameters">
+<h2>Tranformations without parameters<a class="headerlink" href="#tranformations-without-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Transformation function can have no parameter, and its JSON representation is just <em>string</em> with name of transformation.</p>
+<ul class="simple">
+<li><strong>len</strong> - return length of list</li>
+<li><dl class="first docutils">
+<dt><strong>min</strong> / <strong>max</strong></dt>
+<dd>return minimum/maximum of values in list
+input list should consist of numeric values</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>values</strong> / <strong>keys</strong></dt>
+<dd>return joined list of values/keys of dictionaries
+input list should consist of dictionaries</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>clear</strong></dt>
+<dd>return clear variant of input list, without empty entries, all items are stripped of leading and trailing spaces
+input list should be list of strings</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>positive</strong> / <strong>negative</strong></dt>
+<dd>return filtered list, for <strong>positive</strong> all null/zero/empty values are filtered out, reverse for <strong>negative</strong></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&lt;named function&gt;</dt>
+<dd>any named function from function registry can be used as transformation, make sure this function has one input parameter of list type</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="transformations-with-parameters">
+<h2>Transformations with parameters<a class="headerlink" href="#transformations-with-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Transformation function can have parameters, and its JSON representation is list: the first item is  <em>string</em> with name of transformation, then parameter(s) follow. In the current version of the system only single parameter transformations are supported.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>property</strong>, <em>name</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>the transformation retrieves property <em>name</em> from each item in input list, and so forms output list
+input list should consist of dictionaries</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>skip</strong>, <em>delta</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>the transformation drops leading <em>delta</em> items from input list</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>split</strong>, <em>separator</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>the transformation splits each input item by <em>separator</em> string on chunks, and forms output list as collection of all chunks
+input list should consist of dictionaries</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>split_re</strong>, <em>pattern</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>the same as previous, but <em>pattern</em> is interpreted as regular expression definition</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>filter</strong>, <em>named function name</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>the transformation filers input list and keeps only items that are positive for function that is registered in function registry; make sure this function returns boolean</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>max</strong>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">]</span></code> /  <code class="docutils literal notranslate"><span class="pre">[</span></code> <strong>min</strong>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></dt>
+<dd>variants of transformations <strong>min</strong> / <strong>max</strong> but with default value if list is empty or null.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Simple evaluation of length of list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conversion</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;len&quot;</span><span class="p">]</span>  <span class="c1"># evaluates length of list</span>
+</pre></div>
+</div>
+<p>Evaluation of count for items in list having property “genotype_quality”, with skip of first item:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conversion</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;skip&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">,</span> <span class="s2">&quot;genotype_quality&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;negative&quot;</span><span class="p">,</span> <span class="s2">&quot;len&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Split input text fragments by comma, clear empty entries and duplication:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conversion</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">],</span> <span class="s2">&quot;clear&quot;</span><span class="p">,</span> <span class="s2">&quot;uniq&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="flt_schema_py.html"><span class="doc">Configuration of filtration schema API</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../zygosity.html" title="Notes on Zygosity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ajson.html" title="Annotated JSON file format overview"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

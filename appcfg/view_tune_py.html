@@ -1,0 +1,156 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tuning viewing schema API &#8212; Anfisa Development&amp;Installation Documentation v.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration of filtration schema API" href="flt_schema_py.html" />
+    <link rel="prev" title="Configuration of viewing schema API" href="view_schema_py.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="flt_schema_py.html" title="Configuration of filtration schema API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="view_schema_py.html" title="Configuration of viewing schema API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tuning viewing schema API</a><ul>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="view_schema_py.html"
+                        title="previous chapter">Configuration of viewing schema API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="flt_schema_py.html"
+                        title="next chapter">Configuration of filtration schema API</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/appcfg/view_tune_py.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tuning-viewing-schema-api">
+<h1>Tuning viewing schema API<a class="headerlink" href="#tuning-viewing-schema-api" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">There is strong need to pre-process some data attributes that are originally stored in <a class="reference internal" href="../glossary.html#term-annotated-json-file"><span class="xref std std-term">annotated JSON file</span></a> in runtime on stage of <a class="reference internal" href="../concepts/view_pre.html"><span class="doc">data presentation</span></a> in <a class="reference internal" href="../glossary.html#term-viewing-regime"><span class="xref std std-term">viewing regime</span></a>:</p>
+<ul class="simple">
+<li>it is subject of essential storage economy, since some extended technical fragments of a text may duplicate in million times for <a class="reference internal" href="../glossary.html#term-xl-dataset"><span class="xref std std-term">XL-datasets</span></a></li>
+<li>there are plans in perspective to provide for the user graphical presentation and animation of some data portions</li>
+</ul>
+<p>So the system provides mechanism for such manipulations, and here we explain application of this API in the source file</p>
+<p><code class="docutils literal notranslate"><span class="pre">app/config/view_schema.py</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_resetupAttr</span><span class="p">(</span><span class="n">aspect_h</span><span class="p">,</span> <span class="n">attr_h</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">AttrH</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">is_seq</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">tooltip</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">htmlRepr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">v_context</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>The mechanism is as follows:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">to define a sub-class over AttrH to redefine method <code class="docutils literal notranslate"><span class="pre">htmlRepr()</span></code> with some special logic:</p>
+<blockquote>
+<div><ul class="simple">
+<li>argument <strong>obj</strong> refers to top aspect data object</li>
+<li>argument <strong>v_context</strong> refers to the whole annotation JSON variant record</li>
+<li>(so <strong>obj</strong> argument is not strongly necessary, since it is inside <strong>v_context</strong>, however <strong>obj</strong> is most convenient for the most part of application cases)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">on tuning of view schema: to replace placeholder attribute to instance of attribute of the developed sub-class</p>
+</li>
+</ul>
+</div></blockquote>
+<p>The main rule of replacement: placeholder attribute name (identifier) must contain CAPITAL letters, and attribute instance to replace it must have name (identifier) as lowercase variant of the same name.</p>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="view_schema_py.html"><span class="doc">Configuration of viewing schema API</span></a></p>
+<p><a class="reference internal" href="code_config.html"><span class="doc">Code configuration layer overview</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="flt_schema_py.html" title="Configuration of filtration schema API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="view_schema_py.html" title="Configuration of viewing schema API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >System configuration documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2019, 2020. Partners HealthCare and other members of Forome Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

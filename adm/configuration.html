@@ -36,7 +36,7 @@
           <a href="a_adm_formats.html" title="Administration file formats reference"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -76,8 +76,7 @@
             
   <div class="section" id="configuration-service-anfisa-json">
 <h1>Configuration service: anfisa.json<a class="headerlink" href="#configuration-service-anfisa-json" title="Permalink to this headline">¶</a></h1>
-<p>Configuration of the service is organized via the file <strong>anfisa.json</strong>
-The file is formed in extended JSON format, extension mean:</p>
+<p>Configuration of the service is organized via the file <strong>anfisa.json</strong> The file is formed in extended JSON format, extension mean:</p>
 <blockquote>
 <div><ul class="simple">
 <li>full line comments starting with ‘//’ are allowed</li>
@@ -88,8 +87,7 @@ The file is formed in extended JSON format, extension mean:</p>
 <ul class="simple" id="index-0">
 <li><strong>file-path-def</strong>, <em>dictionary</em></li>
 </ul>
-<p>The directory macro ${HOME} is predefined; here we define more macros,
-in particular the macro ${WORK}:</p>
+<p>The directory macro ${HOME} is predefined; here we define more macros, in particular the macro <code class="docutils literal notranslate"><span class="pre">${WORK}</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;file-path-def&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;WORK&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/../a-setup&quot;</span><span class="p">},</span>
 </pre></div>
 </div>
@@ -97,8 +95,7 @@ in particular the macro ${WORK}:</p>
 <li><strong>host</strong>, <em>string</em></li>
 <li><strong>port</strong>, <em>int</em></li>
 </ul>
-<p>Host and port are used in the stand-alone configuration to setup the server on a
-specific port, ignored in the server (UWIGI container) mode:</p>
+<p>Host and port are used in the stand-alone configuration to setup the server on a specific port, ignored in the server (UWIGI container) mode:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
 <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8190</span><span class="p">,</span>
 </pre></div>
@@ -106,9 +103,7 @@ specific port, ignored in the server (UWIGI container) mode:</p>
 <ul class="simple" id="index-2">
 <li><strong>html-base</strong>, <em>string</em></li>
 </ul>
-<p>Used in the internal UI: its HTML pages need to know their location in terms of
-URL addresses, just to make correct reference to REST API or other pages of
-the internal UI, in case of server setup with NextGen UI should end in ‘/​app’:</p>
+<p>Used in the internal UI: its HTML pages need to know their location in terms of URL addresses, just to make correct reference to REST API or other pages of the internal UI, in case of server setup with NextGen UI should end in ‘/​app’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;html-base&quot;</span><span class="p">:</span> <span class="s2">&quot;/anfisa/&quot;</span><span class="p">,</span>
 </pre></div>
 </div>
@@ -163,9 +158,7 @@ the internal UI, in case of server setup with NextGen UI should end in ‘/​ap
 <ul class="simple" id="index-9">
 <li><strong>http-bam-base</strong>, <em>string</em></li>
 </ul>
-<p>HTTP base directory for access to BAM-files, used in IGV-links. Uncomment this option
-and set it up correctly if the server provides access to BAM-files, otherwise keep it
-commented:</p>
+<p>HTTP base directory for access to BAM-files, used in IGV-links. Uncomment this option and set it up correctly if the server provides access to BAM-files, otherwise keep it commented:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&quot;http-bam-base&quot;: “http://&lt;server&gt;/anfisa/links/&quot;`
 </pre></div>
 </div>
@@ -179,9 +172,8 @@ commented:</p>
 <ul id="index-11">
 <li><p class="first"><strong>excel-template</strong>, <em>string</em></p>
 <blockquote>
-<div><p>The template used to configure the Excel export styles.
-During evaluation of the script deploy.sh the file is being downloaded from URL:
-“​https://www.dropbox.com/s/4dvunn3dusqc636/SEQaBOO_output_template_20190317.xlsx​”</p>
+<div><p>The template used to configure the Excel export styles. During evaluation of the script deploy.sh the file is being downloaded by URL:</p>
+<p><a class="reference external" href="​https://www.dropbox.com/s/4dvunn3dusqc636/SEQaBOO_output_template_20190317.xlsx​">​https://www.dropbox.com/s/4dvunn3dusqc636/SEQaBOO_output_template_20190317.xlsx​</a></p>
 </div></blockquote>
 </li>
 </ul>
@@ -211,22 +203,13 @@ During evaluation of the script deploy.sh the file is being downloaded from URL:
 <p>Comments for instructions in example:</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;/ui/images&quot;,</span> <span class="pre">&quot;/ui&quot;</span></code>:</p>
-<p>Requests for images and other sources, actual in stand-alone case.
-Should transfer the content of files located in the specific directory in
-$ANFISA_HOME; used in the internal UI in the stand-alone mode; in the
-server mode the same task is solved by configuration of the “main
-server”, Nginx or Apache</p>
+<p>Requests for images and other sources, actual in stand-alone case. Should transfer the content of files located in the specific directory in $ANFISA_HOME; used in the internal UI in the stand-alone mode; in the server mode the same task is solved by configuration of the “main server”, Nginx or Apache</p>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;--/ui&quot;</span></code>:</p>
-<p>Requests for the source files when the anti-cache mechanism is on; in the
-server mode, to be used in the internal UI instead of the previous
-instruction; (in server setup drop two leading ‘-’ to make it working, and
-comment out the previous instruction)</p>
+<p>Requests for the source files when the anti-cache mechanism is on; in the server mode, to be used in the internal UI instead of the previous instruction; (in server setup drop two leading ‘-’ to make it working, and comment out the previous instruction)</p>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;excel&quot;</span></code>:</p>
-<p>This line sets the directory used to place the content of exported Excel
-files, supposing that they are going to be immediately downloaded by an
-external client</p>
+<p>This line sets the directory used to place the content of exported Excel files, supposing that they are going to be immediately downloaded by an external client</p>
 </li>
 </ul>
 </li>
@@ -234,9 +217,7 @@ external client</p>
 <span class="target" id="mirror-ui"></span><ul id="index-14">
 <li><p class="first"><strong>mirror-ui</strong>, <em>list</em></p>
 <blockquote>
-<div><p>This instruction turns the <a class="reference internal" href="../glossary.html#term-anti-cache-mechanism"><span class="xref std std-term">anti-cache mechanism</span></a> on; it consists of the
-paths to the source and target directories for mirroring (drop two leading
-‘-’ to make it working):</p>
+<div><p>This instruction turns the <a class="reference internal" href="../glossary.html#term-anti-cache-mechanism"><span class="xref std std-term">anti-cache mechanism</span></a> on; it consists of the paths to the source and target directories for mirroring (drop two leading ‘-’ to make it working):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;--mirror-ui&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/int_ui/files&quot;</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="si">{WORK}</span><span class="s2">/ui&quot;</span><span class="p">],</span>
 </pre></div>
 </div>
@@ -253,8 +234,7 @@ paths to the source and target directories for mirroring (drop two leading
 <ul id="index-16">
 <li><p class="first"><strong>logging</strong>, <em>dictionary</em></p>
 <blockquote>
-<div><p>Some standard Python way to configure the logging of a service. Please pay
-attention to one specific line of this stuff:</p>
+<div><p>Some standard Python way to configure the logging of a service. Please pay attention to one specific line of this stuff:</p>
 <p><strong>filename</strong> line contains the configuration of the path to the logging directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;logging&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="o">...</span>
@@ -299,7 +279,7 @@ attention to one specific line of this stuff:</p>
           <a href="a_adm_formats.html" title="Administration file formats reference"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

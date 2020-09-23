@@ -95,11 +95,9 @@
             
   <div class="section" id="condition-descriptor">
 <h1>Condition descriptor<a class="headerlink" href="#condition-descriptor" title="Permalink to this headline">¶</a></h1>
-<p id="index-0"><a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">Conditions</span></a> are the kernel objects of the system, since they are atomic objects
-that are used in <a class="reference internal" href="../concepts/filtration.html"><span class="doc">Filtration procedures</span></a>.</p>
+<p id="index-0"><a class="reference internal" href="../glossary.html#term-conditions"><span class="xref std std-term">Conditions</span></a> are the kernel objects of the system, since they are atomic objects that are used in <a class="reference internal" href="../concepts/filtration.html"><span class="doc">Filtration procedures</span></a>.</p>
 <p><a class="reference internal" href="../glossary.html#term-filter"><span class="xref std std-term">Filters</span></a> are just list of conditions, conjunction of them. So it is important functionality for user to define and modify conditions interactively in <a class="reference internal" href="../concepts/filters_reg.html"><span class="doc">Filtering regime</span></a>.</p>
-<p>In context of <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> conditions have form of <a class="reference internal" href="../glossary.html#term-decision-tree-atomic-condition"><span class="xref std std-term">decision tree atomic condition</span></a>,
-and the user can modify them in interactive way in <a class="reference internal" href="../concepts/dtree_pg.html"><span class="doc">Decision tree work page</span></a>.</p>
+<p>In context of <a class="reference internal" href="../glossary.html#term-decision-tree"><span class="xref std std-term">decision tree</span></a> conditions have form of <a class="reference internal" href="../glossary.html#term-decision-tree-atomic-condition"><span class="xref std std-term">decision tree atomic condition</span></a>, and the user can modify them in interactive way in <a class="reference internal" href="../concepts/dtree_pg.html"><span class="doc">Decision tree work page</span></a>.</p>
 <div class="section" id="format-for-numeric-property">
 <h2>Format for numeric property<a class="headerlink" href="#format-for-numeric-property" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
@@ -168,8 +166,7 @@ correct but never true for any variant, please take care of it</dd>
 </div>
 <div class="section" id="id1">
 <h3>Comments<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>Format of condition allows to define conditions for both <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> and <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset properties</span></a> with some remarks</p>
+<p>Format of condition allows to define conditions for both <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status</span></a> and <a class="reference internal" href="../glossary.html#term-multiset-property"><span class="xref std std-term">multiset properties</span></a> with some remarks</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>In case of <a class="reference internal" href="../glossary.html#term-status-property"><span class="xref std std-term">status property</span></a> join mode <code class="docutils literal notranslate"><span class="pre">&quot;AND&quot;</span></code> is out of sense.</dt>
@@ -177,13 +174,8 @@ correct but never true for any variant, please take care of it</dd>
 </dl>
 </li>
 <li>Join mode <code class="docutils literal notranslate"><span class="pre">&quot;NOT&quot;</span></code> is just negation to join mode <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code></li>
-<li><dl class="first docutils">
-<dt>For single value selection (length of array in position <strong>[3]</strong> is 1) there is no difference</dt>
-<dd>between join modes <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;AND&quot;</span></code></dd>
-</dl>
-</li>
+<li>For single value selection (length of array in position <strong>[3]</strong> is 1) there is no difference between join modes <code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;AND&quot;</span></code></li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="format-for-function-condition">
@@ -204,13 +196,10 @@ correct but never true for any variant, please take care of it</dd>
 </div>
 <div class="section" id="id2">
 <h3>Comments<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>See <a class="reference internal" href="func_ref.html"><span class="doc">Filtering functions</span></a> for functions definition and reference.</p>
+<p>See <a class="reference internal" href="func_ref.html"><span class="doc">Filtering functions</span></a> for functions definition and reference.</p>
 <p>All notes to condition for enumerated property are actual in this case too.</p>
-<p>Different functions have different format of function arguments (position <strong>[4]</strong>) and
-their own specific check if condition is good for this function.</p>
+<p>Different functions have different format of function arguments (position <strong>[4]</strong>) and their own specific check if condition is good for this function.</p>
 <p>Available functions and their arguments are documented in <a class="reference internal" href="func_ref.html"><span class="doc">Filtering functions</span></a></p>
-</div></blockquote>
 </div>
 </div>
 </div>

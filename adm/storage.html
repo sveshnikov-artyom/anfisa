@@ -36,7 +36,7 @@
           <a href="configuration.html" title="Configuration service: anfisa.json"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -45,7 +45,10 @@
   <ul>
 <li><a class="reference internal" href="#">app.storage - Dataset creation and upload</a><ul>
 <li><a class="reference internal" href="#examples">Examples</a></li>
-<li><a class="reference internal" href="#comments">Comments</a></li>
+<li><a class="reference internal" href="#comments">Comments</a><ul>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -85,9 +88,7 @@
             
   <div class="section" id="app-storage-dataset-creation-and-upload">
 <h1>app.storage - Dataset creation and upload<a class="headerlink" href="#app-storage-dataset-creation-and-upload" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">The utility used to create or drop a dataset in the vault of the system. It is recommended to run it
-from <code class="docutils literal notranslate"><span class="pre">$ANFISA_HOME</span></code> directory, or use <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> env variable to set this directory as
-python base.</p>
+<p id="index-0">The utility used to create or drop a dataset in the vault of the system. It is recommended to run it from <code class="docutils literal notranslate"><span class="pre">$ANFISA_HOME</span></code> directory, or use <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> env variable to set this directory as python base.</p>
 <p>Here are the options of the utility:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $ANFISA_HOME
 $ python -m app.storage --help
@@ -133,8 +134,7 @@ optional arguments:
 </div>
 <div class="section" id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">For options: <strong>–dir</strong>, <strong>–config</strong>, <strong>–source</strong>, <strong>-inv</strong>, <strong>–kind</strong> see discussion in <a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a></p>
 </li>
 <li><p class="first"><strong>–mode​</strong> option determines one of the following operations:</p>
@@ -148,55 +148,28 @@ optional arguments:
 <li><strong>druid-push</strong> - reinstalls only the Druid part of xl-dataset</li>
 <li><strong>doc-push​</strong> - reinstalls the documentation for dataset</li>
 <li><strong>register</strong> - special mode to register (and to rewrite)</li>
-<li><dl class="first docutils">
-<dt>(The utility provides also mode <strong>favor</strong> as a part of some experimental subproject.</dt>
-<dd>Currently this mode is not actual.)</dd>
-</dl>
-</li>
+<li>(The utility provides also mode <strong>favor</strong> as a part of some experimental subproject. Currently this mode is not actual.)</li>
 </ul>
 </div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–force</strong> ​ option, affects only  <strong>create</strong> mode,  is used only if dataset already</dt>
-<dd><p class="first last">exists but needs to be re-created with a fresh version of source</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–force</strong> ​ option, affects only  <strong>create</strong> mode,  is used only if dataset already exists but needs to be re-created with a fresh version of source</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–nocoord</strong> experimental option, affects only <strong>drop</strong> mode, in case of xl-dataset does not</dt>
-<dd><p class="first last">initiate removal of dataset data in Druid</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–nocoord</strong> experimental option, affects only <strong>drop</strong> mode, in case of xl-dataset does not initiate removal of dataset data in Druid</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–nodruidpush</strong> experimental mode, applicable in <strong>create</strong> regime, in case of</dt>
-<dd><p class="first last">xl-dataset does not initiate push data to Druid</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–nodruidpush</strong> experimental mode, applicable in <strong>create</strong> regime, in case of xl-dataset does not initiate push data to Druid</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–reportlines</strong> not an essential option, affects only  <strong>create</strong> mode,</dt>
-<dd><p class="first last">controls interval between notifications
-during dataset data preparation</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–reportlines</strong> not an essential option, affects only  <strong>create</strong> mode, controls interval between notifications during dataset data preparation</p>
 </li>
-<li><dl class="first docutils">
-<dt><strong>–delay</strong> not an essential mode, affects only  <strong>create</strong> mode, controls pause b</dt>
-<dd><p class="first last">etween pushes of data for
-multiple datasets into Druid</p>
-</dd>
-</dl>
+<li><p class="first"><strong>–delay</strong> not an essential mode, affects only  <strong>create</strong> mode, controls pause between pushes of data for multiple datasets into Druid</p>
 </li>
-<li><dl class="first docutils">
-<dt><em>Name of database</em>: in case of an xl-database it must begin with the prefix <code class="docutils literal notranslate"><span class="pre">xl_</span></code></dt>
-<dd><p class="first last">or <code class="docutils literal notranslate"><span class="pre">XL_</span></code>. Secondary workspaces created by this xl-dataset will have the same name
-but with other prefixes, of the form “ws&lt;​number​&gt;_”.</p>
-</dd>
-</dl>
+<li><p class="first"><em>Name of database</em>: in case of an xl-database it must begin with the prefix <code class="docutils literal notranslate"><span class="pre">xl_</span></code> or <code class="docutils literal notranslate"><span class="pre">XL_</span></code>. Secondary workspaces created by this xl-dataset will have the same name but with other prefixes, of the form “ws&lt;​number​&gt;_”.</p>
 </li>
 </ul>
-</div></blockquote>
+<div class="section" id="see-also">
+<h3>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="admin.html"><span class="doc">Administration aspects overview</span></a></p>
+<p><a class="reference internal" href="a_adm_formats.html"><span class="doc">Administration file formats reference</span></a></p>
+</div>
 </div>
 </div>
 
@@ -219,7 +192,7 @@ but with other prefixes, of the form “ws&lt;​number​&gt;_”.</p>
           <a href="configuration.html" title="Configuration service: anfisa.json"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

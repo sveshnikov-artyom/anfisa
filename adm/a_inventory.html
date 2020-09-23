@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Notes on Zygocity" href="../zygocity.html" />
+    <link rel="next" title="System configuration documentation" href="../appcfg/index.html" />
     <link rel="prev" title="storage.dir file format" href="a_storage_dir.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -30,13 +30,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../zygocity.html" title="Notes on Zygocity"
+          <a href="../appcfg/index.html" title="System configuration documentation"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="a_storage_dir.html" title="storage.dir file format"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -56,8 +56,8 @@
   <p class="topless"><a href="a_storage_dir.html"
                         title="previous chapter">storage.dir file format</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../zygocity.html"
-                        title="next chapter">Notes on Zygocity</a></p>
+  <p class="topless"><a href="../appcfg/index.html"
+                        title="next chapter">System configuration documentation</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -89,33 +89,16 @@
 <h1>Inventory (*.CFG) file format<a class="headerlink" href="#inventory-cfg-file-format" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">The detailed description of inventory file format is a part of <a class="reference internal" href="../glossary.html#term-annotation-pipeline"><span class="xref std std-term">annotation pipeline</span></a>
 project, so here is a short description covering details important for Anfisa project:</p>
+<ul>
+<li><p class="first">Main principle of inventory files usage: these files are the same for almost all datasets, so there is a generic variant of such a file. But in reality some cases might differ to each other, so there is an option to slightly modify prototype of such a file in particular case.</p>
+</li>
+<li><p class="first">Most part of information in inventory file is part of <cite>annotation pipeline</cite> process. The only two information portion is used in Anfisa itself:</p>
 <blockquote>
-<div><ul>
-<li><dl class="first docutils">
-<dt>Main principle of inventory files usage: these files are the same for almost</dt>
-<dd><p class="first last">all datasets, so there is a generic variant of such a file. But in reality some cases
-might differ to each other, so there is an option to slightly modify prototype of
-such a file in particular case.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Most part of information in inventory file is part of <cite>annotation pipeline</cite></dt>
-<dd><p class="first">process. The only two information portion is used in Anfisa itself:</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>location of <cite>annotation json file&lt;annotation json files&gt;</cite> as main result</dt>
-<dd>of annotation process, as well as a main source file for dataset in Anfisa</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>supporting documentation for the case, in human readable formats: HTML and PNG,</dt>
-<dd>see the example (i.e. generic content) of inventory file, section “doc” for details.</dd>
-</dl>
-</li>
+<div><ul class="simple">
+<li>location of <cite>annotation json file&lt;annotation json files&gt;</cite> as main result of annotation process, as well as a main source file for dataset in Anfisa</li>
+<li>supporting documentation for the case, in human readable formats: HTML and PNG, see the example (i.e. generic content) of inventory file, section “doc” for details.</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p class="first">Format of inventory is a JSON format with some advanced features:</p>
 <blockquote>
@@ -125,22 +108,10 @@ such a file in particular case.</p>
 <li><p class="first">macro replacement schema is supported:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>the macros <code class="docutils literal notranslate"><span class="pre">${DIR}</span></code> and <code class="docutils literal notranslate"><span class="pre">${NAME}</span></code> are  predefined,</dt>
-<dd>as directory path and name of inventory file itself (without extension *.cfg)</dd>
-</dl>
-</li>
+<li>the macros <code class="docutils literal notranslate"><span class="pre">${DIR}</span></code> and <code class="docutils literal notranslate"><span class="pre">${NAME}</span></code> are  predefined, as directory path and name of inventory file itself (without extension *.cfg)</li>
 <li>more macro can be defined in “aliases” section</li>
-<li><dl class="first docutils">
-<dt>there is special construction <code class="docutils literal notranslate"><span class="pre">split()</span></code> in “aliases” section that allows</dt>
-<dd>to split alias <cite>${NAME}</cite> to series of other aliases</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>this logic allows us to have just the same content of inventory files for</dt>
-<dd>all datasets, and vary only names of inventory files</dd>
-</dl>
-</li>
+<li>there is special construction <code class="docutils literal notranslate"><span class="pre">split()</span></code> in “aliases” section that allows to split alias <cite>${NAME}</cite> to series of other aliases</li>
+<li>this logic allows us to have just the same content of inventory files for all datasets, and vary only names of inventory files</li>
 </ul>
 </div></blockquote>
 </li>
@@ -148,7 +119,6 @@ such a file in particular case.</p>
 </div></blockquote>
 </li>
 </ul>
-</div></blockquote>
 <div class="section" id="example-of-inventory-file">
 <h2>Example of inventory file<a class="headerlink" href="#example-of-inventory-file" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -208,13 +178,13 @@ such a file in particular case.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../zygocity.html" title="Notes on Zygocity"
+          <a href="../appcfg/index.html" title="System configuration documentation"
              >next</a> |</li>
         <li class="right" >
           <a href="a_storage_dir.html" title="storage.dir file format"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Anfisa Development&amp;Installation Documentation v.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration tools</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Anfisa Administration documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

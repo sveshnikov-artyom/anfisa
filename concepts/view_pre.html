@@ -76,33 +76,27 @@
             
   <div class="section" id="variant-data-presentations-and-aspects">
 <h1>Variant data presentations and aspects<a class="headerlink" href="#variant-data-presentations-and-aspects" title="Permalink to this headline">¶</a></h1>
-<p>The system provides wide amount of different properties concerning a
-<a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variant</span></a>. Moreover, for different <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a> list of properties
-and their formats can vary. So in generic context the support for accurate rendering
-of the whole information about variant is heavy.</p>
+<p>The system provides wide amount of different properties concerning a <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variant</span></a>. Moreover, for different <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">datasets</span></a> list of properties and their formats can vary. So in generic context the support for accurate rendering of the whole information about variant is heavy.</p>
 <p>REST API supports two ways for rendering data concerning <a class="reference internal" href="../glossary.html#term-variant"><span class="xref std std-term">variants</span></a>:</p>
 <ul>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../rest/reccnt.html"><span class="doc">reccnt</span></a></dt>
-<dd><p class="first">request prepares most portion of details of rendering on the server side.</p>
-<p>The whole variant data is split onto fixed collection of <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a>,
-each one is a portion of correct HTML document presentation.</p>
-<p>The request does not have serial form of call, since information on a single variant
-might be wide enough.</p>
-<p class="last">HTML representation for some aspects contain active elements that might be used in
-the Front End application for user needs. As a result, the user can hide and restore
-columns in wide tables for transcripts and cohorts.</p>
-</dd>
-</dl>
+<li><p class="first"><strong>Full data view presentation</strong>: <a class="reference internal" href="../rest/reccnt.html"><span class="doc">reccnt</span></a> request prepares most portion of details of rendering on the server side.</p>
+<blockquote>
+<div><p>The whole variant data is split onto fixed collection of <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a>, each one is a portion of correct HTML document presentation.</p>
+<p>The request does not have serial form of call, since information on a single variant might be wide enough.</p>
+<p>HTML representation for some aspects contain active elements that might be used in the Front End application for user needs. As a result, the user can hide and restore columns in wide tables for transcripts and cohorts.</p>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference internal" href="../rest/tab_report.html"><span class="doc">tab_report</span></a></dt>
-<dd><p class="first last">request has only serial form, and provides selected
-comparatively small information on variants in tabular form;
-selection scenario are configured on
-the server side.</p>
-</dd>
-</dl>
+</ul>
+<blockquote id="accurate-vs-technical">
+<div><p>In informal way presentation of data in viewing regime is split onto two parts: “accurate” and “technical”. Data from the first “accurate” part is represented in a fotm that is (comparatively) good for read and understand. Data from “technical” part might be represented with technical markup in a form difficult to read.</p>
+<p>Both accurate and technical parts of data are split onto <a class="reference internal" href="../glossary.html#term-aspect"><span class="xref std std-term">aspects</span></a>. Each aspect (but very technical one “VCF”) has representation form of table. Most aspects represent in two column table: one for name, one for value. Other aspects are multicolumn: one column for name and numerous columns for values.</p>
+<p>For more details about aspects see <a class="reference internal" href="../appcfg/view_schema_py.html"><span class="doc">Configuration of viewing schema API</span></a></p>
+</div></blockquote>
+<ul id="tabular-view">
+<li><p class="first"><strong>Tabular partial view presentation</strong>: <a class="reference internal" href="../rest/tab_report.html"><span class="doc">tab_report</span></a></p>
+<blockquote>
+<div><p>Request has only serial form, and provides selected comparatively small information on variants in tabular form; selection scenario are configured on the server side.</p>
+</div></blockquote>
 </li>
 </ul>
 </div>
