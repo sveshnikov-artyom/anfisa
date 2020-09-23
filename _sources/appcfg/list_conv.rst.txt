@@ -30,6 +30,10 @@ Transformation function can have no parameter, and its JSON representation is ju
     return clear variant of input list, without empty entries, all items are stripped of leading and trailing spaces 
     input list should be list of strings
 
+* **uniq**
+    return sorted list of values without duplication
+    input list should be list of strings
+    
 * **positive** / **negative**
     return filtered list, for **positive** all null/zero/empty values are filtered out, reverse for **negative** 
 
